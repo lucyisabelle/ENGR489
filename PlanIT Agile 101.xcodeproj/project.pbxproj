@@ -13,6 +13,7 @@
 		8D3240791CED7CEB004CA04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D3240781CED7CEB004CA04E /* Assets.xcassets */; };
 		8D32407C1CED7CEB004CA04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */; };
 		8D3240871CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */; };
+		8D3240921CED9E6D004CA04E /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		8D3240821CED7CEC004CA04E /* PlanIT Agile 101Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanIT Agile 101Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanIT_Agile_101Tests.swift; sourceTree = "<group>"; };
 		8D3240881CED7CEC004CA04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				8D3240711CED7CEB004CA04E /* AppDelegate.swift */,
 				8D3240731CED7CEB004CA04E /* ViewController.swift */,
+				8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */,
 				8D3240751CED7CEB004CA04E /* Main.storyboard */,
 				8D3240781CED7CEB004CA04E /* Assets.xcassets */,
 				8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */,
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3240921CED9E6D004CA04E /* CreateAccountViewController.swift in Sources */,
 				8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */,
 				8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */,
 			);
