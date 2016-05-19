@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240711CED7CEB004CA04E /* AppDelegate.swift */; };
+		8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240731CED7CEB004CA04E /* ViewController.swift */; };
+		8D3240771CED7CEB004CA04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D3240751CED7CEB004CA04E /* Main.storyboard */; };
+		8D3240791CED7CEB004CA04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D3240781CED7CEB004CA04E /* Assets.xcassets */; };
+		8D32407C1CED7CEB004CA04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */; };
+		8D3240871CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8D3240831CED7CEC004CA04E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D3240661CED7CEB004CA04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D32406D1CED7CEB004CA04E;
+			remoteInfo = "PlanIT Agile 101";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8D32406E1CED7CEB004CA04E /* PlanIT Agile 101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlanIT Agile 101.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D3240711CED7CEB004CA04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8D3240731CED7CEB004CA04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D3240761CED7CEB004CA04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D3240781CED7CEB004CA04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D32407B1CED7CEB004CA04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8D32407D1CED7CEB004CA04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D3240821CED7CEC004CA04E /* PlanIT Agile 101Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanIT Agile 101Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanIT_Agile_101Tests.swift; sourceTree = "<group>"; };
+		8D3240881CED7CEC004CA04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D32406B1CED7CEB004CA04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D32407F1CED7CEC004CA04E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D3240651CED7CEA004CA04E = {
+			isa = PBXGroup;
+			children = (
+				8D3240701CED7CEB004CA04E /* PlanIT Agile 101 */,
+				8D3240851CED7CEC004CA04E /* PlanIT Agile 101Tests */,
+				8D32406F1CED7CEB004CA04E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8D32406F1CED7CEB004CA04E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D32406E1CED7CEB004CA04E /* PlanIT Agile 101.app */,
+				8D3240821CED7CEC004CA04E /* PlanIT Agile 101Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D3240701CED7CEB004CA04E /* PlanIT Agile 101 */ = {
+			isa = PBXGroup;
+			children = (
+				8D3240711CED7CEB004CA04E /* AppDelegate.swift */,
+				8D3240731CED7CEB004CA04E /* ViewController.swift */,
+				8D3240751CED7CEB004CA04E /* Main.storyboard */,
+				8D3240781CED7CEB004CA04E /* Assets.xcassets */,
+				8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */,
+				8D32407D1CED7CEB004CA04E /* Info.plist */,
+			);
+			path = "PlanIT Agile 101";
+			sourceTree = "<group>";
+		};
+		8D3240851CED7CEC004CA04E /* PlanIT Agile 101Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */,
+				8D3240881CED7CEC004CA04E /* Info.plist */,
+			);
+			path = "PlanIT Agile 101Tests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D32406D1CED7CEB004CA04E /* PlanIT Agile 101 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D32408B1CED7CEC004CA04E /* Build configuration list for PBXNativeTarget "PlanIT Agile 101" */;
+			buildPhases = (
+				8D32406A1CED7CEB004CA04E /* Sources */,
+				8D32406B1CED7CEB004CA04E /* Frameworks */,
+				8D32406C1CED7CEB004CA04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PlanIT Agile 101";
+			productName = "PlanIT Agile 101";
+			productReference = 8D32406E1CED7CEB004CA04E /* PlanIT Agile 101.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D3240811CED7CEC004CA04E /* PlanIT Agile 101Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D32408E1CED7CEC004CA04E /* Build configuration list for PBXNativeTarget "PlanIT Agile 101Tests" */;
+			buildPhases = (
+				8D32407E1CED7CEC004CA04E /* Sources */,
+				8D32407F1CED7CEC004CA04E /* Frameworks */,
+				8D3240801CED7CEC004CA04E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D3240841CED7CEC004CA04E /* PBXTargetDependency */,
+			);
+			name = "PlanIT Agile 101Tests";
+			productName = "PlanIT Agile 101Tests";
+			productReference = 8D3240821CED7CEC004CA04E /* PlanIT Agile 101Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D3240661CED7CEB004CA04E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Lucy French";
+				TargetAttributes = {
+					8D32406D1CED7CEB004CA04E = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					8D3240811CED7CEC004CA04E = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 8D32406D1CED7CEB004CA04E;
+					};
+				};
+			};
+			buildConfigurationList = 8D3240691CED7CEB004CA04E /* Build configuration list for PBXProject "PlanIT Agile 101" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8D3240651CED7CEA004CA04E;
+			productRefGroup = 8D32406F1CED7CEB004CA04E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D32406D1CED7CEB004CA04E /* PlanIT Agile 101 */,
+				8D3240811CED7CEC004CA04E /* PlanIT Agile 101Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D32406C1CED7CEB004CA04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D32407C1CED7CEB004CA04E /* LaunchScreen.storyboard in Resources */,
+				8D3240791CED7CEB004CA04E /* Assets.xcassets in Resources */,
+				8D3240771CED7CEB004CA04E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D3240801CED7CEC004CA04E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D32406A1CED7CEB004CA04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */,
+				8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D32407E1CED7CEC004CA04E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D3240871CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8D3240841CED7CEC004CA04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D32406D1CED7CEB004CA04E /* PlanIT Agile 101 */;
+			targetProxy = 8D3240831CED7CEC004CA04E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8D3240751CED7CEB004CA04E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D3240761CED7CEB004CA04E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D32407B1CED7CEB004CA04E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8D3240891CED7CEC004CA04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D32408A1CED7CEC004CA04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D32408C1CED7CEC004CA04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "PlanIT Agile 101/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.PlanIT-Agile-101";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8D32408D1CED7CEC004CA04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "PlanIT Agile 101/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.PlanIT-Agile-101";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8D32408F1CED7CEC004CA04E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "PlanIT Agile 101Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.PlanIT-Agile-101Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlanIT Agile 101.app/PlanIT Agile 101";
+			};
+			name = Debug;
+		};
+		8D3240901CED7CEC004CA04E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "PlanIT Agile 101Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.PlanIT-Agile-101Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlanIT Agile 101.app/PlanIT Agile 101";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D3240691CED7CEB004CA04E /* Build configuration list for PBXProject "PlanIT Agile 101" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D3240891CED7CEC004CA04E /* Debug */,
+				8D32408A1CED7CEC004CA04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D32408B1CED7CEC004CA04E /* Build configuration list for PBXNativeTarget "PlanIT Agile 101" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D32408C1CED7CEC004CA04E /* Debug */,
+				8D32408D1CED7CEC004CA04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8D32408E1CED7CEC004CA04E /* Build configuration list for PBXNativeTarget "PlanIT Agile 101Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D32408F1CED7CEC004CA04E /* Debug */,
+				8D3240901CED7CEC004CA04E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8D3240661CED7CEB004CA04E /* Project object */;
+}
