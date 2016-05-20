@@ -60,7 +60,7 @@
                                         <state key="normal" title="Already have an account? Click here to log in"/>
                                         <connections>
                                             <action selector="GoSignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="13Y-Qq-XXD"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="VMW-Ma-XCf"/>
+                                            <action selector="ReturnLogInButton:" destination="8W8-Zm-a1D" eventType="touchUpInside" id="2QH-AC-Jm1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -79,6 +79,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="wb7-pq-OQb" secondAttribute="trailing" id="x9X-ei-wdB"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="PlanIT Agile 101" id="gSR-Fc-Ygr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eZo-LD-q63">
+                            <connections>
+                                <action selector="CancelButton:" destination="8W8-Zm-a1D" id="BRC-ev-ZQO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="4bk-Q2-RYR" id="bVO-Wm-QBM"/>
                         <outlet property="passwordTextField" destination="1DW-Mv-8j4" id="mKj-Cz-JOm"/>
@@ -86,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpZ-t1-orQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="394"/>
+            <point key="canvasLocation" x="2554" y="394"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -138,7 +147,7 @@
                                         <state key="normal" title="Don't have an account? Click here to sign up"/>
                                         <connections>
                                             <action selector="GoSignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n0M-cD-Ca6"/>
-                                            <segue destination="8W8-Zm-a1D" kind="showDetail" id="gN3-a4-Hqr"/>
+                                            <segue destination="7A7-4H-Nfh" kind="show" id="5W4-OR-fVb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -163,6 +172,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ilN-9u-lTm" secondAttribute="trailing" id="xKK-1q-tf0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="PlanIT Agile 101" id="Vkl-yM-09v"/>
                     <connections>
                         <outlet property="EmailTextField" destination="Ayh-bf-D2P" id="a6y-99-q7g"/>
                         <outlet property="PasswordTextField" destination="6t0-CV-xBk" id="QPV-0e-v71"/>
@@ -170,7 +180,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="394"/>
+            <point key="canvasLocation" x="1083" y="394"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QIQ-XP-GqU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7A7-4H-Nfh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytG-2S-96o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8W8-Zm-a1D" kind="relationship" relationship="rootViewController" id="kjU-7O-sAv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4i-A1-8c1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="394"/>
         </scene>
     </scenes>
     <resources>

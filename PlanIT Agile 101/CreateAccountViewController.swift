@@ -14,6 +14,13 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBAction func CancelButton(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func ReturnLogInButton(sender: UIButton) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func SignUpButton(sender: UIButton) {
         if let text = emailTextField.text {
             print(text)
@@ -32,7 +39,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    /*
+/**
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -40,6 +47,5 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
+**/
 }
