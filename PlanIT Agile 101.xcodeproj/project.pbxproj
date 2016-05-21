@@ -14,6 +14,12 @@
 		8D32407C1CED7CEB004CA04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */; };
 		8D3240871CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */; };
 		8D3240921CED9E6D004CA04E /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */; };
+		8D3240941CEFE1F7004CA04E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3240931CEFE1F7004CA04E /* libsqlite3.tbd */; };
+		8D3240C01CF003AB004CA04E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240B71CF003AB004CA04E /* FMDatabase.m */; };
+		8D3240C11CF003AB004CA04E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240B91CF003AB004CA04E /* FMResultSet.m */; };
+		8D3240C21CF003AB004CA04E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BB1CF003AB004CA04E /* FMDatabaseQueue.m */; };
+		8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BD1CF003AB004CA04E /* FMDatabaseAdditions.m */; };
+		8D3240C41CF003AB004CA04E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BF1CF003AB004CA04E /* FMDatabasePool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,19 @@
 		8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanIT_Agile_101Tests.swift; sourceTree = "<group>"; };
 		8D3240881CED7CEC004CA04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		8D3240931CEFE1F7004CA04E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8D3240B41CF003AA004CA04E /* PlanIT Agile 101-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanIT Agile 101-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D3240B51CF003AB004CA04E /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = ../../../fmdb/src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		8D3240B61CF003AB004CA04E /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../../../fmdb/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		8D3240B71CF003AB004CA04E /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../../../fmdb/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		8D3240B81CF003AB004CA04E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ../../../fmdb/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		8D3240B91CF003AB004CA04E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = ../../../fmdb/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		8D3240BA1CF003AB004CA04E /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = ../../../fmdb/src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		8D3240BB1CF003AB004CA04E /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = ../../../fmdb/src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		8D3240BC1CF003AB004CA04E /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../../../fmdb/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		8D3240BD1CF003AB004CA04E /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../../../fmdb/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		8D3240BE1CF003AB004CA04E /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = ../../../fmdb/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		8D3240BF1CF003AB004CA04E /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = ../../../fmdb/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3240941CEFE1F7004CA04E /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +81,7 @@
 		8D3240651CED7CEA004CA04E = {
 			isa = PBXGroup;
 			children = (
+				8D3240931CEFE1F7004CA04E /* libsqlite3.tbd */,
 				8D3240701CED7CEB004CA04E /* PlanIT Agile 101 */,
 				8D3240851CED7CEC004CA04E /* PlanIT Agile 101Tests */,
 				8D32406F1CED7CEB004CA04E /* Products */,
@@ -79,6 +100,17 @@
 		8D3240701CED7CEB004CA04E /* PlanIT Agile 101 */ = {
 			isa = PBXGroup;
 			children = (
+				8D3240B51CF003AB004CA04E /* FMDB.h */,
+				8D3240B61CF003AB004CA04E /* FMDatabase.h */,
+				8D3240B71CF003AB004CA04E /* FMDatabase.m */,
+				8D3240B81CF003AB004CA04E /* FMResultSet.h */,
+				8D3240B91CF003AB004CA04E /* FMResultSet.m */,
+				8D3240BA1CF003AB004CA04E /* FMDatabaseQueue.h */,
+				8D3240BB1CF003AB004CA04E /* FMDatabaseQueue.m */,
+				8D3240BC1CF003AB004CA04E /* FMDatabaseAdditions.h */,
+				8D3240BD1CF003AB004CA04E /* FMDatabaseAdditions.m */,
+				8D3240BE1CF003AB004CA04E /* FMDatabasePool.h */,
+				8D3240BF1CF003AB004CA04E /* FMDatabasePool.m */,
 				8D3240711CED7CEB004CA04E /* AppDelegate.swift */,
 				8D3240731CED7CEB004CA04E /* ViewController.swift */,
 				8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */,
@@ -86,6 +118,7 @@
 				8D3240781CED7CEB004CA04E /* Assets.xcassets */,
 				8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */,
 				8D32407D1CED7CEB004CA04E /* Info.plist */,
+				8D3240B41CF003AA004CA04E /* PlanIT Agile 101-Bridging-Header.h */,
 			);
 			path = "PlanIT Agile 101";
 			sourceTree = "<group>";
@@ -143,6 +176,9 @@
 		8D3240661CED7CEB004CA04E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Lucy French";
@@ -203,6 +239,11 @@
 				8D3240921CED9E6D004CA04E /* CreateAccountViewController.swift in Sources */,
 				8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */,
 				8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */,
+				8D3240C01CF003AB004CA04E /* FMDatabase.m in Sources */,
+				8D3240C11CF003AB004CA04E /* FMResultSet.m in Sources */,
+				8D3240C41CF003AB004CA04E /* FMDatabasePool.m in Sources */,
+				8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */,
+				8D3240C21CF003AB004CA04E /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,10 +374,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "PlanIT Agile 101/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.PlanIT-Agile-101";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PlanIT Agile 101/PlanIT Agile 101-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -344,10 +388,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "PlanIT Agile 101/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.PlanIT-Agile-101";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PlanIT Agile 101/PlanIT Agile 101-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -394,6 +440,7 @@
 				8D32408D1CED7CEC004CA04E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D32408E1CED7CEC004CA04E /* Build configuration list for PBXNativeTarget "PlanIT Agile 101Tests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +449,7 @@
 				8D3240901CED7CEC004CA04E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

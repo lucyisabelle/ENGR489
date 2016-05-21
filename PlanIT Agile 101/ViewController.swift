@@ -26,12 +26,40 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func GoSignUpButton(sender: UIButton) {
     }
     
+    var databasePath = NSString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         EmailTextField.delegate = self
         PasswordTextField.delegate = self
+        
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        
+        databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
+        
+        print(databasePath)
+        
+        
+        if !filemgr.fileExistsAtPath(databasePath as String) {
+            
+            let agileDB = FMDatabase(path: databasePath as String)
+            
+            if agileDB == nil {
+                print("Error: \(agileDB.lastErrorMessage())")
+            }
+            
+            if agileDB.open() {
+                let sql_stmt = "CREATE TABLE IF NOT EXISTS USERS (EMAIL CHAR(50) PRIMARY KEY NOT NULL, PASSWORD CHAR(20) NOT NULL);"
+                if !agileDB.executeStatements(sql_stmt) {
+                    print("Error: \(agileDB.lastErrorMessage())")
+                }
+                agileDB.close()
+            } else {
+                print("Error: \(agileDB.lastErrorMessage())")
+            }
+        }
         
     }
 
