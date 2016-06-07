@@ -11,7 +11,6 @@
 		8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240731CED7CEB004CA04E /* ViewController.swift */; };
 		8D3240771CED7CEB004CA04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D3240751CED7CEB004CA04E /* Main.storyboard */; };
 		8D3240791CED7CEB004CA04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D3240781CED7CEB004CA04E /* Assets.xcassets */; };
-		8D32407C1CED7CEB004CA04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */; };
 		8D3240871CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */; };
 		8D3240921CED9E6D004CA04E /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */; };
 		8D3240941CEFE1F7004CA04E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3240931CEFE1F7004CA04E /* libsqlite3.tbd */; };
@@ -20,6 +19,7 @@
 		8D3240C21CF003AB004CA04E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BB1CF003AB004CA04E /* FMDatabaseQueue.m */; };
 		8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BD1CF003AB004CA04E /* FMDatabaseAdditions.m */; };
 		8D3240C41CF003AB004CA04E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BF1CF003AB004CA04E /* FMDatabasePool.m */; };
+		8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 		8D3240731CED7CEB004CA04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8D3240761CED7CEB004CA04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D3240781CED7CEB004CA04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8D32407B1CED7CEB004CA04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D32407D1CED7CEB004CA04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D3240821CED7CEC004CA04E /* PlanIT Agile 101Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanIT Agile 101Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3240861CED7CEC004CA04E /* PlanIT_Agile_101Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanIT_Agile_101Tests.swift; sourceTree = "<group>"; };
@@ -57,6 +56,7 @@
 		8D3240BD1CF003AB004CA04E /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../../../fmdb/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		8D3240BE1CF003AB004CA04E /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = ../../../fmdb/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
 		8D3240BF1CF003AB004CA04E /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = ../../../fmdb/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +115,8 @@
 				8D3240731CED7CEB004CA04E /* ViewController.swift */,
 				8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */,
 				8D3240751CED7CEB004CA04E /* Main.storyboard */,
+				8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */,
 				8D3240781CED7CEB004CA04E /* Assets.xcassets */,
-				8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */,
 				8D32407D1CED7CEB004CA04E /* Info.plist */,
 				8D3240B41CF003AA004CA04E /* PlanIT Agile 101-Bridging-Header.h */,
 			);
@@ -216,7 +216,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D32407C1CED7CEB004CA04E /* LaunchScreen.storyboard in Resources */,
 				8D3240791CED7CEB004CA04E /* Assets.xcassets in Resources */,
 				8D3240771CED7CEB004CA04E /* Main.storyboard in Resources */,
 			);
@@ -240,6 +239,7 @@
 				8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */,
 				8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */,
 				8D3240C01CF003AB004CA04E /* FMDatabase.m in Sources */,
+				8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */,
 				8D3240C11CF003AB004CA04E /* FMResultSet.m in Sources */,
 				8D3240C41CF003AB004CA04E /* FMDatabasePool.m in Sources */,
 				8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */,
@@ -272,14 +272,6 @@
 				8D3240761CED7CEB004CA04E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8D32407A1CED7CEB004CA04E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8D32407B1CED7CEB004CA04E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
