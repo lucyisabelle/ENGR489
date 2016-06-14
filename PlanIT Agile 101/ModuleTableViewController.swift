@@ -57,6 +57,8 @@ class ModuleTableViewController: UITableViewController {
                     print("Got into results loop")
                     print(results!.stringForColumn("modulename"))
                     print(results!.intForColumn("moduleid"))
+                    let module = Module(moduleid: Int(results!.intForColumn("moduleid")), modulename: results!.stringForColumn("modulename"))!
+                    modules += [module]
                     
                 }
                 
@@ -97,7 +99,7 @@ class ModuleTableViewController: UITableViewController {
         let module = modules[indexPath.row]
         
         // Configure the cell...
-        cell.NameLabel.text = String(toPass)
+        cell.NameLabel.text = String(module.modulename)
         cell.IdLabel.text = String(module.moduleid)
         
         //return cell
