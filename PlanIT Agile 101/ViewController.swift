@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //MARK: Properties
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
+    var textField = "Hello"
     
     //MARK: Actions
     @IBAction func LogInButton(sender: UIButton) {
@@ -43,7 +44,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
         if !filemgr.fileExistsAtPath(databasePath as String) {
-            
+            print("Got into original filemgr")
             let agileDB = FMDatabase(path: databasePath as String)
             
             if agileDB == nil {
@@ -68,6 +69,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "segueTest") {
+            let navController = segue.destinationViewController as! UINavigationController
+            let detailController = navController.topViewController as! ModuleTableViewController
+            
+            
+            //var svc = segue!.destinationViewController as! ModuleTableViewController;
+            
+            detailController.toPass = databasePath
+            
+        }
+    }
 
 }
 

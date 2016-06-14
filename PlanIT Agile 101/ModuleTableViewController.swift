@@ -13,6 +13,8 @@ class ModuleTableViewController: UITableViewController {
     // MARK: Properties
     
     var modules = [Module]()
+    var toPass:NSString!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,44 @@ class ModuleTableViewController: UITableViewController {
     }
     
     func loadModules(){
+        
+        var databasePath = NSString()
+        
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        
+        databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
+        
+        print(databasePath)
+        
+        
+        if filemgr.fileExistsAtPath(databasePath as String) {
+            print("Got into filemanager stage")
+            let agileDB = FMDatabase(path: databasePath as String)
+            
+            if agileDB == nil {
+                print("Error: \(agileDB.lastErrorMessage())")
+            }
+            
+            if agileDB.open() {
+                print("Got to open loop")
+                let querySQL = "SELECT moduleid, modulename FROM MODULES;"
+                let results:FMResultSet? = agileDB.executeQuery(querySQL,
+                                                                  withArgumentsInArray: nil)
+                while results?.next() == true {
+                    print("Got into results loop")
+                    print(results!.stringForColumn("modulename"))
+                    print(results!.intForColumn("moduleid"))
+                    
+                }
+                
+                agileDB.close()
+            } else {
+                print("Error: \(agileDB.lastErrorMessage())")
+            }
+        }
+
+        
         print("loading modules")
         let module1 = Module(moduleid: 1, modulename: "Introduction to Agile Methods")!
         modules += [module1]
@@ -57,7 +97,7 @@ class ModuleTableViewController: UITableViewController {
         let module = modules[indexPath.row]
         
         // Configure the cell...
-        cell.NameLabel.text = module.modulename
+        cell.NameLabel.text = String(toPass)
         cell.IdLabel.text = String(module.moduleid)
         
         //return cell

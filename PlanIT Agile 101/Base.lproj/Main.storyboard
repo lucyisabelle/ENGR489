@@ -187,7 +187,7 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="LogInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gtp-yM-aSk"/>
-                                            <segue destination="EPE-B6-tjJ" kind="showDetail" action="showViewController:sender:" id="BvS-80-xJf"/>
+                                            <segue destination="EPE-B6-tjJ" kind="show" identifier="segueTest" id="BvS-80-xJf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nST-Bt-nMU">
