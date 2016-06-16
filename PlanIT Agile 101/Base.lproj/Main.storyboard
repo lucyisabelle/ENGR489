@@ -130,6 +130,7 @@
                                 <connections>
                                     <outlet property="IdLabel" destination="2sz-h8-w4r" id="3wi-ez-Eoy"/>
                                     <outlet property="NameLabel" destination="REd-59-fJf" id="FTM-w6-OGz"/>
+                                    <segue destination="aN5-lC-pOj" kind="show" id="7Gj-Di-xTh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -143,6 +144,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9YW-Jz-CEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2615" y="1139"/>
+        </scene>
+        <!--Section Table View Controller-->
+        <scene sceneID="aUf-Wm-Y12">
+            <objects>
+                <tableViewController id="aN5-lC-pOj" customClass="SectionTableViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zK8-sY-R9m">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M7c-4s-txZ">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionTableViewCell" rowHeight="90" id="ycj-Bt-ich" customClass="SectionTableViewCell" customModule="PlanIT_Agile_101" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ycj-Bt-ich" id="0MP-tF-uhN">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMD-7y-teB">
+                                            <rect key="frame" x="15" y="8" width="577" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="SectionNameLabel" destination="sMD-7y-teB" id="Clm-4E-a9f"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aN5-lC-pOj" id="2Gn-VN-gWP"/>
+                            <outlet property="delegate" destination="aN5-lC-pOj" id="YbX-rK-Fjg"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQo-Mx-jsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2615" y="1903"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">

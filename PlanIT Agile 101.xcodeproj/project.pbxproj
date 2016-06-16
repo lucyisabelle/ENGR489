@@ -23,6 +23,9 @@
 		8DEC34881D07CA95003CB572 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34871D07CA95003CB572 /* Module.swift */; };
 		8DEC34891D07CA95003CB572 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34871D07CA95003CB572 /* Module.swift */; };
 		8DEC348B1D07CD52003CB572 /* ModuleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC348A1D07CD52003CB572 /* ModuleTableViewController.swift */; };
+		8DEC348F1D12760E003CB572 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC348E1D12760E003CB572 /* SectionTableViewController.swift */; };
+		8DEC34911D12770F003CB572 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34901D12770F003CB572 /* Section.swift */; };
+		8DEC34931D127826003CB572 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34921D127826003CB572 /* SectionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewCell.swift; sourceTree = "<group>"; };
 		8DEC34871D07CA95003CB572 /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		8DEC348A1D07CD52003CB572 /* ModuleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewController.swift; sourceTree = "<group>"; };
+		8DEC348E1D12760E003CB572 /* SectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionTableViewController.swift; path = ../SectionTableViewController.swift; sourceTree = "<group>"; };
+		8DEC34901D12770F003CB572 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		8DEC34921D127826003CB572 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,9 @@
 				8DEC34871D07CA95003CB572 /* Module.swift */,
 				8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */,
 				8DEC348A1D07CD52003CB572 /* ModuleTableViewController.swift */,
+				8DEC34921D127826003CB572 /* SectionTableViewCell.swift */,
+				8DEC348E1D12760E003CB572 /* SectionTableViewController.swift */,
+				8DEC34901D12770F003CB572 /* Section.swift */,
 				8D3240781CED7CEB004CA04E /* Assets.xcassets */,
 				8D32407D1CED7CEB004CA04E /* Info.plist */,
 				8D3240B41CF003AA004CA04E /* PlanIT Agile 101-Bridging-Header.h */,
@@ -243,15 +252,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D3240921CED9E6D004CA04E /* CreateAccountViewController.swift in Sources */,
+				8DEC34931D127826003CB572 /* SectionTableViewCell.swift in Sources */,
 				8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */,
 				8DEC348B1D07CD52003CB572 /* ModuleTableViewController.swift in Sources */,
 				8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */,
 				8DEC34881D07CA95003CB572 /* Module.swift in Sources */,
 				8D3240C01CF003AB004CA04E /* FMDatabase.m in Sources */,
 				8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */,
+				8DEC34911D12770F003CB572 /* Section.swift in Sources */,
 				8D3240C11CF003AB004CA04E /* FMResultSet.m in Sources */,
 				8D3240C41CF003AB004CA04E /* FMDatabasePool.m in Sources */,
 				8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */,
+				8DEC348F1D12760E003CB572 /* SectionTableViewController.swift in Sources */,
 				8D3240C21CF003AB004CA04E /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

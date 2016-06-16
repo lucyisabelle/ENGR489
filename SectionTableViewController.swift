@@ -1,21 +1,19 @@
 //
-//  ModuleTableViewController.swift
+//  SectionTableViewController.swift
 //  PlanIT Agile 101
 //
-//  Created by Lucy French on 8/06/16.
+//  Created by Lucy French on 16/06/16.
 //  Copyright © 2016 Lucy French. All rights reserved.
 //
 
 import UIKit
 
-class ModuleTableViewController: UITableViewController {
-    
+class SectionTableViewController: UITableViewController {
+
     // MARK: Properties
-
-    var modules = [Module]()
-    var toPass:NSString!
     
-
+    var sections = [Section]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,11 +22,11 @@ class ModuleTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadSections()
         
-        loadModules()
     }
     
-    func loadModules(){
+    func loadSections(){
         
         var databasePath = NSString()
         
@@ -50,15 +48,15 @@ class ModuleTableViewController: UITableViewController {
             
             if agileDB.open() {
                 print("Got to open loop")
-                let querySQL = "SELECT moduleid, modulename FROM MODULES;"
+                let querySQL = "SELECT sectionname, sectionid FROM SECTIONS;" //TODO: WHERE moduleid = moduleid
                 let results:FMResultSet? = agileDB.executeQuery(querySQL,
-                                                                  withArgumentsInArray: nil)
+                                                                withArgumentsInArray: nil)
                 while results?.next() == true {
                     print("Got into results loop")
-                    print(results!.stringForColumn("modulename"))
-                    print(results!.intForColumn("moduleid"))
-                    let module = Module(moduleid: Int(results!.intForColumn("moduleid")), modulename: results!.stringForColumn("modulename"))!
-                    modules += [module]
+                    print(results!.stringForColumn("sectionname"))
+                    print(results!.intForColumn("sectionid"))
+                    let section = Section(sectionid: Int(results!.intForColumn("sectionid")), sectionname: results!.stringForColumn("sectionname"))!
+                    sections += [section]
                     
                 }
                 
@@ -67,11 +65,9 @@ class ModuleTableViewController: UITableViewController {
                 print("Error: \(agileDB.lastErrorMessage())")
             }
         }
-
         
-        print("loading modules")
-        let module1 = Module(moduleid: 1, modulename: "Introduction to Agile Methods")!
-        modules += [module1]
+        
+        print("loading sections")
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,23 +82,21 @@ class ModuleTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modules.count
+        return sections.count 
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-         let cellIdentifier = "ModuleTableViewCell"
+        let cellIdentifier = "SectionTableViewCell"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ModuleTableViewCell
-        
-        // Fetches the appropriate meal for the data source layout.
-        let module = modules[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SectionTableViewCell
+
         // Configure the cell...
-        cell.NameLabel.text = String(module.modulename)
-        cell.IdLabel.text = String(module.moduleid)
         
-        //return cell
+        let section = sections[indexPath.row]
+        
+        cell.SectionNameLabel.text = String(section.sectionname)
+
         return cell
     }
     
