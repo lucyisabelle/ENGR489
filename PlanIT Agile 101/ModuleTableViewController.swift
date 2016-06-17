@@ -14,7 +14,7 @@ class ModuleTableViewController: UITableViewController {
 
     var modules = [Module]()
     var toPass:NSString!
-    
+    var moduleId = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +100,9 @@ class ModuleTableViewController: UITableViewController {
         
         // Configure the cell...
         cell.NameLabel.text = String(module.modulename)
+        print(module.moduleid)
         cell.IdLabel.text = String(module.moduleid)
+        print(cell.IdLabel.text)
         
         //return cell
         return cell
@@ -141,15 +143,31 @@ class ModuleTableViewController: UITableViewController {
         return true
     }
     */
+    
 
-    /*
+
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "sectionSegue") {
+            let navController = segue.destinationViewController as! UINavigationController
+            let detailController = navController.topViewController as! SectionTableViewController
+            
+            let indexPath = tableView.indexPathForSelectedRow;
+            let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! ModuleTableViewCell!;
+            
+            moduleId = Int(currentCell.IdLabel.text!)!
+            print(moduleId)
+            
+            detailController.moduleId = moduleId
+        }
     }
-    */
+
+    
 
 }

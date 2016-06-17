@@ -13,10 +13,11 @@ class SectionTableViewController: UITableViewController {
     // MARK: Properties
     
     var sections = [Section]()
+    var moduleId = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = String(moduleId)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -48,13 +49,14 @@ class SectionTableViewController: UITableViewController {
             
             if agileDB.open() {
                 print("Got to open loop")
-                let querySQL = "SELECT sectionname, sectionid FROM SECTIONS;" //TODO: WHERE moduleid = moduleid
+                let querySQL = "SELECT sectionname, sectionid, moduleid FROM SECTIONS WHERE moduleid = \(moduleId);" //TODO: WHERE moduleid = moduleid
                 let results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                 withArgumentsInArray: nil)
                 while results?.next() == true {
                     print("Got into results loop")
                     print(results!.stringForColumn("sectionname"))
                     print(results!.intForColumn("sectionid"))
+                    print(results!.intForColumn("moduleid"))
                     let section = Section(sectionid: Int(results!.intForColumn("sectionid")), sectionname: results!.stringForColumn("sectionname"))!
                     sections += [section]
                     
