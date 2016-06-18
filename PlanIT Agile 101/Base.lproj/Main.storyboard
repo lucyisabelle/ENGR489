@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -180,10 +180,39 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="byX-hN-hQ7"/>
+                    <connections>
+                        <segue destination="1GU-AO-y46" kind="show" identifier="GoToPageSegue" id="xNl-tp-nIS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQo-Mx-jsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3427" y="1903"/>
+        </scene>
+        <!--Section Page View Controller-->
+        <scene sceneID="zUD-C5-55N">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1GU-AO-y46" customClass="SectionPageViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lEF-ai-ksA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4145" y="1903"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="H7k-ep-yyd">
+            <objects>
+                <viewController id="aT8-Jj-3ni" customClass="PageViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xeo-fO-cUo"/>
+                        <viewControllerLayoutGuide type="bottom" id="ypT-xR-5sD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w1M-FK-yuW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evi-3O-Tbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4833" y="1903"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
