@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D1253971D153B9B00AD6F55 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1253961D153B9B00AD6F55 /* PageViewController.swift */; };
 		8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240711CED7CEB004CA04E /* AppDelegate.swift */; };
 		8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240731CED7CEB004CA04E /* ViewController.swift */; };
 		8D3240771CED7CEB004CA04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D3240751CED7CEB004CA04E /* Main.storyboard */; };
@@ -20,7 +19,8 @@
 		8D3240C21CF003AB004CA04E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BB1CF003AB004CA04E /* FMDatabaseQueue.m */; };
 		8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BD1CF003AB004CA04E /* FMDatabaseAdditions.m */; };
 		8D3240C41CF003AB004CA04E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240BF1CF003AB004CA04E /* FMDatabasePool.m */; };
-		8D5CA5151D14AE8F00F84071 /* SectionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5CA5141D14AE8F00F84071 /* SectionPageViewController.swift */; };
+		8D3A1DDB1D2249BE00A26D66 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3A1DDA1D2249BE00A26D66 /* PageViewController.swift */; };
+		8D3A1DDD1D225DAD00A26D66 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3A1DDC1D225DAD00A26D66 /* Page.swift */; };
 		8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */; };
 		8DEC34881D07CA95003CB572 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34871D07CA95003CB572 /* Module.swift */; };
 		8DEC34891D07CA95003CB572 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34871D07CA95003CB572 /* Module.swift */; };
@@ -41,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8D1253961D153B9B00AD6F55 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8D32406E1CED7CEB004CA04E /* PlanIT Agile 101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlanIT Agile 101.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3240711CED7CEB004CA04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D3240731CED7CEB004CA04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +64,8 @@
 		8D3240BD1CF003AB004CA04E /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../../../fmdb/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		8D3240BE1CF003AB004CA04E /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = ../../../fmdb/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
 		8D3240BF1CF003AB004CA04E /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = ../../../fmdb/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
-		8D5CA5141D14AE8F00F84071 /* SectionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionPageViewController.swift; sourceTree = "<group>"; };
+		8D3A1DDA1D2249BE00A26D66 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8D3A1DDC1D225DAD00A26D66 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewCell.swift; sourceTree = "<group>"; };
 		8DEC34871D07CA95003CB572 /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		8DEC348A1D07CD52003CB572 /* ModuleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewController.swift; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 				8D3240731CED7CEB004CA04E /* ViewController.swift */,
 				8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */,
 				8D3240751CED7CEB004CA04E /* Main.storyboard */,
-				8D5CA5141D14AE8F00F84071 /* SectionPageViewController.swift */,
-				8D1253961D153B9B00AD6F55 /* PageViewController.swift */,
+				8D3A1DDA1D2249BE00A26D66 /* PageViewController.swift */,
+				8D3A1DDC1D225DAD00A26D66 /* Page.swift */,
 				8DEC34871D07CA95003CB572 /* Module.swift */,
 				8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */,
 				8DEC348A1D07CD52003CB572 /* ModuleTableViewController.swift */,
@@ -259,12 +259,12 @@
 			files = (
 				8D3240921CED9E6D004CA04E /* CreateAccountViewController.swift in Sources */,
 				8DEC34931D127826003CB572 /* SectionTableViewCell.swift in Sources */,
+				8D3A1DDD1D225DAD00A26D66 /* Page.swift in Sources */,
 				8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */,
 				8DEC348B1D07CD52003CB572 /* ModuleTableViewController.swift in Sources */,
 				8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */,
 				8DEC34881D07CA95003CB572 /* Module.swift in Sources */,
 				8D3240C01CF003AB004CA04E /* FMDatabase.m in Sources */,
-				8D5CA5151D14AE8F00F84071 /* SectionPageViewController.swift in Sources */,
 				8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */,
 				8DEC34911D12770F003CB572 /* Section.swift in Sources */,
 				8D3240C11CF003AB004CA04E /* FMResultSet.m in Sources */,
@@ -272,7 +272,7 @@
 				8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */,
 				8DEC348F1D12760E003CB572 /* SectionTableViewController.swift in Sources */,
 				8D3240C21CF003AB004CA04E /* FMDatabaseQueue.m in Sources */,
-				8D1253971D153B9B00AD6F55 /* PageViewController.swift in Sources */,
+				8D3A1DDB1D2249BE00A26D66 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

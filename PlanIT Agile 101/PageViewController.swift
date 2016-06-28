@@ -2,18 +2,33 @@
 //  PageViewController.swift
 //  PlanIT Agile 101
 //
-//  Created by Lucy French on 18/06/16.
+//  Created by Lucy French on 28/06/16.
 //  Copyright © 2016 Lucy French. All rights reserved.
 //
 
 import UIKit
 
 class PageViewController: UIViewController {
-
+    
+    //var scrollView: UIScrollView!
+    //var textView: UITextView!
+    //@IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: UITextView!
+    //@IBOutlet var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
+        //create UITextView
+        
+        //scrollView = UIScrollView(frame: view.bounds)
+        //textView = UITextView(frame: view.bounds)
+        textView.text = "Hello"
+        
+        //scrollView.addSubview(textView)
+
+        
     }
 
     override func didReceiveMemoryWarning() {

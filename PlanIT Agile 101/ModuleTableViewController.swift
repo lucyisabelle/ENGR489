@@ -101,8 +101,8 @@ class ModuleTableViewController: UITableViewController {
         // Configure the cell...
         cell.NameLabel.text = String(module.modulename)
         print(module.moduleid)
-        cell.IdLabel.text = String(module.moduleid)
-        print(cell.IdLabel.text)
+        //cell.IdLabel.text = String(module.moduleid)
+        //print(cell.IdLabel.text)
         
         //return cell
         return cell

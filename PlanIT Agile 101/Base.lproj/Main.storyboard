@@ -119,16 +119,9 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sz-h8-w4r">
-                                            <rect key="frame" x="8" y="60" width="100" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="IdLabel" destination="2sz-h8-w4r" id="3wi-ez-Eoy"/>
                                     <outlet property="NameLabel" destination="REd-59-fJf" id="FTM-w6-OGz"/>
                                     <segue destination="P5T-gy-Xez" kind="show" identifier="sectionSegue" id="7Gj-Di-xTh"/>
                                 </connections>
@@ -171,6 +164,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="SectionNameLabel" destination="sMD-7y-teB" id="Clm-4E-a9f"/>
+                                    <segue destination="KEk-Br-FGA" kind="show" id="rrA-Ee-7c2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -180,39 +174,39 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="byX-hN-hQ7"/>
-                    <connections>
-                        <segue destination="1GU-AO-y46" kind="show" identifier="GoToPageSegue" id="xNl-tp-nIS"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQo-Mx-jsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3427" y="1903"/>
         </scene>
-        <!--Section Page View Controller-->
-        <scene sceneID="zUD-C5-55N">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1GU-AO-y46" customClass="SectionPageViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lEF-ai-ksA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4145" y="1903"/>
-        </scene>
         <!--Page View Controller-->
-        <scene sceneID="H7k-ep-yyd">
+        <scene sceneID="CPg-NF-qZl">
             <objects>
-                <viewController id="aT8-Jj-3ni" customClass="PageViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KEk-Br-FGA" customClass="PageViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xeo-fO-cUo"/>
-                        <viewControllerLayoutGuide type="bottom" id="ypT-xR-5sD"/>
+                        <viewControllerLayoutGuide type="top" id="e8m-dS-thF"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hkj-PS-tWO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="w1M-FK-yuW">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="7i8-7S-0uK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qp8-5B-7dp">
+                                <rect key="frame" x="0.0" y="217" width="600" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                    </scrollView>
+                    <connections>
+                        <outlet property="textView" destination="qp8-5B-7dp" id="JXZ-vL-O8p"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="evi-3O-Tbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAq-BK-axO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4833" y="1903"/>
+            <point key="canvasLocation" x="4195" y="1935"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">

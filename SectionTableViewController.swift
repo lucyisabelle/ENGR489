@@ -138,9 +138,11 @@ class SectionTableViewController: UITableViewController {
     }
     */
 
-
+/*
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("GoToPageSegue", sender: self)
+       // performSegueWithIdentifier("GoToPageSegue", sender: self)
+        let view = SectionPageViewController()
+        self.presentViewController(view, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
@@ -149,7 +151,7 @@ class SectionTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
+    } */
 
 
 }

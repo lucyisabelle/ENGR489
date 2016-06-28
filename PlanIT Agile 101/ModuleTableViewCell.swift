@@ -12,7 +12,7 @@ class ModuleTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var NameLabel: UILabel!
-    @IBOutlet weak var IdLabel: UILabel!
+    //@IBOutlet weak var IdLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
