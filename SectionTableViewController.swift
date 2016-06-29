@@ -96,7 +96,7 @@ class SectionTableViewController: UITableViewController {
         // Configure the cell...
         
         let section = sections[indexPath.row]
-        
+        cell.sectionId = sections[indexPath.row].sectionid
         cell.SectionNameLabel.text = String(section.sectionname)
 
         return cell
@@ -146,12 +146,34 @@ class SectionTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-
+*/
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    } */
+        
+        /*let navController = segue.destinationViewController as! UINavigationController
+        let detailController = navController.topViewController as! PageViewController
+        
+        let indexPath = tableView.indexPathForSelectedRow;
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! SectionTableViewCell!*/
+        
+        if (segue.identifier == "PageSegue") {
+            var nextController = segue.destinationViewController as! PageViewController
+            
+            let indexPath = tableView.indexPathForSelectedRow;
+            let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! SectionTableViewCell!
+        
+            var sectionId = Int()
+            sectionId = currentCell.sectionId//sections[indexPath!.row].sectionid
+            print("Section id within prepare for segue is...")
+            print(sectionId)
+            
+        
+            nextController.sectionId = sectionId
+        }
+        
+    }
 
 
 }

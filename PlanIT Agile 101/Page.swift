@@ -10,4 +10,11 @@ import UIKit
 
 class Page: NSObject {
     
+    var items = [String]()
+    var sectionId = Int()
+    
+    // MARK: Initialization
+    
+
+    
 }

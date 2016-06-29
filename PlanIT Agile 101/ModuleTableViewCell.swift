@@ -12,11 +12,14 @@ class ModuleTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var NameLabel: UILabel!
-    //@IBOutlet weak var IdLabel: UILabel!
+    @IBOutlet weak var ImageView: UIImageView!
+    var IdLabel: Int!
+    let logo = UIImage(named: "open-book")
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        ImageView.image = logo
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

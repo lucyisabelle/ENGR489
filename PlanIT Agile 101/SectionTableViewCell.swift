@@ -12,6 +12,7 @@ class SectionTableViewCell: UITableViewCell {
 
     // MARK: Properties
     @IBOutlet weak var SectionNameLabel: UILabel!
+    var sectionId = Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()

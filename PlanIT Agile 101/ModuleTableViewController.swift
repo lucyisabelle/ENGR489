@@ -101,7 +101,7 @@ class ModuleTableViewController: UITableViewController {
         // Configure the cell...
         cell.NameLabel.text = String(module.modulename)
         print(module.moduleid)
-        //cell.IdLabel.text = String(module.moduleid)
+        cell.IdLabel = module.moduleid
         //print(cell.IdLabel.text)
         
         //return cell
@@ -159,9 +159,9 @@ class ModuleTableViewController: UITableViewController {
             let detailController = navController.topViewController as! SectionTableViewController
             
             let indexPath = tableView.indexPathForSelectedRow;
-            let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! ModuleTableViewCell!;
+            let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! ModuleTableViewCell!
             
-            moduleId = Int(currentCell.IdLabel.text!)!
+            moduleId = currentCell.IdLabel
             print(moduleId)
             
             detailController.moduleId = moduleId
