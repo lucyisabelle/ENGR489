@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -101,7 +102,7 @@
         <scene sceneID="plt-JP-0WB">
             <objects>
                 <tableViewController id="YoP-Vo-wuP" customClass="ModuleTableViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRR-uw-MX2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRR-uw-MX2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,21 +114,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REd-59-fJf">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REd-59-fJf">
                                             <rect key="frame" x="8" y="13" width="376" height="57"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wc8-df-HvS">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wc8-df-HvS">
                                             <rect key="frame" x="475" y="13" width="57" height="57"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="wc8-df-HvS" secondAttribute="height" multiplier="1:1" id="2fd-SM-Y9t"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wc8-df-HvS" firstAttribute="top" secondItem="nLy-HL-H0c" secondAttribute="topMargin" constant="5" id="8im-Mq-h3M"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wc8-df-HvS" secondAttribute="bottom" constant="5" id="L5y-dJ-AzN"/>
+                                        <constraint firstItem="wc8-df-HvS" firstAttribute="leading" secondItem="REd-59-fJf" secondAttribute="trailing" constant="5" id="VpU-QI-gCC"/>
+                                        <constraint firstItem="REd-59-fJf" firstAttribute="leading" secondItem="nLy-HL-H0c" secondAttribute="leadingMargin" constant="5" id="Y6f-L1-TGW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="REd-59-fJf" secondAttribute="bottom" constant="5" id="iqu-DF-y1G"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wc8-df-HvS" secondAttribute="trailing" constant="5" id="mq9-2o-V00"/>
+                                        <constraint firstItem="wc8-df-HvS" firstAttribute="leading" secondItem="REd-59-fJf" secondAttribute="trailing" constant="5" id="qin-No-CSw"/>
+                                        <constraint firstItem="REd-59-fJf" firstAttribute="top" secondItem="nLy-HL-H0c" secondAttribute="topMargin" constant="5" id="u1g-TD-tbB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ImageView" destination="wc8-df-HvS" id="Ccq-Ya-HUx"/>
                                     <outlet property="NameLabel" destination="REd-59-fJf" id="FTM-w6-OGz"/>
-                                    <segue destination="P5T-gy-Xez" kind="show" identifier="sectionSegue" id="7Gj-Di-xTh"/>
+                                    <segue destination="P5T-gy-Xez" kind="show" identifier="SectionSegue" id="Al6-8R-ZRD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -140,7 +154,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9YW-Jz-CEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2615" y="1139"/>
+            <point key="canvasLocation" x="2641" y="1147"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="goX-NG-ROZ">
+            <objects>
+                <viewController id="lUc-we-hfQ" customClass="TestViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hPx-EB-5pw"/>
+                        <viewControllerLayoutGuide type="bottom" id="ddS-4W-qa5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KdY-Y8-FAI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fw3-o3-4Du" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3375" y="1081"/>
         </scene>
         <!--Section Table View Controller-->
         <scene sceneID="aUf-Wm-Y12">
@@ -346,6 +378,8 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="aN5-lC-pOj" kind="relationship" relationship="rootViewController" id="Pn5-u5-WeR"/>
+                        <segue destination="lUc-we-hfQ" kind="show" identifier="FinalTestSegue" id="3Bf-Ac-af2"/>
+                        <segue destination="aN5-lC-pOj" kind="show" identifier="sectionSegue" id="KWE-8g-rNi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJu-Z4-02D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,4 +390,7 @@
     <resources>
         <image name="PlanITLogo" width="53" height="52"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KWE-8g-rNi"/>
+    </inferredMetricsTieBreakers>
 </document>

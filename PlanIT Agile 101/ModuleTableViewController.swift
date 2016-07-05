@@ -70,8 +70,7 @@ class ModuleTableViewController: UITableViewController {
 
         
         print("loading modules")
-        let module1 = Module(moduleid: 1, modulename: "Introduction to Agile Methods")!
-        modules += [module1]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -145,7 +144,15 @@ class ModuleTableViewController: UITableViewController {
     */
     
 
-
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! ModuleTableViewCell!
+        if (currentCell.NameLabel.text == "Final Test"){
+            self.performSegueWithIdentifier("FinalTestSegue", sender: self)
+        }
+        else{
+            self.performSegueWithIdentifier("sectionSegue", sender: self)
+        }
+    }
 
     // MARK: - Navigation
 
@@ -154,17 +161,22 @@ class ModuleTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+        let indexPath = tableView.indexPathForSelectedRow;
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! ModuleTableViewCell!
+        
+        let navController = segue.destinationViewController as! UINavigationController
+        
         if (segue.identifier == "sectionSegue") {
-            let navController = segue.destinationViewController as! UINavigationController
-            let detailController = navController.topViewController as! SectionTableViewController
             
-            let indexPath = tableView.indexPathForSelectedRow;
-            let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! ModuleTableViewCell!
+            let detailController = navController.topViewController as! SectionTableViewController
             
             moduleId = currentCell.IdLabel
             print(moduleId)
             
             detailController.moduleId = moduleId
+        }
+        else if (segue.identifier == "FinalTestSegue"){
+            let detailController = navController.topViewController as! TestViewController
         }
     }
 
