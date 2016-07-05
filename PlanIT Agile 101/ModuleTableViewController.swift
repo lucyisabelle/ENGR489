@@ -144,15 +144,16 @@ class ModuleTableViewController: UITableViewController {
     */
     
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    /*override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! ModuleTableViewCell!
         if (currentCell.NameLabel.text == "Final Test"){
             self.performSegueWithIdentifier("FinalTestSegue", sender: self)
         }
         else{
+            print("Got into tableview method")
             self.performSegueWithIdentifier("sectionSegue", sender: self)
         }
-    }
+    }*/
 
     // MARK: - Navigation
 
@@ -160,14 +161,14 @@ class ModuleTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
+        print("Preparing for segue module table view controller")
         let indexPath = tableView.indexPathForSelectedRow;
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! ModuleTableViewCell!
         
         let navController = segue.destinationViewController as! UINavigationController
         
         if (segue.identifier == "sectionSegue") {
-            
+            print("Got into prepare for segue method")
             let detailController = navController.topViewController as! SectionTableViewController
             
             moduleId = currentCell.IdLabel

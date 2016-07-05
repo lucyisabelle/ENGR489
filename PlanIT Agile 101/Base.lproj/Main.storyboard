@@ -141,7 +141,7 @@
                                 <connections>
                                     <outlet property="ImageView" destination="wc8-df-HvS" id="Ccq-Ya-HUx"/>
                                     <outlet property="NameLabel" destination="REd-59-fJf" id="FTM-w6-OGz"/>
-                                    <segue destination="P5T-gy-Xez" kind="show" identifier="SectionSegue" id="Al6-8R-ZRD"/>
+                                    <segue destination="P5T-gy-Xez" kind="show" identifier="sectionSegue" id="Al6-8R-ZRD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -378,8 +378,6 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="aN5-lC-pOj" kind="relationship" relationship="rootViewController" id="Pn5-u5-WeR"/>
-                        <segue destination="lUc-we-hfQ" kind="show" identifier="FinalTestSegue" id="3Bf-Ac-af2"/>
-                        <segue destination="aN5-lC-pOj" kind="show" identifier="sectionSegue" id="KWE-8g-rNi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJu-Z4-02D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -390,7 +388,4 @@
     <resources>
         <image name="PlanITLogo" width="53" height="52"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="KWE-8g-rNi"/>
-    </inferredMetricsTieBreakers>
 </document>
