@@ -288,9 +288,19 @@
                             <outlet property="delegate" destination="aN5-lC-pOj" id="YbX-rK-Fjg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="byX-hN-hQ7"/>
+                    <navigationItem key="navigationItem" id="byX-hN-hQ7">
+                        <barButtonItem key="leftBarButtonItem" title="Return" id="CAu-Ni-F0D">
+                            <connections>
+                                <segue destination="qcI-LO-ZUK" kind="unwind" identifier="goToMainMenu" unwindAction="unwindToMainMenu:" id="UOk-CW-eNd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="returnButton" destination="CAu-Ni-F0D" id="bHd-qG-Cy5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQo-Mx-jsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qcI-LO-ZUK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3427" y="1903"/>
         </scene>

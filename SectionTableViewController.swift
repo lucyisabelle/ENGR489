@@ -12,6 +12,7 @@ class SectionTableViewController: UITableViewController {
 
     // MARK: Properties
     
+    @IBOutlet weak var returnButton: UIBarButtonItem!
     var sections = [Section]()
     var moduleId = Int()
     
@@ -172,6 +173,14 @@ class SectionTableViewController: UITableViewController {
         
             nextController.sectionId = sectionId
         }
+        
+        if sender === returnButton {
+            print("returnbutton clicked")
+        }
+        
+        /*if (segue.identifier == "goToMainMenu"){
+            self.performSegueWithIdentifier("goToMainMenu", sender: self)
+        }*/
         
     }
 

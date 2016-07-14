@@ -41,7 +41,6 @@ class ModuleTableViewController: UITableViewController {
         
         
         if filemgr.fileExistsAtPath(databasePath as String) {
-            print("Got into filemanager stage")
             let agileDB = FMDatabase(path: databasePath as String)
             
             if agileDB == nil {
@@ -49,14 +48,10 @@ class ModuleTableViewController: UITableViewController {
             }
             
             if agileDB.open() {
-                print("Got to open loop")
                 let querySQL = "SELECT moduleid, modulename FROM MODULES;"
                 let results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                   withArgumentsInArray: nil)
                 while results?.next() == true {
-                    print("Got into results loop")
-                    print(results!.stringForColumn("modulename"))
-                    print(results!.intForColumn("moduleid"))
                     let module = Module(moduleid: Int(results!.intForColumn("moduleid")), modulename: results!.stringForColumn("modulename"))!
                     modules += [module]
                     
@@ -99,10 +94,13 @@ class ModuleTableViewController: UITableViewController {
         
         // Configure the cell...
         cell.NameLabel.text = String(module.modulename)
+        print("Printing module id...")
         print(module.moduleid)
         cell.IdLabel = module.moduleid
         //print(cell.IdLabel.text)
-        
+        let imageName = "module_" + String(module.moduleid)
+        let logo = UIImage(named: imageName)
+        cell.ImageView.image = logo
         //return cell
         return cell
     }
@@ -181,6 +179,8 @@ class ModuleTableViewController: UITableViewController {
         }
     }
 
-    
+    @IBAction func unwindToMainMenu(segue: UIStoryboardSegue){
+        
+    }
 
 }
