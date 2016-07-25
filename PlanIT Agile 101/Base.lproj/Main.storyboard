@@ -114,36 +114,44 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REd-59-fJf">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REd-59-fJf">
                                             <rect key="frame" x="8" y="13" width="376" height="57"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wc8-df-HvS">
-                                            <rect key="frame" x="475" y="13" width="57" height="57"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-3L-f0v">
+                                            <rect key="frame" x="426" y="13" width="128" height="73"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-Xa-Rc3" customClass="Button2View" customModule="PlanIT_Agile_101" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="22" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Cjv-Xa-Rc3" secondAttribute="height" multiplier="1:1" id="Ymc-Im-pbR"/>
+                                                    </constraints>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiE-1t-ftO" customClass="ButtonView" customModule="PlanIT_Agile_101" customModuleProvider="target">
+                                                    <rect key="frame" x="30" y="17" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="jiE-1t-ftO" secondAttribute="height" multiplier="1:1" id="JmK-Zi-fyu"/>
+                                                    </constraints>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wc8-df-HvS">
+                                                    <rect key="frame" x="70" y="8" width="58" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="wc8-df-HvS" secondAttribute="height" multiplier="1:1" id="2fd-SM-Y9t"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="wc8-df-HvS" secondAttribute="height" multiplier="1:1" id="2fd-SM-Y9t"/>
+                                                <constraint firstItem="Cjv-Xa-Rc3" firstAttribute="width" secondItem="jiE-1t-ftO" secondAttribute="height" multiplier="3:4" id="mwn-Cy-6wt"/>
                                             </constraints>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiE-1t-ftO" customClass="ButtonView" customModule="PlanIT_Agile_101" customModuleProvider="target">
-                                            <rect key="frame" x="376" y="-5" width="80" height="80"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="jiE-1t-ftO" secondAttribute="height" multiplier="1:1" id="JmK-Zi-fyu"/>
-                                            </constraints>
-                                        </button>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="wc8-df-HvS" firstAttribute="top" secondItem="nLy-HL-H0c" secondAttribute="topMargin" constant="5" id="8im-Mq-h3M"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="jiE-1t-ftO" secondAttribute="trailing" constant="10" id="9SL-aW-cA4"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="wc8-df-HvS" secondAttribute="bottom" constant="5" id="L5y-dJ-AzN"/>
-                                        <constraint firstItem="wc8-df-HvS" firstAttribute="leading" secondItem="REd-59-fJf" secondAttribute="trailing" constant="5" id="VpU-QI-gCC"/>
-                                        <constraint firstItem="REd-59-fJf" firstAttribute="leading" secondItem="nLy-HL-H0c" secondAttribute="leadingMargin" constant="5" id="Y6f-L1-TGW"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="REd-59-fJf" secondAttribute="bottom" constant="5" id="iqu-DF-y1G"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="wc8-df-HvS" secondAttribute="trailing" constant="5" id="mq9-2o-V00"/>
-                                        <constraint firstItem="jiE-1t-ftO" firstAttribute="top" secondItem="nLy-HL-H0c" secondAttribute="topMargin" constant="5" id="pJ1-ax-bRW"/>
-                                        <constraint firstItem="wc8-df-HvS" firstAttribute="leading" secondItem="REd-59-fJf" secondAttribute="trailing" constant="5" id="qin-No-CSw"/>
-                                        <constraint firstItem="REd-59-fJf" firstAttribute="top" secondItem="nLy-HL-H0c" secondAttribute="topMargin" constant="5" id="u1g-TD-tbB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vh6-3L-f0v" secondAttribute="trailing" id="AST-KU-gLm"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vh6-3L-f0v" secondAttribute="bottom" id="OGk-i5-1hW"/>
+                                        <constraint firstItem="vh6-3L-f0v" firstAttribute="top" secondItem="nLy-HL-H0c" secondAttribute="topMargin" id="dLh-It-5td"/>
+                                        <constraint firstItem="vh6-3L-f0v" firstAttribute="leading" secondItem="REd-59-fJf" secondAttribute="trailing" id="fdJ-So-HBC"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
