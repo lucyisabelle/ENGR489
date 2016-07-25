@@ -22,9 +22,9 @@ class ButtonView: UIButton {
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         // Drawing code
-        //var path = UIBezierPath(ovalInRect: rect)
-        //UIColor.blueColor().setFill()
-        //path.fill()
+        var path1 = UIBezierPath(ovalInRect: rect)
+        UIColor.blueColor().setFill()
+        path1.fill()
         
         
         // 1
