@@ -30,7 +30,6 @@
 		8DEC348F1D12760E003CB572 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC348E1D12760E003CB572 /* SectionTableViewController.swift */; };
 		8DEC34911D12770F003CB572 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34901D12770F003CB572 /* Section.swift */; };
 		8DEC34931D127826003CB572 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34921D127826003CB572 /* SectionTableViewCell.swift */; };
-		8DF1E3751D45D9590068DB0B /* Button2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1E3741D45D9590068DB0B /* Button2View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +76,6 @@
 		8DEC348E1D12760E003CB572 /* SectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionTableViewController.swift; path = ../SectionTableViewController.swift; sourceTree = "<group>"; };
 		8DEC34901D12770F003CB572 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8DEC34921D127826003CB572 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
-		8DF1E3741D45D9590068DB0B /* Button2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button2View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +135,6 @@
 				8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */,
 				8D3240751CED7CEB004CA04E /* Main.storyboard */,
 				8D37F7BC1D45B70C0000B382 /* ButtonView.swift */,
-				8DF1E3741D45D9590068DB0B /* Button2View.swift */,
 				8D3A1DDE1D2B854000A26D66 /* TestViewController.swift */,
 				8D3A1DDA1D2249BE00A26D66 /* PageViewController.swift */,
 				8D3A1DDC1D225DAD00A26D66 /* Page.swift */,
@@ -283,7 +280,6 @@
 				8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */,
 				8DEC348F1D12760E003CB572 /* SectionTableViewController.swift in Sources */,
 				8D3240C21CF003AB004CA04E /* FMDatabaseQueue.m in Sources */,
-				8DF1E3751D45D9590068DB0B /* Button2View.swift in Sources */,
 				8D3A1DDB1D2249BE00A26D66 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
