@@ -100,7 +100,7 @@ class ModuleTableViewController: UITableViewController {
         //print(cell.IdLabel.text)
         let imageName = "module_" + String(module.moduleid)
         let logo = UIImage(named: imageName)
-        cell.ImageView.image = logo
+        //cell.ImageView.image = logo
         
         //trying to set image in stack view button
         //buttonView.image = logo

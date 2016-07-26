@@ -12,7 +12,7 @@ class ModuleTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var NameLabel: UILabel!
-    @IBOutlet weak var ImageView: UIImageView!
+    //@IBOutlet weak var ImageView: UIImageView!
     var IdLabel: Int!
     @IBOutlet weak var buttonView: ButtonView!
     var imageName : String!
