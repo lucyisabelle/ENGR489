@@ -102,13 +102,14 @@
         <scene sceneID="plt-JP-0WB">
             <objects>
                 <tableViewController id="YoP-Vo-wuP" customClass="ModuleTableViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRR-uw-MX2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRR-uw-MX2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ModuleTableViewCell" rowHeight="90" id="tph-uJ-FcX" customClass="ModuleTableViewCell" customModule="PlanIT_Agile_101" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationLevel="1" indentationWidth="10" reuseIdentifier="ModuleTableViewCell" rowHeight="90" id="tph-uJ-FcX" customClass="ModuleTableViewCell" customModule="PlanIT_Agile_101" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tph-uJ-FcX" id="nLy-HL-H0c">

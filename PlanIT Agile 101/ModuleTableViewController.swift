@@ -95,17 +95,16 @@ class ModuleTableViewController: UITableViewController {
         
         // Configure the cell...
         cell.NameLabel.text = String(module.modulename)
-        print("Printing module id...")
-        print(module.moduleid)
         cell.IdLabel = module.moduleid
-        //print(cell.IdLabel.text)
         let imageName = "module_" + String(module.moduleid)
         let logo = UIImage(named: imageName)
-        //cell.ImageView.image = logo
-        
         //trying to set image in stack view button
-        //buttonView.image = logo
         cell.buttonView.moduleImage = logo
+        
+        //if not current module, set text color to gray
+        if (cell.NameLabel.text == "Agile Methods"){
+            cell.NameLabel.textColor = UIColor.grayColor()
+        }
         //return cell
         return cell
     }
