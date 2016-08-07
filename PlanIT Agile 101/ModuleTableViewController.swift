@@ -18,7 +18,8 @@ class ModuleTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        tableView.separatorColor = UIColor.blackColor()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -104,7 +105,7 @@ class ModuleTableViewController: UITableViewController {
         
         //trying to set image in stack view button
         //buttonView.image = logo
-        cell.buttonView.image = logo
+        cell.buttonView.moduleImage = logo
         //return cell
         return cell
     }

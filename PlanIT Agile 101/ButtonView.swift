@@ -12,7 +12,7 @@ class ButtonView: UIButton {
     
     let noOfModules = 10
     let π:CGFloat = CGFloat(M_PI)
-    var image = UIImage(named: "module_1")
+    var moduleImage = UIImage(named: "module_1")
     
     @IBInspectable var counter: Int = 5
     @IBInspectable var outlineColor: UIColor = UIColor.blueColor()
@@ -39,8 +39,8 @@ class ButtonView: UIButton {
         let arcWidth: CGFloat = 5
         
         // 4
-        let startAngle: CGFloat = 3 * π / 4
-        let endAngle: CGFloat = π / 4
+        let startAngle: CGFloat = 3 * π / 2 //original value: 3 * π / 4
+        let endAngle: CGFloat = π //original value: π / 4
         
         // 5
         var path = UIBezierPath(arcCenter: center,
@@ -58,9 +58,40 @@ class ButtonView: UIButton {
         
         //trying to add in image
         //remember this needs to change dynamically
-        self.setBackgroundImage(image, forState: UIControlState.Normal)
+        
+        //first need to resize the image
+        //var resizedImage = self.ResizeImage(moduleImage!, targetSize: CGSizeMake(20.0, 20.0))
+        self.setBackgroundImage(moduleImage, forState: UIControlState.Normal)
 
         
+    }
+    
+    
+    //code from stack overflow http://stackoverflow.com/questions/31314412/how-to-resize-image-in-swift?rq=1
+    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        } else {
+            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
     
 }
