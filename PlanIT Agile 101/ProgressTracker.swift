@@ -91,7 +91,7 @@ class ProgressTracker {
                     //store the updated percentage in the dictionary. 
                     moduleProgress[module] = percentageComplete
                     
-                    //converting to radians will be the responsibility of the button view class.
+                    //converting to radians will be the responsibility of the module view controller class.
                 }
                 agileDB.close()
             } else {

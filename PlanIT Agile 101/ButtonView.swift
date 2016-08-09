@@ -10,7 +10,7 @@ import UIKit
 
 class ButtonView: UIButton {
     
-    let noOfModules = 10
+    var percentageComplete = Int()
     let π:CGFloat = CGFloat(M_PI)
     var moduleImage = UIImage(named: "module_1")
     
@@ -25,6 +25,7 @@ class ButtonView: UIButton {
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
+        print("My progress is: \(percentageComplete) %")
         // Drawing code
         var path1 = UIBezierPath(ovalInRect: rect)
         UIColor.whiteColor().setFill()
@@ -40,7 +41,16 @@ class ButtonView: UIButton {
         
         // 4
         let startAngle: CGFloat = 3 * π / 2 //original value: 3 * π / 4
-        let endAngle: CGFloat = π //original value: π / 4
+        var endAngle: CGFloat = π //original value: π / 4
+        //convert the percentage complete to degrees.
+        if percentageComplete != 0 {
+            var degrees = (Double(percentageComplete) / 100) * 360
+            //convert the degrees value to radians
+            endAngle = CGFloat((degrees * M_PI) / 180)
+        }
+        else {
+            endAngle = startAngle
+        }
         
         // 5
         var path = UIBezierPath(arcCenter: center,
@@ -94,8 +104,5 @@ class ButtonView: UIButton {
         return newImage
     }
     
-    func calculateArcSize(){
-        //toDO
-    }
     
 }

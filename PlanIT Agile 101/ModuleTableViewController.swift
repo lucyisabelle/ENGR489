@@ -15,6 +15,7 @@ class ModuleTableViewController: UITableViewController {
     var modules = [Module]()
     var toPass:NSString!
     var moduleId = Int()
+    let progressTracker = ProgressTracker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,12 @@ class ModuleTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        //reload progress tracker just incase it didn't initialise correctly.
+        progressTracker.updateProgress()
+        
+        //load the modules in from the database.
         loadModules()
+        
     }
     
     func loadModules(){
@@ -100,7 +106,7 @@ class ModuleTableViewController: UITableViewController {
         let logo = UIImage(named: imageName)
         //trying to set image in stack view button
         cell.buttonView.moduleImage = logo
-        
+        cell.buttonView.percentageComplete = progressTracker.trackModule(module.moduleid)
         //if not current module, set text color to gray
         if (cell.NameLabel.text == "Agile Methods"){
             cell.NameLabel.textColor = UIColor.grayColor()
