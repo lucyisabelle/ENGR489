@@ -10,10 +10,27 @@ import UIKit
 
 class ProgressTracker {
     
+    var moduleProgress = [Int: Int]()
+    
+    init(){
+        //initialise the moduleProgress dictionary.
+        for module in 1...6 {
+            moduleProgress[module] = 0
+        }
+        
+        //run update progress for the first time. This will be called each time the app starts up, so it won't always be zero, apart from the very first time the app runs.
+        self.updateProgress()
+        
+    }
     
     //the trackModule function gets sent the module ID and returns an integer value representing the percentage of the module that is complete. Will be used for drawing the progress circle on the homepage and the progress bar on the section view.
     func trackModule(moduleId: Int) -> Int{
-     return 0
+        if moduleId > 0 && moduleId < 7 {
+            return Int(moduleProgress[moduleId]!)
+        }
+        else{
+            return 0
+        }
     }
     
     
@@ -40,7 +57,42 @@ class ProgressTracker {
             if agileDB.open() {
                 //here I need to query to progress table to check the latest progress. Maybe I could query for each module ID and have a map for each module id that maps to its progress. which would probably have to be calculated from the progress results.
                 //let querySQL = "SELECT moduleid, modulename FROM MODULES;"
-                
+                //run through each module and run an sql statement chec
+                for module in 1...6 {
+                    var sectionCount = 0.0
+                    var sectionCompleteCount = 0.0
+                    var percentageComplete = 0
+                    
+                    //figure out how many sections there are in each module
+                    var querySQL = "SELECT COUNT(sectionid) AS COUNT FROM sections WHERE moduleid = \(module);"
+                    var results:FMResultSet? = agileDB.executeQuery(querySQL,
+                                                                    withArgumentsInArray: nil)
+                    while results?.next() == true {
+                        //figure out how many sections there are.
+                        sectionCount = Double(results!.intForColumn("count"))
+                    }
+                    
+                    //check how many sections have been completed
+                    querySQL = "SELECT COUNT(sectionid) AS count FROM progress WHERE moduleid = \(module);"
+                    results = agileDB.executeQuery(querySQL, withArgumentsInArray: nil)
+                    while results?.next() == true {
+                        //figure out how many sections are completed.
+                        sectionCompleteCount = Double(results!.intForColumn("count"))
+                    }
+                    
+                    //calculate the percentage complete
+                    if (sectionCompleteCount != 0){
+                        percentageComplete = Int((sectionCompleteCount / sectionCount) * 100)
+                    }
+                    else {
+                        percentageComplete = 0
+                    }
+                    
+                    //store the updated percentage in the dictionary. 
+                    moduleProgress[module] = percentageComplete
+                    
+                    //converting to radians will be the responsibility of the button view class.
+                }
                 agileDB.close()
             } else {
                 print("Error: \(agileDB.lastErrorMessage())")

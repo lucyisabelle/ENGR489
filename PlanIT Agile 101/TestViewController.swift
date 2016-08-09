@@ -15,6 +15,7 @@ class TestViewController: UIViewController {
     @IBOutlet weak var BLabel: UIButton!
     @IBOutlet weak var CLabel: UIButton!
     @IBOutlet weak var DLabel: UIButton!
+    var answer: String?
 
   
     
@@ -23,7 +24,9 @@ class TestViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-    loadQuestions()
+        loadQuestions()
+        let progressTracker = ProgressTracker()
+        progressTracker.updateProgress()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +53,7 @@ class TestViewController: UIViewController {
             }
             
             if agileDB.open() {
+                //remember to update this so that the section ID isn't hardcoded.
                 let querySQL = "SELECT question, a, b, c, d, answer FROM test WHERE sectionid = 11;"
                 let results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                 withArgumentsInArray: nil)
@@ -62,6 +66,8 @@ class TestViewController: UIViewController {
                     BLabel.setTitle(results?.stringForColumn("b"), forState: .Normal)
                     CLabel.setTitle(results?.stringForColumn("c"), forState: .Normal)
                     DLabel.setTitle(results?.stringForColumn("d"), forState: .Normal)
+                    
+                    self.answer = results?.stringForColumn("answer")
                     
                 }
                 

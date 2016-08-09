@@ -94,4 +94,8 @@ class ButtonView: UIButton {
         return newImage
     }
     
+    func calculateArcSize(){
+        //toDO
+    }
+    
 }
