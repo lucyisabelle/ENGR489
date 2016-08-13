@@ -107,8 +107,9 @@ class ModuleTableViewController: UITableViewController {
         //trying to set image in stack view button
         cell.buttonView.moduleImage = logo
         cell.buttonView.percentageComplete = progressTracker.trackModule(module.moduleid)
-        //if not current module, set text color to gray
-        if (cell.NameLabel.text == "Agile Methods"){
+        
+        //if percentage complete is zero, gray it out.
+        if (progressTracker.trackModule(module.moduleid) == 0){
             cell.NameLabel.textColor = UIColor.grayColor()
         }
         //return cell

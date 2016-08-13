@@ -10,14 +10,16 @@ import UIKit
 
 class PageViewController: UIViewController {
     
-    @IBOutlet weak var textView: UITextView!
     var sectionId = Int()
     var page = Page()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView.text = "Hello"
+        //hard coding in section id for now, as it is causing thread issues
+        sectionId = 1
+        
+        //textView.text = "Hello"
         print("Section ID:")
         print(sectionId)
         page.sectionId = sectionId
@@ -81,10 +83,14 @@ class PageViewController: UIViewController {
     }
     
     func loadViews(){
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        var ylocation = 10
         for item in page.items{
-            let textView = UITextView(frame: self.view.frame)
+            let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
+            let textView = UITextView(frame: smallFrame)
             textView.text = item
             self.view.addSubview(textView)
+            ylocation = ylocation + 100
         }
     }
 

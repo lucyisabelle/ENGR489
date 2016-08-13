@@ -166,12 +166,12 @@ class SectionTableViewController: UITableViewController {
             let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! SectionTableViewCell!
         
             var sectionId = Int()
-            sectionId = currentCell.sectionId//sections[indexPath!.row].sectionid
+            sectionId = currentCell.sectionId   //sections[indexPath!.row].sectionid
             print("Section id within prepare for segue is...")
             print(sectionId)
             
         
-            nextController.sectionId = sectionId
+            //nextController.sectionId = sectionId
         }
         
         if sender === returnButton {
