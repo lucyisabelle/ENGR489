@@ -26,73 +26,79 @@ class Page: NSObject {
         var ylocation = 10
         //go through section order and load each item as a subview
         for item in itemids {
-            //first check that item type isn't image
-            if itemTypes[item]! != "image" {
-                //retrieve the item from the database
-                var text = self.retrieveText(item)
-                //use a switch statement to figure out how the text should be displayed
-                switch itemTypes[item]!{
-                    case  "bullet":
-                        //create a UI view that displays it as a bullet point
-                        let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
-                        let textView = UITextView(frame: smallFrame)
-                        textView.text = text
-                        textView.editable = false
-                        textView.sizeToFit()
-                        subViews.append(textView)
-                        ylocation = ylocation + 100
-                    
-                    case "heading":
-                        //create a UI view that displays it as a heading
-                        let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
-                        let textView = UITextView(frame: smallFrame)
-                        textView.text = text
-                        textView.editable = false
-                        textView.sizeToFit()
-                        subViews.append(textView)
-                        ylocation = ylocation + 100
-                    
-                    case "text":
-                        //create a UI view that displays it as a bullet point
-                        let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
-                        let textView = UITextView(frame: smallFrame)
-                        textView.text = text
-                        textView.editable = false
-                        textView.sizeToFit()
-                        subViews.append(textView)
-                        ylocation = ylocation + 100
-                    
-                    case "quote":
-                        //create a UI view that displays it as a bullet point
-                        let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
-                        let textView = UITextView(frame: smallFrame)
-                        textView.text = text
-                        textView.editable = false
-                        textView.sizeToFit()
-                        subViews.append(textView)
-                        ylocation = ylocation + 100
-                    
-                    case "info":
-                        //create a UI view that displays it as a bullet point
-                        let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
-                        let textView = UITextView(frame: smallFrame)
-                        textView.text = text
-                        textView.editable = false
-                        textView.sizeToFit()
-                        subViews.append(textView)
-                        ylocation = ylocation + 100
-                    
-                    default:
-                        //create a UI view that displays it as a bullet point
-                        let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
-                        let textView = UITextView(frame: smallFrame)
-                        textView.text = "DEFAULT"
-                        textView.editable = false
-                        textView.sizeToFit()
-                        subViews.append(textView)
-                        ylocation = ylocation + 100
-                }
+            //retrieve the item from the database
+            let text = self.retrieveText(item)
+            //use a switch statement to figure out how the text should be displayed
+            switch itemTypes[item]!{
+            case  "bullet":
+                //create a UI view that displays it as a bullet point
+                let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
+                let textView = UITextView(frame: smallFrame)
+                textView.text = text
+                textView.editable = false
+                textView.sizeToFit()
+                subViews.append(textView)
+                ylocation = ylocation + 100
                 
+            case "heading":
+                //create a UI view that displays it as a heading
+                let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
+                let textView = UITextView(frame: smallFrame)
+                textView.text = text
+                textView.editable = false
+                textView.sizeToFit()
+                subViews.append(textView)
+                ylocation = ylocation + 100
+                
+            case "text":
+                //create a UI view that displays it as a bullet point
+                let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
+                let textView = UITextView(frame: smallFrame)
+                textView.text = text
+                textView.editable = false
+                textView.sizeToFit()
+                subViews.append(textView)
+                ylocation = ylocation + 100
+                
+            case "quote":
+                //create a UI view that displays it as a bullet point
+                let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
+                let textView = UITextView(frame: smallFrame)
+                textView.text = text
+                textView.editable = false
+                textView.sizeToFit()
+                subViews.append(textView)
+                ylocation = ylocation + 100
+                
+            case "info":
+                //create a UI view that displays it as a bullet point
+                let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
+                let textView = UITextView(frame: smallFrame)
+                textView.text = text
+                textView.editable = false
+                textView.sizeToFit()
+                subViews.append(textView)
+                ylocation = ylocation + 100
+                
+            case "image":
+                //retrieve the image from the assets photo and load it as a UIImageView
+                let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
+                let textView = UITextView(frame: smallFrame)
+                textView.text = text
+                textView.editable = false
+                textView.sizeToFit()
+                subViews.append(textView)
+                ylocation = ylocation + 100
+                
+            default:
+                //create a UI view that displays it as a bullet point
+                let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
+                let textView = UITextView(frame: smallFrame)
+                textView.text = "DEFAULT"
+                textView.editable = false
+                textView.sizeToFit()
+                subViews.append(textView)
+                ylocation = ylocation + 100
             }
             //if it is, it has to get the item from the image table
             
