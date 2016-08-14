@@ -58,7 +58,7 @@ class PageViewController: UIViewController {
                     let type = String(results!.stringForColumn("type"))
                     page.itemTypes[itemid] = type
                     page.sectionOrder[itemid] = sectionorder
-
+                    page.itemids.append(itemid)
                 }
                 
                 agileDB.close()
@@ -70,7 +70,7 @@ class PageViewController: UIViewController {
     }
     
     func loadViews(){
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        /**let screenSize: CGRect = UIScreen.mainScreen().bounds
         var ylocation = 10
         for item in page.items{
             let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
@@ -79,7 +79,10 @@ class PageViewController: UIViewController {
             textView.editable = false
             textView.sizeToFit()
             self.view.addSubview(textView)
-            ylocation = ylocation + 100 //does this need to be reset to the size of the resized text view? 
+            ylocation = ylocation + 100 //does this need to be reset to the size of the resized text view? **/
+        page.createSubViews()
+        for view in page.subViews {
+            self.view.addSubview(view);
         }
     }
 
