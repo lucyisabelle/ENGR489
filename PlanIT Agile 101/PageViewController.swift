@@ -11,6 +11,7 @@ import UIKit
 class PageViewController: UIViewController {
     
     var sectionId = Int()
+    var moduleId = Int()
     var page = Page()
     
     override func viewDidLoad() {
@@ -18,9 +19,8 @@ class PageViewController: UIViewController {
 
         //hard coding in section id for now, as it is causing thread issues TODO: Fix this.
         print("this page view controller thinks it's sectionid is: \(sectionId)")
-        sectionId = 1
         page.sectionId = sectionId
-  
+        
         
         loadItems()
         loadViews()
@@ -50,7 +50,8 @@ class PageViewController: UIViewController {
             }
             
             if agileDB.open() {
-                let querySQL = "SELECT itemid, sectionorder, type FROM items WHERE sectionid = \(sectionId);"
+                let querySQL = "SELECT itemid, sectionorder, type FROM items WHERE sectionid = \(sectionId) AND moduleid = \(moduleId);"
+                print(querySQL)
                 let results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                 withArgumentsInArray: nil)
                 while results?.next() == true {

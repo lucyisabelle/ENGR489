@@ -172,6 +172,7 @@ class SectionTableViewController: UITableViewController {
             
         
             nextController.sectionId = sectionId
+            nextController.moduleId = moduleId
         }
         
         if sender === returnButton {

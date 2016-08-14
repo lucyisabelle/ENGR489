@@ -15,6 +15,7 @@ class Page: NSObject {
     var subViews = [UIView] ()
     var itemids = [Int]()
     
+    
     //dictionary that maps item id's to their type
     var itemTypes = [Int: String]()
     //dictionary that maps item id's to their ordering within the section 
