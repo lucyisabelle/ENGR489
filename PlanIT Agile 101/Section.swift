@@ -19,7 +19,6 @@ class Section: NSObject{
     // MARK: Initialization
     
     init?(sectionid: Int, sectionname: String) {
-        print("initialising section")
         //Initialise stored properties
         self.sectionid = sectionid
         self.sectionname = sectionname

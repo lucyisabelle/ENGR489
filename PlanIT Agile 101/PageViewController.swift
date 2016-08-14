@@ -16,17 +16,12 @@ class PageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //hard coding in section id for now, as it is causing thread issues
+        //hard coding in section id for now, as it is causing thread issues TODO: Fix this.
         sectionId = 1
-        
-        //textView.text = "Hello"
-        print("Section ID:")
-        print(sectionId)
         page.sectionId = sectionId
   
         
         loadItems()
-        //scrollView.addSubview(textView)
         loadViews()
         
     }
@@ -42,8 +37,6 @@ class PageViewController: UIViewController {
         let filemgr = NSFileManager.defaultManager()
         let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         
-        var itemIds = [Int]()
-        
         databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
         
         print(databasePath)
@@ -56,22 +49,16 @@ class PageViewController: UIViewController {
             }
             
             if agileDB.open() {
-                let querySQL = "SELECT itemid FROM items WHERE sectionid = \(sectionId);"
+                let querySQL = "SELECT itemid, sectionorder, type FROM items WHERE sectionid = \(sectionId);"
                 let results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                 withArgumentsInArray: nil)
                 while results?.next() == true {
-                    itemIds.append(Int(results!.intForColumn("itemid")))
-                }
-                
-                //page = Page(sectionId: sectionId)!
-                
-                for id in itemIds{
-                    let query2SQL = "SELECT itemid, item FROM text WHERE itemid = \(id);"
-                    let results2:FMResultSet? = agileDB.executeQuery(query2SQL, withArgumentsInArray: nil)
-                    
-                    while results2?.next() == true {
-                        page.items += [results2!.stringForColumn("item")]
-                    }
+                    let itemid = Int(results!.intForColumn("itemid"))
+                    let sectionorder = Int(results!.intForColumn("sectionorder"))
+                    let type = String(results!.stringForColumn("type"))
+                    page.itemTypes[itemid] = type
+                    page.sectionOrder[itemid] = sectionorder
+
                 }
                 
                 agileDB.close()
@@ -89,8 +76,10 @@ class PageViewController: UIViewController {
             let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
             let textView = UITextView(frame: smallFrame)
             textView.text = item
+            textView.editable = false
+            textView.sizeToFit()
             self.view.addSubview(textView)
-            ylocation = ylocation + 100
+            ylocation = ylocation + 100 //does this need to be reset to the size of the resized text view? 
         }
     }
 
