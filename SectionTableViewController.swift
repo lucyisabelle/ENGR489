@@ -171,7 +171,7 @@ class SectionTableViewController: UITableViewController {
             print(sectionId)
             
         
-            //nextController.sectionId = sectionId
+            nextController.sectionId = sectionId
         }
         
         if sender === returnButton {

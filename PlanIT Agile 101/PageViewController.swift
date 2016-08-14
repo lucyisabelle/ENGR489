@@ -17,6 +17,7 @@ class PageViewController: UIViewController {
         super.viewDidLoad()
 
         //hard coding in section id for now, as it is causing thread issues TODO: Fix this.
+        print("this page view controller thinks it's sectionid is: \(sectionId)")
         sectionId = 1
         page.sectionId = sectionId
   
