@@ -24,7 +24,7 @@ class Page: NSObject {
     //this class will create all the subviews and store them in an array that can be accessed by the view controller.
     func createSubViews(){
         let screenSize: CGRect = UIScreen.mainScreen().bounds
-        var ylocation = 10
+        var ylocation = 0
         //go through section order and load each item as a subview
         for item in itemids {
             //retrieve the item from the database
@@ -35,11 +35,25 @@ class Page: NSObject {
                 //create a UI view that displays it as a bullet point
                 let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
                 let textView = UITextView(frame: smallFrame)
-                textView.text = text
+                //create first text view to find out the size it should be.
+                textView.text = "• " + text
                 textView.editable = false
+                textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
                 textView.sizeToFit()
-                subViews.append(textView)
-                ylocation = ylocation + 100
+                let textheight = textView.contentSize.height
+                
+                //create second text view that's the correct size
+                let finalFrame = CGRect(x:0, y:ylocation, width: Int(screenSize.width), height: Int(textheight))
+                let textFinalView = UITextView(frame:finalFrame)
+                textFinalView.text = "• " + text
+                textFinalView.editable = false
+                textFinalView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+                
+                subViews.append(textFinalView)
+                ylocation = ylocation + Int(textheight) + 10
+                print(ylocation)
+                print (textheight)
+                
                 
             case "heading":
                 //create a UI view that displays it as a heading
@@ -57,9 +71,24 @@ class Page: NSObject {
                 let textView = UITextView(frame: smallFrame)
                 textView.text = text
                 textView.editable = false
+                textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
                 textView.sizeToFit()
-                subViews.append(textView)
-                ylocation = ylocation + 100
+                
+                let textheight = textView.contentSize.height
+                
+                //create second text view that's the correct size
+                let finalFrame = CGRect(x:0, y:ylocation, width: Int(screenSize.width), height: Int(textheight))
+                let textFinalView = UITextView(frame:finalFrame)
+                
+                //add text to the final view & set it's display properties
+                textFinalView.text = text
+                textFinalView.editable = false
+                
+                textFinalView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+                
+                //add the view to the subviews array.
+                subViews.append(textFinalView)
+                ylocation = ylocation + Int(textheight) + 10
                 
             case "quote":
                 //create a UI view that displays it as a bullet point

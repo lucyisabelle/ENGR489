@@ -250,11 +250,11 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionTableViewCell" rowHeight="90" id="ycj-Bt-ich" customClass="SectionTableViewCell" customModule="PlanIT_Agile_101" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ycj-Bt-ich" id="0MP-tF-uhN">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" tableViewCell="ycj-Bt-ich" id="0MP-tF-uhN">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="sMD-7y-teB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="sMD-7y-teB">
                                             <rect key="frame" x="15" y="8" width="463" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -263,6 +263,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="sMD-7y-teB" firstAttribute="leading" secondItem="0MP-tF-uhN" secondAttribute="leadingMargin" constant="5" id="C1c-wQ-KEo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sMD-7y-teB" secondAttribute="bottom" constant="5" id="UO7-d6-fez"/>
+                                        <constraint firstItem="sMD-7y-teB" firstAttribute="top" secondItem="0MP-tF-uhN" secondAttribute="topMargin" constant="5" id="oWf-8T-ptL"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="sMD-7y-teB" secondAttribute="trailing" constant="10" id="zWp-Ln-FuM"/>
                                     </constraints>
                                 </tableViewCellContentView>

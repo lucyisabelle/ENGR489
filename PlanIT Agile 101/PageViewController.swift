@@ -20,7 +20,7 @@ class PageViewController: UIViewController {
         //hard coding in section id for now, as it is causing thread issues TODO: Fix this.
         print("this page view controller thinks it's sectionid is: \(sectionId)")
         page.sectionId = sectionId
-        
+        self.view.backgroundColor = UIColor.whiteColor()
         
         loadItems()
         loadViews()
