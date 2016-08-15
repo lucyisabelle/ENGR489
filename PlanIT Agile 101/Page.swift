@@ -101,7 +101,6 @@ class Page: NSObject {
                 subViews.append(textView)
                 ylocation = ylocation + 100
             }
-            //if it is, it has to get the item from the image table
             
         }
     }
@@ -137,17 +136,5 @@ class Page: NSObject {
         }
         return returnedText
     }
- /**
- 
- //page = Page(sectionId: sectionId)!
- //TODO Move this stuff to the page class.
- for id in itemIds{
- let query2SQL = "SELECT itemid, item FROM text WHERE itemid = \(id);"
- let results2:FMResultSet? = agileDB.executeQuery(query2SQL, withArgumentsInArray: nil)
- 
- while results2?.next() == true {
- page.items += [results2!.stringForColumn("item")]
- }
- **/ 
  
 }

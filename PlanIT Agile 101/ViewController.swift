@@ -74,9 +74,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let navController = segue.destinationViewController as! UINavigationController
             let detailController = navController.topViewController as! ModuleTableViewController
             
-            
-            //var svc = segue!.destinationViewController as! ModuleTableViewController;
-            
             detailController.toPass = databasePath
             
         }

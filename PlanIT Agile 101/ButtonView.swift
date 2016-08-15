@@ -16,37 +16,30 @@ class ButtonView: UIButton {
     
     @IBInspectable var counter: Int = 5
     @IBInspectable var outlineColor: UIColor = UIColor.blueColor()
-    //TODO: change this to the correct PlanIT colours
     @IBInspectable var counterColor: UIColor = UIColor.blueColor()
-    //note this will be the button that tracks progress, it needs to be an arc
-    
-    
-    
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+
     override func drawRect(rect: CGRect) {
-        print("My progress is: \(percentageComplete) %")
+        //print("My progress is: \(percentageComplete) %")
         // Drawing code
         var path1 = UIBezierPath(ovalInRect: rect)
         UIColor.whiteColor().setFill()
         path1.fill()
-        // 1
+
         let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
-        
-        // 2
         let radius: CGFloat = max(bounds.width, bounds.height)
-        
-        // 3
         let arcWidth: CGFloat = 5
-        
-        // 4
-        let startAngle: CGFloat = 3 * π / 2 //original value: 3 * π / 4
-        var endAngle: CGFloat = π //original value: π / 4
+        let startAngle: CGFloat = 3 * π / 2
+        var endAngle: CGFloat = π
         //convert the percentage complete to degrees.
         if percentageComplete != 0 {
             var degrees = (Double(percentageComplete) / 100) * 360
+            degrees = (360/100) * Double(percentageComplete)
             //convert the degrees value to radians
-            endAngle = CGFloat((degrees * M_PI) / 180)
+            let endAngleDouble = Double(startAngle) + ((degrees * M_PI) / 180)
+            endAngle = CGFloat(endAngleDouble)
+            print("Percentage complete = \(percentageComplete)")
+            print("Degrees = \(degrees)")
+            print("endAngle = \(endAngle)")
         }
         else {
             endAngle = startAngle
