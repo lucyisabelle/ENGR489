@@ -11,7 +11,11 @@ import UIKit
 class TestViewController: UIViewController {
 
     @IBOutlet weak var InnerView: UIView!
-  
+    let sectionID = 1
+    let moduleID = 1
+    var chunks = [Int: String]()
+    var gaps = [Int: String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +52,26 @@ class TestViewController: UIViewController {
             
             if agileDB.open() {
                 //remember to update this so that the section ID isn't hardcoded.
-                let querySQL = "SELECT question, a, b, c, d, answer FROM test WHERE sectionid = 11;"
-                let results:FMResultSet? = agileDB.executeQuery(querySQL,
+                
+                //connect to the chunks table
+                //create dictionary of section order to chunk
+                var querySQL = "SELECT sectionorder, chunk FROM chunk WHERE moduleid = 1 AND sectionid = 1;"
+                var results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                 withArgumentsInArray: nil)
                 while results?.next() == true {
-                   
-                    
+                    let sectionOrder = Int(results!.intForColumn("sectionorder"))
+                    let chunk = results!.stringForColumn("chunk")
+                    chunks[sectionOrder] = chunk
+                }
+                //connect to gaps table
+                //create dictionary of section order to gap
+                querySQL = "SELECT sectionorder, gap FROM gap WHERE moduleid = 1 AND sectionid = 1;"
+                results = agileDB.executeQuery(querySQL, withArgumentsInArray: nil)
+                
+                while results?.next() == true {
+                    let sectionOrder = Int(results!.intForColumn("sectionorder"))
+                    let gap = results!.stringForColumn("gap")
+                    gaps[sectionOrder] = gap 
                 }
                 
                 
