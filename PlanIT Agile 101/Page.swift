@@ -62,8 +62,20 @@ class Page: NSObject {
                 textView.text = text
                 textView.editable = false
                 textView.sizeToFit()
-                subViews.append(textView)
-                ylocation = ylocation + 100
+                
+                textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+                textView.sizeToFit()
+                let textheight = textView.contentSize.height
+                
+                //create second text view that's the correct size
+                let finalFrame = CGRect(x:0, y:ylocation, width: Int(screenSize.width), height: Int(textheight))
+                let textFinalView = UITextView(frame:finalFrame)
+                textFinalView.text = "• " + text
+                textFinalView.editable = false
+                textFinalView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+                
+                subViews.append(textFinalView)
+                ylocation = ylocation + Int(textheight) + 10
                 
             case "text":
                 //create a UI view that displays it as a bullet point

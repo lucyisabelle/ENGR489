@@ -10,13 +10,7 @@ import UIKit
 
 class TestViewController: UIViewController {
 
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var ALabel: UIButton!
-    @IBOutlet weak var BLabel: UIButton!
-    @IBOutlet weak var CLabel: UIButton!
-    @IBOutlet weak var DLabel: UIButton!
-    var answer: String?
-
+    @IBOutlet weak var InnerView: UIView!
   
     
     override func viewDidLoad() {
@@ -58,16 +52,7 @@ class TestViewController: UIViewController {
                 let results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                 withArgumentsInArray: nil)
                 while results?.next() == true {
-                    questionLabel.text = results?.stringForColumn("question")
-                    ALabel.setTitle(results?.stringForColumn("a"), forState: .Normal)
-                    ALabel.titleLabel?.numberOfLines = 0
-                    ALabel.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-                    
-                    BLabel.setTitle(results?.stringForColumn("b"), forState: .Normal)
-                    CLabel.setTitle(results?.stringForColumn("c"), forState: .Normal)
-                    DLabel.setTitle(results?.stringForColumn("d"), forState: .Normal)
-                    
-                    self.answer = results?.stringForColumn("answer")
+                   
                     
                 }
                 
