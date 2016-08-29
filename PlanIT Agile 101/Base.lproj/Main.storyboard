@@ -368,9 +368,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sy7-4O-luV">
-                                <rect key="frame" x="-4" y="540" width="604" height="60"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <state key="normal" title="Check Answers"/>
+                                <rect key="frame" x="-4" y="527" width="604" height="73"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.81568627449999997" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Check Answers">
+                                    <color key="titleColor" red="0.96078431372549022" green="0.50588235294117645" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.97647058823529409" green="0.81568627450980391" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="dxS-Ic-OE6" kind="show" id="mlx-Bj-EZe"/>
                                 </connections>

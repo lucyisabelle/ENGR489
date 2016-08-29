@@ -57,14 +57,14 @@ class TestViewController: UIViewController {
     
     func textField(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
         print("making text field")
-        let textField = UITextField(frame: CGRectMake(x, y, width, height))
+        let textField = UITextField(frame: CGRectMake(x, y, screenSize.width, height))
         textField.textAlignment = NSTextAlignment.Center
         textField.textColor = UIColor.blueColor()
-        textField.borderStyle = UITextBorderStyle.Line
+        let myColor : UIColor = UIColor( red: 0, green: (108/255), blue: (169/255), alpha: 0.5 )
+        textField.backgroundColor = myColor
         textField.autocapitalizationType = UITextAutocapitalizationType.Words
         textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-        textField.text = text
-        
+        textField.placeholder = "Enter answer"
         textfields.append(textField)
     }
     
@@ -75,6 +75,7 @@ class TestViewController: UIViewController {
         //label.textAlignment = NSTextAlignment.Center
         label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         label.text = text
+        label.textAlignment = NSTextAlignment.Left
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
         label.numberOfLines = 0
         //self.view.addSubview(label)
@@ -98,7 +99,6 @@ class TestViewController: UIViewController {
         let finalY = yVal
         
         yVal = (yVal + Int(height))
-        
         
         return (CGFloat(xVal) ,CGFloat(finalY),width,height)
     }
