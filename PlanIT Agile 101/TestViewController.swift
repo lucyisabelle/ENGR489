@@ -10,6 +10,7 @@ import UIKit
 
 class TestViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     var test = Test()
@@ -75,20 +76,17 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         print("ending editing")
         textField.resignFirstResponder()
-        return true 
+        return true
     }
     
     func label(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
         print("making label")
         let label = UILabel(frame: CGRectMake(x, y, width, height))
-        //label.center = CGPointMake(160, 284)
-        //label.textAlignment = NSTextAlignment.Center
         label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         label.text = text
         label.textAlignment = NSTextAlignment.Left
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
         label.numberOfLines = 0
-        //self.view.addSubview(label)
         labels.append(label)
     }
     
@@ -116,10 +114,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     func addToScreen(){
         for label in 0...labels.count-1{
             self.containerView.addSubview(labels[label])
-            print("Adding labels")
             if (label != labels.count-1){
-                print(textfields.count)
-                print(label)
                 self.containerView.addSubview(textfields[label])
                 
             }
@@ -132,6 +127,46 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         self.scrollView.contentSize.width = screenSize.width
     }
     
+    @IBAction func checkAnswers(sender: AnyObject) {
+        if answerButton.currentTitle == "Check answers" {
+            for textfield in textfields {
+                let index = textfields.indexOf(textfield)!+1
+                let enteredAnswer = String(textfield.text!).lowercaseString
+                if enteredAnswer ==  "" {
+                    print("No answer entered")
+                    //tell the question tracker that the answer was false, so no progress is added
+                    test.questionsAnswered[index] = false
+                }
+                else{
+                    //evaluate answer
+                    print("Entered answer= \(enteredAnswer)")
+                    let correctAnswer = String(test.gaps[index]!).lowercaseString
+                    print("Correct answer = \(correctAnswer)")
+                    if enteredAnswer == correctAnswer {
+                        textfield.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.5 )
+                        test.questionsAnswered[index] = true
+                    }
+                    else {
+                        textfield.backgroundColor = UIColor( red: (182/255), green: (18/255), blue: (26/255), alpha: 0.5 )
+                        test.questionsAnswered[index] = false
+                    }
+                }
+                test.updateProgress()
+            }
+            answerButton.setTitle("Reset questions", forState: UIControlState.Normal)
+        }
+        else {
+            for textfield in textfields {
+                let index = textfields.indexOf(textfield)!+1
+                if (test.questionsAnswered[index] == false) {
+                    textfield.text = ""
+                    textfield.placeholder = "Enter answer"
+                    textfield.backgroundColor = UIColor(red: 0, green: (108/255), blue: (169/255), alpha: 0.5)
+                }
+            }
+            answerButton.setTitle("Check answers", forState: UIControlState.Normal)
+        }
+    }
 
     /*
     // MARK: - Navigation

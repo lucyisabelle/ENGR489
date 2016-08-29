@@ -14,6 +14,7 @@ class Test {
     let moduleID = 1
     var chunks = [Int: String]()
     var gaps = [Int: String]()
+    var questionsAnswered = [Int:Bool]()
     
     func loadQuestions(){
         var databasePath = NSString()
@@ -59,6 +60,41 @@ class Test {
                 
                 
                 agileDB.close()
+            } else {
+                print("Error: \(agileDB.lastErrorMessage())")
+            }
+        }
+    }
+    
+    func updateProgress(){
+        var databasePath = NSString()
+        
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        
+        
+        databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
+        
+        print(databasePath)
+        
+        if filemgr.fileExistsAtPath(databasePath as String) {
+            let agileDB = FMDatabase(path: databasePath as String)
+            
+            if agileDB == nil {
+                print("Error: \(agileDB.lastErrorMessage())")
+            }
+            
+            if agileDB.open() {
+                var gapsComplete = 0
+                let totalGaps = gaps.keys.count
+                for (gap, answer) in questionsAnswered {
+                    if answer == true {
+                        gapsComplete += 1
+                    }
+                }
+                let statementSQL = "UPDATE progress SET gapsComplete = \(gapsComplete), totalGaps = \(totalGaps) WHERE sectionid = \(sectionID) AND moduleid = \(moduleID)"
+                agileDB.executeUpdate(statementSQL, withArgumentsInArray: nil)
+            
             } else {
                 print("Error: \(agileDB.lastErrorMessage())")
             }

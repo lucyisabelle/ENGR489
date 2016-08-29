@@ -371,12 +371,12 @@
                                 <rect key="frame" x="-4" y="527" width="604" height="73"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.81568627449999997" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Check Answers">
+                                <state key="normal" title="Check answers">
                                     <color key="titleColor" red="0.96078431372549022" green="0.50588235294117645" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.97647058823529409" green="0.81568627450980391" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dxS-Ic-OE6" kind="show" id="mlx-Bj-EZe"/>
+                                    <action selector="checkAnswers:" destination="ArR-eM-FgI" eventType="touchUpInside" id="Vax-lc-uZd"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VbZ-94-ac7">
@@ -407,6 +407,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerButton" destination="sy7-4O-luV" id="ZKa-xr-FHD"/>
                         <outlet property="containerView" destination="BKi-r0-C7Z" id="Vfs-Qt-em9"/>
                         <outlet property="scrollView" destination="VbZ-94-ac7" id="2Cs-ld-CIl"/>
                     </connections>
@@ -414,24 +415,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Dl-JF-W2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="348" y="1965"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="OaK-y5-zjg">
-            <objects>
-                <viewController id="dxS-Ic-OE6" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7Yw-8a-ufi"/>
-                        <viewControllerLayoutGuide type="bottom" id="9z9-Uq-A9u"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9uP-kh-ULs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U9l-Ps-mo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1182" y="1995"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uqs-Uc-duu">

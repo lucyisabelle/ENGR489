@@ -73,16 +73,20 @@ class ProgressTracker {
                     }
                     
                     //check how many sections have been completed
-                    querySQL = "SELECT COUNT(sectionid) AS count FROM progress WHERE moduleid = \(module);"
+                    querySQL = "SELECT gapsComplete, totalGaps FROM progress WHERE moduleid = \(module);"
                     results = agileDB.executeQuery(querySQL, withArgumentsInArray: nil)
+                    var gapsComplete = 0
+                    var totalGaps = 0
                     while results?.next() == true {
                         //figure out how many sections are completed.
                         sectionCompleteCount = Double(results!.intForColumn("count"))
+                        gapsComplete += Int(results!.intForColumn("gapsComplete"))
+                        totalGaps += Int(results!.intForColumn(("totalGaps")))
                     }
                     
                     //calculate the percentage complete
                     if (sectionCompleteCount != 0){
-                        percentageComplete = Int((sectionCompleteCount / sectionCount) * 100)
+                        percentageComplete = Int((gapsComplete / totalGaps) * 100)
                     }
                     else {
                         percentageComplete = 0
