@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestViewController: UIViewController {
+class TestViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
@@ -28,6 +28,9 @@ class TestViewController: UIViewController {
         loadViews()
         addToScreen()
         //TODO: Update progress tracker
+        for textfield in textfields {
+            textfield.delegate = self
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +69,13 @@ class TestViewController: UIViewController {
         textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         textField.placeholder = "Enter answer"
         textfields.append(textField)
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        print("ending editing")
+        textField.resignFirstResponder()
+        return true 
     }
     
     func label(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
