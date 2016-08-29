@@ -10,17 +10,20 @@ import UIKit
 
 class TestViewController: UIViewController {
 
-    @IBOutlet weak var InnerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     var test = Test()
     let screenSize: CGRect = UIScreen.mainScreen().bounds
     var xVal = 0
     var yVal = 0
     var textfields = [UITextField]()
     var labels = [UILabel]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         test.loadQuestions()
         loadViews()
         addToScreen()
@@ -102,13 +105,21 @@ class TestViewController: UIViewController {
     
     func addToScreen(){
         for label in 0...labels.count-1{
-            self.view.addSubview(labels[label])
+            self.containerView.addSubview(labels[label])
+            print("Adding labels")
             if (label != labels.count-1){
                 print(textfields.count)
                 print(label)
-                self.view.addSubview(textfields[label])
+                self.containerView.addSubview(textfields[label])
+                
             }
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.scrollView.contentSize.height = 1000
+        self.scrollView.contentSize.width = screenSize.width
     }
     
 
