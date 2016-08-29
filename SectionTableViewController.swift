@@ -175,6 +175,24 @@ class SectionTableViewController: UITableViewController {
             nextController.moduleId = moduleId
         }
         
+        if (segue.identifier == "testSegue"){
+            var nextController = segue.destinationViewController as! TestViewController
+            
+            let indexPath = tableView.indexPathForSelectedRow;
+            let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! SectionTableViewCell!
+            
+            var sectionId = Int()
+            sectionId = currentCell.sectionId   //sections[indexPath!.row].sectionid
+            print("Section id within prepare for segue is...")
+            print(sectionId)
+            
+            
+            //nextController.sectionId = sectionId
+            nextController.test.sectionID = sectionId
+            //nextController.moduleId = moduleId
+            nextController.test.moduleID = moduleId
+        }
+        
         if sender === returnButton {
             print("returnbutton clicked")
         }

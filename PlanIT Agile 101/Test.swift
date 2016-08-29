@@ -10,8 +10,8 @@ import UIKit
 
 class Test {
     
-    let sectionID = 1
-    let moduleID = 1
+    var sectionID = 1
+    var moduleID = 1
     var chunks = [Int: String]()
     var gaps = [Int: String]()
     var questionsAnswered = [Int:Bool]()
