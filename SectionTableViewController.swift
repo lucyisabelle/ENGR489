@@ -15,16 +15,19 @@ class SectionTableViewController: UITableViewController {
     @IBOutlet weak var returnButton: UIBarButtonItem!
     var sections = [Section]()
     var moduleId = Int()
+    var sectionName = String()
+    var moduleName = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = String(moduleId)
+        //self.navigationItem.title = String(moduleId)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         loadSections()
+        self.navigationItem.title = String(moduleName)
         
     }
     
@@ -37,11 +40,11 @@ class SectionTableViewController: UITableViewController {
         
         databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
         
-        print(databasePath)
+        //print(databasePath)
         
         
         if filemgr.fileExistsAtPath(databasePath as String) {
-            print("Got into filemanager stage")
+            //print("Got into filemanager stage")
             let agileDB = FMDatabase(path: databasePath as String)
             
             if agileDB == nil {
@@ -49,15 +52,16 @@ class SectionTableViewController: UITableViewController {
             }
             
             if agileDB.open() {
-                print("Got to open loop")
+                //print("Got to open loop")
                 let querySQL = "SELECT sectionname, sectionid, moduleid FROM SECTIONS WHERE moduleid = \(moduleId);" //TODO: WHERE moduleid = moduleid
                 let results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                 withArgumentsInArray: nil)
                 while results?.next() == true {
-                    print("Got into results loop")
-                    print(results!.stringForColumn("sectionname"))
-                    print(results!.intForColumn("sectionid"))
-                    print(results!.intForColumn("moduleid"))
+                   // print("Got into results loop")
+                    //print(results!.stringForColumn("sectionname"))
+                   // print(results!.intForColumn("sectionid"))
+                   // print(results!.intForColumn("moduleid"))
+                    sectionName = String(results!.stringForColumn("sectionname")!)
                     let section = Section(sectionid: Int(results!.intForColumn("sectionid")), sectionname: results!.stringForColumn("sectionname"))!
                     sections += [section]
                     
@@ -70,7 +74,7 @@ class SectionTableViewController: UITableViewController {
         }
         
         
-        print("loading sections")
+        //print("loading sections")
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,8 +171,8 @@ class SectionTableViewController: UITableViewController {
         
             var sectionId = Int()
             sectionId = currentCell.sectionId   //sections[indexPath!.row].sectionid
-            print("Section id within prepare for segue is...")
-            print(sectionId)
+            //print("Section id within prepare for segue is...")
+            //print(sectionId)
             
         
             nextController.sectionId = sectionId
@@ -183,18 +187,15 @@ class SectionTableViewController: UITableViewController {
             
             var sectionId = Int()
             sectionId = currentCell.sectionId   //sections[indexPath!.row].sectionid
-            print("Section id within prepare for segue is...")
-            print(sectionId)
+            //print("Section id within prepare for segue is...")
+            //print(sectionId)
             
-            
-            //nextController.sectionId = sectionId
             nextController.test.sectionID = sectionId
-            //nextController.moduleId = moduleId
             nextController.test.moduleID = moduleId
         }
         
         if sender === returnButton {
-            print("returnbutton clicked")
+            //print("returnbutton clicked")
         }
         
         /*if (segue.identifier == "goToMainMenu"){

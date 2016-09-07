@@ -44,7 +44,7 @@ class ModuleTableViewController: UITableViewController {
         
         databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
         
-        print(databasePath)
+        //print(databasePath)
         
         
         if filemgr.fileExistsAtPath(databasePath as String) {
@@ -71,7 +71,6 @@ class ModuleTableViewController: UITableViewController {
         }
 
         
-        print("loading modules")
         
     }
 
@@ -105,7 +104,8 @@ class ModuleTableViewController: UITableViewController {
         let imageName = "module_" + String(module.moduleid)
         let logo = UIImage(named: imageName)
         //trying to set image in stack view button
-        cell.buttonView.moduleImage = logo
+        //cell.imageView?.image = logo
+        cell.buttonView.moduleImage = logo//ResizeImage(logo!, targetSize: CGSize(width: 10,height: 10))
         cell.buttonView.percentageComplete = progressTracker.trackModule(module.moduleid)
         
         //if percentage complete is zero, gray it out.
@@ -181,8 +181,8 @@ class ModuleTableViewController: UITableViewController {
             let detailController = navController.topViewController as! SectionTableViewController
             
             moduleId = currentCell.IdLabel
-            print(moduleId)
-            
+            //print(moduleId)
+            detailController.moduleName = currentCell.NameLabel.text!
             detailController.moduleId = moduleId
         }
         else if (segue.identifier == "FinalTestSegue"){
@@ -192,6 +192,32 @@ class ModuleTableViewController: UITableViewController {
 
     @IBAction func unwindToMainMenu(segue: UIStoryboardSegue){
         
+    }
+    
+    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        } else {
+            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 
 }

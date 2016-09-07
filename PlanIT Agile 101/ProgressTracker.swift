@@ -60,7 +60,7 @@ class ProgressTracker {
                 //run through each module and run an sql statement chec
                 for module in 1...6 {
                     var sectionCount = 0.0
-                    var sectionCompleteCount = 0.0
+                    //var sectionCompleteCount = 0.0
                     var percentageComplete = 0
                     
                     //figure out how many sections there are in each module
@@ -79,14 +79,16 @@ class ProgressTracker {
                     var totalGaps = 0
                     while results?.next() == true {
                         //figure out how many sections are completed.
-                        sectionCompleteCount = Double(results!.intForColumn("count"))
+                        //sectionCompleteCount = //Double(results!.intForColumn("count"))
                         gapsComplete += Int(results!.intForColumn("gapsComplete"))
                         totalGaps += Int(results!.intForColumn(("totalGaps")))
                     }
                     
                     //calculate the percentage complete
-                    if (sectionCompleteCount != 0){
-                        percentageComplete = Int((gapsComplete / totalGaps) * 100)
+                    if (gapsComplete != 0){
+                        let percentage = Double(Double(gapsComplete)/Double(totalGaps))
+                        percentageComplete = Int(percentage * 100)
+                        print("percentage = \(percentage) percentage complete = \(percentageComplete) gapsComplete = \(gapsComplete) totalGaps = \(totalGaps)")
                     }
                     else {
                         percentageComplete = 0

@@ -17,6 +17,7 @@ class ModuleTableViewCell: UITableViewCell {
     @IBOutlet weak var buttonView: ButtonView!
     var imageName : String!
 
+      
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -65,7 +65,7 @@ class ButtonView: UIButton {
         //first need to resize the image
         //var resizedImage = self.ResizeImage(moduleImage!, targetSize: CGSizeMake(20.0, 20.0))
         self.setBackgroundImage(moduleImage, forState: UIControlState.Normal)
-
+        //self.ResizeImage(moduleImage!, targetSize: CGSizeMake(10,10));
         
     }
     

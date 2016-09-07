@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D2BAE3F1D7FE25A00BCC246 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BAE3E1D7FE25A00BCC246 /* ProgressView.swift */; };
 		8D3240721CED7CEB004CA04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240711CED7CEB004CA04E /* AppDelegate.swift */; };
 		8D3240741CED7CEB004CA04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3240731CED7CEB004CA04E /* ViewController.swift */; };
 		8D3240771CED7CEB004CA04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D3240751CED7CEB004CA04E /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D2BAE3E1D7FE25A00BCC246 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		8D32406E1CED7CEB004CA04E /* PlanIT Agile 101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlanIT Agile 101.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3240711CED7CEB004CA04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D3240731CED7CEB004CA04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				8D3240751CED7CEB004CA04E /* Main.storyboard */,
 				8D99BAB91D7254FE000C8C4B /* Test.swift */,
 				8D37F7BC1D45B70C0000B382 /* ButtonView.swift */,
+				8D2BAE3E1D7FE25A00BCC246 /* ProgressView.swift */,
 				8D3A1DDE1D2B854000A26D66 /* TestViewController.swift */,
 				8D3A1DDA1D2249BE00A26D66 /* PageViewController.swift */,
 				8D3A1DDC1D225DAD00A26D66 /* Page.swift */,
@@ -280,6 +283,7 @@
 				8DEC34881D07CA95003CB572 /* Module.swift in Sources */,
 				8D37F7BD1D45B70C0000B382 /* ButtonView.swift in Sources */,
 				8D3240C01CF003AB004CA04E /* FMDatabase.m in Sources */,
+				8D2BAE3F1D7FE25A00BCC246 /* ProgressView.swift in Sources */,
 				8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */,
 				8DEC34911D12770F003CB572 /* Section.swift in Sources */,
 				8D3240C11CF003AB004CA04E /* FMResultSet.m in Sources */,

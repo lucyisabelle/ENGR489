@@ -45,12 +45,12 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         for chunk in 1...count {
             if (test.chunks[chunk]! != "newline"){
                 var dimensions: (CGFloat, CGFloat, CGFloat, CGFloat) = calcDimensions(test.chunks[chunk]!)
-                print(dimensions)
+                //print(dimensions)
                 label(dimensions.0, y: dimensions.1, width: dimensions.2, height: dimensions.3, text: test.chunks[chunk]!)
             //else insert text field
                 if (chunk != count){
                     dimensions = calcDimensions(test.gaps[gapCount]!)
-                    print(dimensions)
+                    //print(dimensions)
                     textField(dimensions.0, y: dimensions.1, width: dimensions.2, height: dimensions.3, text: test.gaps[gapCount]!)
                     gapCount = gapCount + 1
                 }
@@ -60,7 +60,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
-        print("making text field")
+        //print("making text field")
         let textField = UITextField(frame: CGRectMake(x, y, screenSize.width, height))
         textField.textAlignment = NSTextAlignment.Center
         textField.textColor = UIColor.blueColor()
@@ -74,13 +74,13 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print("ending editing")
+        //print("ending editing")
         textField.resignFirstResponder()
         return true
     }
     
     func label(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
-        print("making label")
+        //print("making label")
         let label = UILabel(frame: CGRectMake(x, y, width, height))
         label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         label.text = text
@@ -91,7 +91,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func calcDimensions(text: String) -> (x: CGFloat, y:CGFloat, width: CGFloat, height: CGFloat){
-        print("calculating dimensions")
+        //print("calculating dimensions")
         //create a UI view and resize to see the amount of space this text will take up
         let smallFrame = CGRect(x: 0, y: 0, width: Int(screenSize.width), height: Int(screenSize.height))
         
