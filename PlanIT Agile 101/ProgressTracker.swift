@@ -34,6 +34,49 @@ class ProgressTracker {
     }
     
     
+    //connects to the progress table in the database and figures out the percentage complete of the given section
+    func trackSection(sectionId: Int, moduleId: Int) -> Double {
+        //connect to the database
+        var databasePath = NSString()
+        
+        var percentageComplete = 0.0
+        
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        
+        databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
+        
+        
+        if filemgr.fileExistsAtPath(databasePath as String) {
+            let agileDB = FMDatabase(path: databasePath as String)
+            
+            if agileDB == nil {
+                print("Error: \(agileDB.lastErrorMessage())")
+            }
+            if agileDB.open(){
+            
+                let querySQL = "SELECT gapsComplete, totalGaps FROM progress WHERE moduleid = \(moduleId) AND sectionid = \(sectionId)"
+                let results:FMResultSet? = agileDB.executeQuery(querySQL,
+                                                                withArgumentsInArray: nil)
+                while results?.next() == true {
+                    let complete = Double(results!.intForColumn("gapsComplete"))
+                    let total = Double(results!.intForColumn("totalGaps"))
+                    percentageComplete = (complete/total)*100
+                }
+                agileDB.close()
+            }else {
+                print("Error: \(agileDB.lastErrorMessage())")
+                return 0
+            }
+        }
+            
+        return percentageComplete
+        
+    }
+    
+    
+    
+    
     //connects to the database and updates the latest stats on progress. Remember only ever tracking progress within a module, not combined modules. Returns true if it successfully connected to the database, false otherwise.
     func updateProgress() -> Bool{
         

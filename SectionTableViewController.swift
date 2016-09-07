@@ -18,6 +18,8 @@ class SectionTableViewController: UITableViewController {
     var sectionName = String()
     var moduleName = String()
     
+    var progressTracker = ProgressTracker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.navigationItem.title = String(moduleId)
@@ -103,7 +105,8 @@ class SectionTableViewController: UITableViewController {
         let section = sections[indexPath.row]
         cell.sectionId = sections[indexPath.row].sectionid
         cell.SectionNameLabel.text = String(section.sectionname)
-
+        cell.progressView.percentageComplete = progressTracker.trackSection(sections[indexPath.row].sectionid, moduleId: moduleId)
+        
         return cell
     }
     

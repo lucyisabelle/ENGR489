@@ -199,6 +199,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="SectionNameLabel" destination="sMD-7y-teB" id="Clm-4E-a9f"/>
+                                    <outlet property="progressView" destination="eah-6u-A7y" id="AhQ-Ki-ZQ9"/>
                                     <segue destination="ArR-eM-FgI" kind="show" identifier="testSegue" id="lJK-OP-2HV"/>
                                 </connections>
                             </tableViewCell>

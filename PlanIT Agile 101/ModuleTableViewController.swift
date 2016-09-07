@@ -184,6 +184,7 @@ class ModuleTableViewController: UITableViewController {
             //print(moduleId)
             detailController.moduleName = currentCell.NameLabel.text!
             detailController.moduleId = moduleId
+            detailController.progressTracker = progressTracker
         }
         else if (segue.identifier == "FinalTestSegue"){
             let detailController = navController.topViewController as! TestViewController
