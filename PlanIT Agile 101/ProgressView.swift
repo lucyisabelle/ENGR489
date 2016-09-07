@@ -13,7 +13,8 @@ class ProgressView: UIView {
     var percentageComplete = 60.0
     
     override func drawRect(rect: CGRect) {
-        UIColor.blueColor().setFill()
+        UIColor( red: 0, green: (108/255), blue: (169/255), alpha: CGFloat(percentageComplete/100) ).setFill()
+        //UIColor.blueColor().setFill()
         let canvas = UIGraphicsGetCurrentContext()
         let width = (Double(bounds.width)/100) * percentageComplete
         print("width = \(width)")
