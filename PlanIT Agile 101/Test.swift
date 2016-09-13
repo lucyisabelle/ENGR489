@@ -39,7 +39,7 @@ class Test {
                 
                 //connect to the chunks table
                 //create dictionary of section order to chunk
-                var querySQL = "SELECT sectionorder, chunk FROM chunk WHERE moduleid = 1 AND sectionid = 1;"
+                var querySQL = "SELECT sectionorder, chunk FROM chunk WHERE moduleid = \(moduleID) AND sectionid = \(sectionID);"
                 var results:FMResultSet? = agileDB.executeQuery(querySQL,
                                                                 withArgumentsInArray: nil)
                 while results?.next() == true {

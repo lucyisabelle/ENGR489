@@ -81,7 +81,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     
     func label(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
         //print("making label")
-        let label = UILabel(frame: CGRectMake(x, y, width, height))
+        let label = UILabel(frame: CGRectMake(x+5, y, width-10, height))
         label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         label.text = text
         label.textAlignment = NSTextAlignment.Left

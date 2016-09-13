@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="3515" y="3457"/>
         </scene>
-        <!--Select View Controller-->
+        <!--View Controller-->
         <scene sceneID="odc-Xk-ys7">
             <objects>
-                <viewController storyboardIdentifier="SelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lcM-re-aI0" customClass="SelectViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lcM-re-aI0" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5WI-bW-liM"/>
                         <viewControllerLayoutGuide type="bottom" id="ZRf-u0-3Om"/>
