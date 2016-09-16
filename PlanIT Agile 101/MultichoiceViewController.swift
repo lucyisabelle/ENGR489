@@ -10,6 +10,16 @@ import UIKit
 
 class MultichoiceViewController: UIViewController {
 
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var buttonA: UIButton!
+    @IBOutlet weak var buttonB: UIButton!
+    @IBOutlet weak var buttonC: UIButton!
+    @IBOutlet weak var buttonD: UIButton!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
