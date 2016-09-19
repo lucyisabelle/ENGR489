@@ -257,12 +257,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDy-OR-TKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3515" y="3457"/>
+            <point key="canvasLocation" x="3997" y="3457"/>
         </scene>
-        <!--View Controller-->
+        <!--Select View Controller-->
         <scene sceneID="odc-Xk-ys7">
             <objects>
-                <viewController storyboardIdentifier="SelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lcM-re-aI0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lcM-re-aI0" customClass="SelectViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5WI-bW-liM"/>
                         <viewControllerLayoutGuide type="bottom" id="ZRf-u0-3Om"/>
@@ -270,12 +270,49 @@
                     <view key="view" contentMode="scaleToFill" id="rlF-sH-iPq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.19635937324995301" green="1" blue="0.11562399262389389" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NR-jB-GKg">
+                                <rect key="frame" x="0.0" y="544" width="600" height="56"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1X-ox-8WP">
+                                <rect key="frame" x="95" y="90" width="410" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kb-pn-b1d">
+                                <rect key="frame" x="95" y="236" width="410" height="55"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw2-aT-cUD">
+                                <rect key="frame" x="95" y="344" width="410" height="55"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Kb-pn-b1d" secondAttribute="trailing" constant="75" id="2Py-sg-XUL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2NR-jB-GKg" secondAttribute="trailing" constant="-20" id="6dw-a7-kGC"/>
+                            <constraint firstItem="2NR-jB-GKg" firstAttribute="leading" secondItem="rlF-sH-iPq" secondAttribute="leadingMargin" constant="-20" id="7JQ-hL-n76"/>
+                            <constraint firstItem="5Kb-pn-b1d" firstAttribute="top" secondItem="r1X-ox-8WP" secondAttribute="bottom" constant="10" id="9ct-tB-rAe"/>
+                            <constraint firstItem="Mw2-aT-cUD" firstAttribute="leading" secondItem="rlF-sH-iPq" secondAttribute="leadingMargin" constant="75" id="Grb-AL-2CB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mw2-aT-cUD" secondAttribute="trailing" constant="75" id="QnN-7W-Vxt"/>
+                            <constraint firstItem="5Kb-pn-b1d" firstAttribute="leading" secondItem="rlF-sH-iPq" secondAttribute="leadingMargin" constant="75" id="XJU-Fu-MFf"/>
+                            <constraint firstItem="r1X-ox-8WP" firstAttribute="leading" secondItem="rlF-sH-iPq" secondAttribute="leadingMargin" constant="75" id="Z08-ng-Pyt"/>
+                            <constraint firstItem="5Kb-pn-b1d" firstAttribute="width" secondItem="r1X-ox-8WP" secondAttribute="width" id="ZME-gh-tQV"/>
+                            <constraint firstItem="5Kb-pn-b1d" firstAttribute="height" secondItem="r1X-ox-8WP" secondAttribute="height" id="aEv-ig-Sng"/>
+                            <constraint firstItem="Mw2-aT-cUD" firstAttribute="height" secondItem="r1X-ox-8WP" secondAttribute="height" id="fGh-J2-q9Z"/>
+                            <constraint firstItem="Mw2-aT-cUD" firstAttribute="width" secondItem="r1X-ox-8WP" secondAttribute="width" id="gWH-Bg-9L9"/>
+                            <constraint firstItem="ZRf-u0-3Om" firstAttribute="top" secondItem="2NR-jB-GKg" secondAttribute="bottom" id="h7D-NF-Sg5"/>
+                            <constraint firstItem="Mw2-aT-cUD" firstAttribute="top" secondItem="5Kb-pn-b1d" secondAttribute="bottom" constant="10" id="qCO-TI-JRM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r1X-ox-8WP" secondAttribute="trailing" constant="75" id="wQ1-4R-AbD"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoH-Sl-Amk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4303" y="3445"/>
+            <point key="canvasLocation" x="3299" y="3457"/>
         </scene>
         <!--Multichoice View Controller-->
         <scene sceneID="IOb-Ro-BnE">
