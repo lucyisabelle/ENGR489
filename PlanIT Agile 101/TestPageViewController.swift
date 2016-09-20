@@ -9,12 +9,62 @@
 import UIKit
 
 class TestPageViewController: UIPageViewController {
+    
+    //TODO: Set this so it isn't hardcoded
+    var moduleid = 1
 
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order
-        return [self.newColoredViewController("Multichoice"),
+        //create the array of questions
+        var moduletest = ModuleTest()
+        moduletest.loadViews(self.moduleid)
+        var viewControllers = [UIViewController]()
+        //limiting questions to 10
+        for index in 1...10 {
+            var questionObject = moduletest.getQuestion(index)
+            print("\(questionObject.optionA) and \(questionObject.multichoice)")
+            if questionObject.multichoice {
+                print("Creating multichoice question")
+                var a = questionObject.optionA
+                var b = questionObject.optionB
+                var c = questionObject.optionC
+                var d = questionObject.optionD
+                var answer = questionObject.answer
+                
+                var viewController = self.newColoredViewController("Multichoice") as! MultichoiceViewController
+                //var viewController = MultichoiceViewController()
+                print(a)
+                viewController.buttonA?.setTitle(a, forState: UIControlState.Normal)
+                viewController.buttonB?.setTitle(b, forState: UIControlState.Normal)
+                viewController.buttonC?.setTitle(c, forState: UIControlState.Normal)
+                viewController.buttonD?.setTitle(d, forState: UIControlState.Normal)
+                viewController.questionLabel?.text = answer
+                print(index)
+                //viewControllers[index-1] = viewController
+                viewControllers.append(viewController)
+            }
+                //else its not a multichoice question, and therefore a true/false or 2 value question
+            else {
+                print("Creating truefalse question index = \(index)")
+                var a = questionObject.optionA
+                var b = questionObject.optionB
+                var answer = questionObject.answer
+                
+                //var viewController = SelectViewController()
+                var viewController = self.newColoredViewController("Select") as! SelectViewController 
+                viewController.buttonA?.setTitle(a, forState: UIControlState.Normal)
+                viewController.buttonB?.setTitle(b, forState: UIControlState.Normal)
+                viewController.questionLabel?.text = answer
+                //viewControllers[index] = viewController
+                viewControllers.append(viewController)
+                
+            }
+        }
+        
+       /* return [self.newColoredViewController("Multichoice"),
                 self.newColoredViewController("Match"),
-                self.newColoredViewController("Select")]
+                self.newColoredViewController("Select")]*/
+        return viewControllers
     }()
     
     override func viewDidLoad() {
@@ -36,6 +86,10 @@ class TestPageViewController: UIPageViewController {
             instantiateViewControllerWithIdentifier("\(title)ViewController")
             //instantiateViewControllerWith
     }
+    
+    /*private func newMultiViewController() -> MultichoiceViewController {
+        return MultichoiceViewController(UIStoryboard(name: "Main", bundle: nil) . instantiateViewControllerWithIdentifier("MultichoiceViewController"))!
+    }*/
     
 }
     // MARK: UIPageViewControllerDataSource

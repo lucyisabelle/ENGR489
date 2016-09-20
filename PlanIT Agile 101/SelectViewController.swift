@@ -10,6 +10,11 @@ import UIKit
 
 class SelectViewController: UIViewController {
 
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var buttonA: UIButton!
+    @IBOutlet weak var buttonB: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

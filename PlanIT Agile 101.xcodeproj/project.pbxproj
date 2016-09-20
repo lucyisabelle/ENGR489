@@ -29,6 +29,7 @@
 		8D3A1DDD1D225DAD00A26D66 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3A1DDC1D225DAD00A26D66 /* Page.swift */; };
 		8D3A1DDF1D2B854100A26D66 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3A1DDE1D2B854000A26D66 /* TestViewController.swift */; };
 		8D4D00F81D8FB6EA00C34902 /* ModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D00F71D8FB6EA00C34902 /* ModuleTest.swift */; };
+		8D4D00FA1D8FC71300C34902 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D00F91D8FC71300C34902 /* Question.swift */; };
 		8D5EBACF1D572328006AD3C7 /* ProgressTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5EBACE1D572328006AD3C7 /* ProgressTracker.swift */; };
 		8D99BABA1D7254FE000C8C4B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99BAB91D7254FE000C8C4B /* Test.swift */; };
 		8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */; };
@@ -84,6 +85,7 @@
 		8D3A1DDC1D225DAD00A26D66 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		8D3A1DDE1D2B854000A26D66 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		8D4D00F71D8FB6EA00C34902 /* ModuleTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTest.swift; sourceTree = "<group>"; };
+		8D4D00F91D8FC71300C34902 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		8D5EBACE1D572328006AD3C7 /* ProgressTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressTracker.swift; sourceTree = "<group>"; };
 		8D99BAB91D7254FE000C8C4B /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewCell.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				8D2BAE401D86745600BCC246 /* TestPageViewController.swift */,
 				8D99BAB91D7254FE000C8C4B /* Test.swift */,
 				8D4D00F71D8FB6EA00C34902 /* ModuleTest.swift */,
+				8D4D00F91D8FC71300C34902 /* Question.swift */,
 				8D37F7BC1D45B70C0000B382 /* ButtonView.swift */,
 				8D2BAE3E1D7FE25A00BCC246 /* ProgressView.swift */,
 				8D3A1DDE1D2B854000A26D66 /* TestViewController.swift */,
@@ -308,6 +311,7 @@
 				8D3240C41CF003AB004CA04E /* FMDatabasePool.m in Sources */,
 				8D3240C31CF003AB004CA04E /* FMDatabaseAdditions.m in Sources */,
 				8DEC348F1D12760E003CB572 /* SectionTableViewController.swift in Sources */,
+				8D4D00FA1D8FC71300C34902 /* Question.swift in Sources */,
 				8D99BABA1D7254FE000C8C4B /* Test.swift in Sources */,
 				8D3240C21CF003AB004CA04E /* FMDatabaseQueue.m in Sources */,
 				8D3A1DDB1D2249BE00A26D66 /* PageViewController.swift in Sources */,
