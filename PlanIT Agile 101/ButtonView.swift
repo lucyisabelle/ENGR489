@@ -21,6 +21,7 @@ class ButtonView: UIButton {
     override func drawRect(rect: CGRect) {
         //print("My progress is: \(percentageComplete) %")
         // Drawing code
+        self.setBackgroundImage(moduleImage, forState: UIControlState.Normal)
         var path1 = UIBezierPath(ovalInRect: rect)
         UIColor.whiteColor().setFill()
         path1.fill()
@@ -64,7 +65,7 @@ class ButtonView: UIButton {
         
         //first need to resize the image
         //var resizedImage = self.ResizeImage(moduleImage!, targetSize: CGSizeMake(20.0, 20.0))
-        self.setBackgroundImage(moduleImage, forState: UIControlState.Normal)
+        
         //self.ResizeImage(moduleImage!, targetSize: CGSizeMake(10,10));
         
     }

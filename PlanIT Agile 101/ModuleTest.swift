@@ -18,7 +18,7 @@ class ModuleTest {
         return questions[index]
     }
     
-    func loadViews(moduleid: Int) {
+    func loadViews(moduleid: Int)  {
         var databasePath = NSString()
         
         let filemgr = NSFileManager.defaultManager()
@@ -80,6 +80,8 @@ class ModuleTest {
             } else {
                 print("Error: \(agileDB.lastErrorMessage())")
             }
+            
+            //var viewController = MultichoiceViewController
         }
     }
 }

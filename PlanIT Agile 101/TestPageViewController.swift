@@ -31,14 +31,14 @@ class TestPageViewController: UIPageViewController {
                 var d = questionObject.optionD
                 var answer = questionObject.answer
                 
-                var viewController = self.newColoredViewController("Multichoice") as! MultichoiceViewController
-                //var viewController = MultichoiceViewController()
+                var viewController = self.newMultiViewController()
                 print(a)
-                viewController.buttonA?.setTitle(a, forState: UIControlState.Normal)
-                viewController.buttonB?.setTitle(b, forState: UIControlState.Normal)
-                viewController.buttonC?.setTitle(c, forState: UIControlState.Normal)
-                viewController.buttonD?.setTitle(d, forState: UIControlState.Normal)
-                viewController.questionLabel?.text = answer
+
+                //viewController.buttonA.setTitle(a, forState: UIControlState.Normal)
+                //viewController.buttonB?.setTitle(b, forState: UIControlState.Normal)
+                //viewController.buttonC?.setTitle(c, forState: UIControlState.Normal)
+                //viewController.buttonD?.setTitle(d, forState: UIControlState.Normal)
+                //viewController.questionLabel?.text = answer
                 print(index)
                 //viewControllers[index-1] = viewController
                 viewControllers.append(viewController)
@@ -78,6 +78,13 @@ class TestPageViewController: UIPageViewController {
                                direction: .Forward,
                                animated: true,
                                completion: nil)
+            for viewController in 0...orderedViewControllers.count-1 {
+                //var viewie = orderedViewControllers[viewController]
+                if let viewie = orderedViewControllers[viewController] as? MultichoiceViewController {
+                    print("It's a multiview \(viewController)")
+                    viewie.setValues("a", b: "b", c: "c", d: "d", question: "q")
+                }
+            }
         }
     }
     
@@ -87,9 +94,14 @@ class TestPageViewController: UIPageViewController {
             //instantiateViewControllerWith
     }
     
-    /*private func newMultiViewController() -> MultichoiceViewController {
-        return MultichoiceViewController(UIStoryboard(name: "Main", bundle: nil) . instantiateViewControllerWithIdentifier("MultichoiceViewController"))!
-    }*/
+    private func newMultiViewController() -> MultichoiceViewController {
+        let viewController = UIStoryboard(name : "Main", bundle: nil).instantiateViewControllerWithIdentifier("MultichoiceViewController") as! MultichoiceViewController
+        //viewController.test()
+        //viewController.buttonA.setTitle("Yo", forState: UIControlState.Normal)
+        return viewController
+        
+    }
+     
     
 }
     // MARK: UIPageViewControllerDataSource
