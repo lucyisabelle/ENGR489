@@ -44,6 +44,33 @@ class SelectViewController: UIViewController {
         questionLabel.text = question
     }
     
+    @IBAction func aPressed(sender: UIButton) {
+        if buttonA.currentTitle == answer {
+            buttonA.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
+        }
+        else {
+            buttonA.backgroundColor = UIColor( red: (182/255), green: (18/255), blue: (26/255), alpha: 0.75 )
+        }
+        nextPage()
+    }
+    
+    @IBAction func bPressed(sender: UIButton) {
+        if buttonB.currentTitle == answer {
+            buttonB.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
+        }
+        else {
+            buttonB.backgroundColor = UIColor( red: (182/255), green: (18/255), blue: (26/255), alpha: 0.75 )
+        }
+        nextPage()
+    }
+
+    @IBAction func nextButton(sender: UIButton) {
+        nextPage()
+    }
+    
+    func nextPage(){
+        print("next page")
+    }
 
     /*
     // MARK: - Navigation
