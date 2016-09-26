@@ -73,16 +73,22 @@ class TestPageViewController: UIPageViewController {
         // Do any additional setup after loading the view.
         dataSource = self
         
+        let moduletest = ModuleTest()
+        moduletest.loadViews(self.moduleid)
+        
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
                                direction: .Forward,
                                animated: true,
                                completion: nil)
-            for viewController in 0...orderedViewControllers.count-1 {
-                //var viewie = orderedViewControllers[viewController]
-                if let viewie = orderedViewControllers[viewController] as? MultichoiceViewController {
-                    print("It's a multiview \(viewController)")
-                    viewie.setValues("a", b: "b", c: "c", d: "d", question: "q")
+            for count in 0...orderedViewControllers.count-1 {
+                if let viewController = orderedViewControllers[count] as? MultichoiceViewController {
+                    let questionObject = moduletest.getQuestion(count+1)
+                    viewController.setValues(questionObject)
+                }
+                else if let viewController = orderedViewControllers[count] as? SelectViewController {
+                    let questionObject = moduletest.getQuestion(count+1)
+                    viewController.setValues(questionObject)
                 }
             }
         }
@@ -91,15 +97,17 @@ class TestPageViewController: UIPageViewController {
     private func newColoredViewController(title: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil) .
             instantiateViewControllerWithIdentifier("\(title)ViewController")
-            //instantiateViewControllerWith
     }
     
     private func newMultiViewController() -> MultichoiceViewController {
         let viewController = UIStoryboard(name : "Main", bundle: nil).instantiateViewControllerWithIdentifier("MultichoiceViewController") as! MultichoiceViewController
-        //viewController.test()
-        //viewController.buttonA.setTitle("Yo", forState: UIControlState.Normal)
         return viewController
         
+    }
+    
+    private func newSelectViewController() -> SelectViewController {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SelectViewController") as! SelectViewController
+        return viewController
     }
      
     

@@ -48,12 +48,12 @@ class MultichoiceViewController: UIViewController {
         //buttonA.setTitle("Test", forState: UIControlState.Normal)
     }
     
-    func setValues(a : String, b : String, c : String, d : String, question : String){
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-        self.question = question
+    func setValues(question: Question){
+        self.a = question.optionA
+        self.b = question.optionB
+        self.c = question.optionC
+        self.d = question.optionD
+        self.question = question.answer
     }
     
     func setLabels(){

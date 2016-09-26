@@ -14,16 +14,32 @@ class SelectViewController: UIViewController {
     @IBOutlet weak var buttonA: UIButton!
     @IBOutlet weak var buttonB: UIButton!
     
+    var a = String()
+    var b = String()
+    var question = String()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setLabels()
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setValues(question: Question){
+        self.a = question.optionA
+        self.b = question.optionB
+        self.question = question.answer
+    }
+    
+    func setLabels(){
+        buttonA.setTitle(a, forState: UIControlState.Normal)
+        buttonB.setTitle(b, forState: UIControlState.Normal)
+        questionLabel.text = question
     }
     
 
