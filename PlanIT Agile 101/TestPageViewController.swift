@@ -24,38 +24,13 @@ class TestPageViewController: UIPageViewController {
             var questionObject = moduletest.getQuestion(index)
             print("\(questionObject.optionA) and \(questionObject.multichoice)")
             if questionObject.multichoice {
-                print("Creating multichoice question")
-                var a = questionObject.optionA
-                var b = questionObject.optionB
-                var c = questionObject.optionC
-                var d = questionObject.optionD
-                var answer = questionObject.answer
                 
                 var viewController = self.newMultiViewController()
-                print(a)
-
-                //viewController.buttonA.setTitle(a, forState: UIControlState.Normal)
-                //viewController.buttonB?.setTitle(b, forState: UIControlState.Normal)
-                //viewController.buttonC?.setTitle(c, forState: UIControlState.Normal)
-                //viewController.buttonD?.setTitle(d, forState: UIControlState.Normal)
-                //viewController.questionLabel?.text = answer
-                print(index)
-                //viewControllers[index-1] = viewController
                 viewControllers.append(viewController)
             }
                 //else its not a multichoice question, and therefore a true/false or 2 value question
             else {
-                print("Creating truefalse question index = \(index)")
-                var a = questionObject.optionA
-                var b = questionObject.optionB
-                var answer = questionObject.answer
-                
-                //var viewController = SelectViewController()
-                var viewController = self.newColoredViewController("Select") as! SelectViewController 
-                viewController.buttonA?.setTitle(a, forState: UIControlState.Normal)
-                viewController.buttonB?.setTitle(b, forState: UIControlState.Normal)
-                viewController.questionLabel?.text = answer
-                //viewControllers[index] = viewController
+                var viewController = self.newSelectViewController()
                 viewControllers.append(viewController)
                 
             }
