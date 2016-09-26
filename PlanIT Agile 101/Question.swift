@@ -16,13 +16,15 @@ class Question {
     var optionC : String
     var optionD : String
     var answer: String
+    var questionString : String
     
-    init(multichoice: Bool, a : String, b : String, c : String, d : String, answer : String) {
+    init(multichoice: Bool, a : String, b : String, c : String, d : String, answer : String, questionString : String) {
         self.multichoice = multichoice
         self.optionA = a
         self.optionB = b
         self.optionC = c
         self.optionD = d
         self.answer = answer
+        self.questionString = questionString
     }
 }

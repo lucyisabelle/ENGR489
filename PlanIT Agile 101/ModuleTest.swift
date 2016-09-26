@@ -24,7 +24,7 @@ class ModuleTest {
         let filemgr = NSFileManager.defaultManager()
         let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         for number in 0...10 {
-            var questionTest = Question(multichoice: false, a: "test", b: "test", c: "test", d: "test", answer: "test")
+            let questionTest = Question(multichoice: false, a: "test", b: "test", c: "test", d: "test", answer: "test", questionString: "test")
             questions.insert(questionTest, atIndex: number)
         }
         databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
@@ -41,7 +41,7 @@ class ModuleTest {
             if agileDB.open(){
                 //connect to the database and grab all the questions
                 //first connect to multi table
-                var querySQL = "SELECT a, b, c, d, answer, questionorder FROM multi WHERE moduleid = \(moduleid)"
+                var querySQL = "SELECT a, b, c, d, answer, questionorder, question FROM multi WHERE moduleid = \(moduleid)"
                 var results = agileDB.executeQuery(querySQL, withArgumentsInArray: nil)
                 
                 //store all the values for each question
@@ -52,8 +52,9 @@ class ModuleTest {
                     let d = results!.stringForColumn("d")
                     let answer = results!.stringForColumn("answer")
                     let questionorder = Int(results!.intForColumn("questionorder"))
+                    let questionString = results!.stringForColumn("question")
                     
-                    let question = Question(multichoice: true, a: a, b: b, c: c, d: d, answer: answer)
+                    let question = Question(multichoice: true, a: a, b: b, c: c, d: d, answer: answer, questionString: questionString)
                     print("question order = \(questionorder)")
                     questions[questionorder] = question
                     //questions.insert(question, atIndex: questionorder)
@@ -61,7 +62,7 @@ class ModuleTest {
                 
                 
                 //then connect to truefalse table
-                querySQL = "SELECT a,b,answer,questionorder FROM truefalse WHERE moduleid = \(moduleid)"
+                querySQL = "SELECT a,b,answer,questionorder, question FROM truefalse WHERE moduleid = \(moduleid)"
                 results = agileDB.executeQuery(querySQL, withArgumentsInArray: nil)
                 
                 //create view controllers for each question
@@ -70,8 +71,9 @@ class ModuleTest {
                     let b = results!.stringForColumn("b")
                     let answer = results!.stringForColumn("answer")
                     let questionorder = Int(results!.intForColumn("questionorder"))
+                    let questionString = results!.stringForColumn("question")
                     
-                    let question = Question(multichoice: false, a : a, b: b, c: "", d: "", answer: answer)
+                    let question = Question(multichoice: false, a : a, b: b, c: "", d: "", answer: answer, questionString: questionString)
                     
                     questions[questionorder] = question 
                 }

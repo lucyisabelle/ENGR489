@@ -17,6 +17,7 @@ class SelectViewController: UIViewController {
     var a = String()
     var b = String()
     var question = String()
+    var answer = String()
     
     
     override func viewDidLoad() {
@@ -33,7 +34,8 @@ class SelectViewController: UIViewController {
     func setValues(question: Question){
         self.a = question.optionA
         self.b = question.optionB
-        self.question = question.answer
+        self.question = question.questionString
+        self.answer = question.answer
     }
     
     func setLabels(){

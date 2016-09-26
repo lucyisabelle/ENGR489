@@ -21,6 +21,7 @@ class MultichoiceViewController: UIViewController {
     var c = String()
     var d = String()
     var question = String()
+    var answer = String()
     
     var moduleid = 0
     
@@ -53,7 +54,8 @@ class MultichoiceViewController: UIViewController {
         self.b = question.optionB
         self.c = question.optionC
         self.d = question.optionD
-        self.question = question.answer
+        self.question = question.questionString
+        self.answer = question.answer
     }
     
     func setLabels(){
