@@ -30,7 +30,7 @@ class MultichoiceViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        buttonA.setTitle("hello", forState: UIControlState.Normal)
+        buttonA.setTitle("hello", for: UIControlState())
         setLabels()
 
     }
@@ -41,7 +41,7 @@ class MultichoiceViewController: UIViewController {
     }
     
     static func initiate() -> MultichoiceViewController {
-        return UIStoryboard(name : "Main", bundle: nil).instantiateViewControllerWithIdentifier("MultichoiceViewController") as! MultichoiceViewController
+        return UIStoryboard(name : "Main", bundle: nil).instantiateViewController(withIdentifier: "MultichoiceViewController") as! MultichoiceViewController
     }
     
     func test() {
@@ -49,7 +49,7 @@ class MultichoiceViewController: UIViewController {
         //buttonA.setTitle("Test", forState: UIControlState.Normal)
     }
     
-    func setValues(question: Question){
+    func setValues(_ question: Question){
         self.a = question.optionA
         self.b = question.optionB
         self.c = question.optionC
@@ -59,19 +59,19 @@ class MultichoiceViewController: UIViewController {
     }
     
     func setLabels(){
-        buttonA.setTitle(a, forState: UIControlState.Normal)
-        buttonB.setTitle(b, forState: UIControlState.Normal)
-        buttonC.setTitle(c, forState: UIControlState.Normal)
-        buttonD.setTitle(d, forState: UIControlState.Normal)
+        buttonA.setTitle(a, for: UIControlState())
+        buttonB.setTitle(b, for: UIControlState())
+        buttonC.setTitle(c, for: UIControlState())
+        buttonD.setTitle(d, for: UIControlState())
         questionLabel.text = question
     }
     
-    @IBAction func nextButton(sender: UIButton) {
+    @IBAction func nextButton(_ sender: UIButton) {
         print("Next button pressed")
         nextPage()
     }
 
-    @IBAction func aPressed(sender: UIButton) {
+    @IBAction func aPressed(_ sender: UIButton) {
         if buttonA.currentTitle == answer {
             buttonA.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
         }
@@ -81,7 +81,7 @@ class MultichoiceViewController: UIViewController {
         nextPage()
     }
     
-    @IBAction func bPressed(sender: UIButton) {
+    @IBAction func bPressed(_ sender: UIButton) {
         if buttonB.currentTitle == answer {
             buttonB.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
         }
@@ -91,7 +91,7 @@ class MultichoiceViewController: UIViewController {
         nextPage()
     }
     
-    @IBAction func cPressed(sender: UIButton) {
+    @IBAction func cPressed(_ sender: UIButton) {
         if buttonC.currentTitle == answer {
             buttonC.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
         }
@@ -101,7 +101,7 @@ class MultichoiceViewController: UIViewController {
         nextPage()
     }
     
-    @IBAction func dPressed(sender: UIButton) {
+    @IBAction func dPressed(_ sender: UIButton) {
         if buttonD.currentTitle == answer {
             buttonD.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
         }

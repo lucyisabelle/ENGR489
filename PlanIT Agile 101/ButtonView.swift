@@ -15,15 +15,15 @@ class ButtonView: UIButton {
     var moduleImage = UIImage(named: "module_1")
     
     @IBInspectable var counter: Int = 5
-    @IBInspectable var outlineColor: UIColor = UIColor.blueColor()
-    @IBInspectable var counterColor: UIColor = UIColor.blueColor()
+    @IBInspectable var outlineColor: UIColor = UIColor.blue
+    @IBInspectable var counterColor: UIColor = UIColor.blue
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         //print("My progress is: \(percentageComplete) %")
         // Drawing code
-        self.setBackgroundImage(moduleImage, forState: UIControlState.Normal)
-        var path1 = UIBezierPath(ovalInRect: rect)
-        UIColor.whiteColor().setFill()
+        self.setBackgroundImage(moduleImage, for: UIControlState())
+        let path1 = UIBezierPath(ovalIn: rect)
+        UIColor.white.setFill()
         path1.fill()
 
         let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
@@ -47,7 +47,7 @@ class ButtonView: UIButton {
         }
         
         // 5
-        var path = UIBezierPath(arcCenter: center,
+        let path = UIBezierPath(arcCenter: center,
                                 radius: radius/2 - arcWidth/2,
                                 startAngle: startAngle,
                                 endAngle: endAngle,

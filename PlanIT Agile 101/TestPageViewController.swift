@@ -13,7 +13,7 @@ class TestPageViewController: UIPageViewController {
     //TODO: Set this so it isn't hardcoded
     var moduleid = 1
 
-    private(set) lazy var orderedViewControllers: [UIViewController] = {
+    fileprivate(set) lazy var orderedViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order
         //create the array of questions
         var moduletest = ModuleTest()
@@ -65,25 +65,25 @@ class TestPageViewController: UIPageViewController {
                 }
             }
             setViewControllers([firstViewController],
-                               direction: .Forward,
+                               direction: .forward,
                                animated: true,
                                completion: nil)
         }
     }
     
-    private func newColoredViewController(title: String) -> UIViewController {
+    fileprivate func newColoredViewController(_ title: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil) .
-            instantiateViewControllerWithIdentifier("\(title)ViewController")
+            instantiateViewController(withIdentifier: "\(title)ViewController")
     }
     
-    private func newMultiViewController() -> MultichoiceViewController {
-        let viewController = UIStoryboard(name : "Main", bundle: nil).instantiateViewControllerWithIdentifier("MultichoiceViewController") as! MultichoiceViewController
+    fileprivate func newMultiViewController() -> MultichoiceViewController {
+        let viewController = UIStoryboard(name : "Main", bundle: nil).instantiateViewController(withIdentifier: "MultichoiceViewController") as! MultichoiceViewController
         return viewController
         
     }
     
-    private func newSelectViewController() -> SelectViewController {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SelectViewController") as! SelectViewController
+    fileprivate func newSelectViewController() -> SelectViewController {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
         return viewController
     }
      
@@ -93,9 +93,9 @@ class TestPageViewController: UIPageViewController {
     
     extension TestPageViewController: UIPageViewControllerDataSource {
         
-        func pageViewController(pageViewController: UIPageViewController,
-                                viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-            guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+        func pageViewController(_ pageViewController: UIPageViewController,
+                                viewControllerBefore viewController: UIViewController) -> UIViewController? {
+            guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
                 return nil
             }
             
@@ -114,9 +114,9 @@ class TestPageViewController: UIPageViewController {
             return orderedViewControllers[previousIndex]
         }
         
-        func pageViewController(pageViewController: UIPageViewController,
-                                viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-            guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+        func pageViewController(_ pageViewController: UIPageViewController,
+                                viewControllerAfter viewController: UIViewController) -> UIViewController? {
+            guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
                 return nil
             }
             
@@ -136,13 +136,13 @@ class TestPageViewController: UIPageViewController {
             return orderedViewControllers[nextIndex]
         }
         
-        func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        func presentationCount(for pageViewController: UIPageViewController) -> Int {
             return orderedViewControllers.count
         }
         
-        func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        func presentationIndex(for pageViewController: UIPageViewController) -> Int {
             guard let firstViewController = viewControllers?.first,
-                firstViewControllerIndex = orderedViewControllers.indexOf(firstViewController) else {
+                let firstViewControllerIndex = orderedViewControllers.index(of: firstViewController) else {
                     return 0
             }
             

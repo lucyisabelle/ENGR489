@@ -31,7 +31,7 @@ class SelectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setValues(question: Question){
+    func setValues(_ question: Question){
         self.a = question.optionA
         self.b = question.optionB
         self.question = question.questionString
@@ -39,12 +39,12 @@ class SelectViewController: UIViewController {
     }
     
     func setLabels(){
-        buttonA.setTitle(a, forState: UIControlState.Normal)
-        buttonB.setTitle(b, forState: UIControlState.Normal)
+        buttonA.setTitle(a, for: UIControlState())
+        buttonB.setTitle(b, for: UIControlState())
         questionLabel.text = question
     }
     
-    @IBAction func aPressed(sender: UIButton) {
+    @IBAction func aPressed(_ sender: UIButton) {
         if buttonA.currentTitle == answer {
             buttonA.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
         }
@@ -54,7 +54,7 @@ class SelectViewController: UIViewController {
         nextPage()
     }
     
-    @IBAction func bPressed(sender: UIButton) {
+    @IBAction func bPressed(_ sender: UIButton) {
         if buttonB.currentTitle == answer {
             buttonB.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
         }
@@ -64,7 +64,7 @@ class SelectViewController: UIViewController {
         nextPage()
     }
 
-    @IBAction func nextButton(sender: UIButton) {
+    @IBAction func nextButton(_ sender: UIButton) {
         nextPage()
     }
     

@@ -37,41 +37,41 @@ class SectionTableViewController: UITableViewController {
         
         var databasePath = NSString()
         
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let filemgr = FileManager.default
+        let dirPaths = filemgr.urls(for: .documentDirectory, in: .userDomainMask)
         
-        databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
+        databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
         
         //print(databasePath)
         
         
-        if filemgr.fileExistsAtPath(databasePath as String) {
+        if filemgr.fileExists(atPath: databasePath as String) {
             //print("Got into filemanager stage")
             let agileDB = FMDatabase(path: databasePath as String)
             
             if agileDB == nil {
-                print("Error: \(agileDB.lastErrorMessage())")
+                print("Error: \(agileDB?.lastErrorMessage())")
             }
             
-            if agileDB.open() {
+            if (agileDB?.open())! {
                 //print("Got to open loop")
                 let querySQL = "SELECT sectionname, sectionid, moduleid FROM SECTIONS WHERE moduleid = \(moduleId);" //TODO: WHERE moduleid = moduleid
-                let results:FMResultSet? = agileDB.executeQuery(querySQL,
-                                                                withArgumentsInArray: nil)
+                let results:FMResultSet? = agileDB?.executeQuery(querySQL,
+                                                                withArgumentsIn: nil)
                 while results?.next() == true {
                    // print("Got into results loop")
                     //print(results!.stringForColumn("sectionname"))
                    // print(results!.intForColumn("sectionid"))
                    // print(results!.intForColumn("moduleid"))
-                    sectionName = String(results!.stringForColumn("sectionname")!)
-                    let section = Section(sectionid: Int(results!.intForColumn("sectionid")), sectionname: results!.stringForColumn("sectionname"))!
+                    sectionName = String(results!.string(forColumn: "sectionname")!)
+                    let section = Section(sectionid: Int(results!.int(forColumn: "sectionid")), sectionname: results!.string(forColumn: "sectionname"))!
                     sections += [section]
                     
                 }
                 
-                agileDB.close()
+                agileDB?.close()
             } else {
-                print("Error: \(agileDB.lastErrorMessage())")
+                print("Error: \(agileDB?.lastErrorMessage())")
             }
         }
         
@@ -86,26 +86,26 @@ class SectionTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections.count 
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "SectionTableViewCell"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SectionTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SectionTableViewCell
 
         // Configure the cell...
         
-        let section = sections[indexPath.row]
-        cell.sectionId = sections[indexPath.row].sectionid
+        let section = sections[(indexPath as NSIndexPath).row]
+        cell.sectionId = sections[(indexPath as NSIndexPath).row].sectionid
         cell.SectionNameLabel.text = String(section.sectionname)
-        cell.progressView.percentageComplete = progressTracker.trackSection(sections[indexPath.row].sectionid, moduleId: moduleId)
+        cell.progressView.percentageComplete = progressTracker.trackSection(sections[(indexPath as NSIndexPath).row].sectionid, moduleId: moduleId)
         
         return cell
     }
@@ -156,7 +156,7 @@ class SectionTableViewController: UITableViewController {
     // MARK: - Navigation
 */
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
@@ -167,13 +167,13 @@ class SectionTableViewController: UITableViewController {
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! SectionTableViewCell!*/
         
         if (segue.identifier == "PageSegue") {
-            var nextController = segue.destinationViewController as! PageViewController
+            var nextController = segue.destination as! PageViewController
             
             let indexPath = tableView.indexPathForSelectedRow;
-            let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! SectionTableViewCell!
+            let currentCell = tableView.cellForRow(at: indexPath!) as! SectionTableViewCell!
         
             var sectionId = Int()
-            sectionId = currentCell.sectionId   //sections[indexPath!.row].sectionid
+            sectionId = (currentCell?.sectionId)!   //sections[indexPath!.row].sectionid
             //print("Section id within prepare for segue is...")
             //print(sectionId)
             
@@ -183,13 +183,13 @@ class SectionTableViewController: UITableViewController {
         }
         
         if (segue.identifier == "testSegue"){
-            var nextController = segue.destinationViewController as! TestViewController
+            var nextController = segue.destination as! TestViewController
             
             let indexPath = tableView.indexPathForSelectedRow;
-            let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! SectionTableViewCell!
+            let currentCell = tableView.cellForRow(at: indexPath!) as! SectionTableViewCell!
             
             var sectionId = Int()
-            sectionId = currentCell.sectionId   //sections[indexPath!.row].sectionid
+            sectionId = (currentCell?.sectionId)!   //sections[indexPath!.row].sectionid
             //print("Section id within prepare for segue is...")
             //print(sectionId)
             
@@ -197,9 +197,7 @@ class SectionTableViewController: UITableViewController {
             nextController.test.moduleID = moduleId
         }
         
-        if sender === returnButton {
-            //print("returnbutton clicked")
-        }
+
         
         /*if (segue.identifier == "goToMainMenu"){
             self.performSegueWithIdentifier("goToMainMenu", sender: self)

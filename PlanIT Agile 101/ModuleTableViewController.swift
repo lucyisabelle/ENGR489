@@ -19,8 +19,8 @@ class ModuleTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        tableView.separatorColor = UIColor.blackColor()
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+        tableView.separatorColor = UIColor.black
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,34 +39,50 @@ class ModuleTableViewController: UITableViewController {
         
         var databasePath = NSString()
         
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let filemgr = FileManager.default
+        let dirPaths = filemgr.urls(for: .documentDirectory, in: .userDomainMask)
+        print ("Dir path: \(dirPaths)")
+        let bundlePath = Bundle.main.path(forResource: "agileDB", ofType: "db")
+        let destPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         
-        databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
+        let fullDestPath = NSURL(fileURLWithPath: destPath).appendingPathComponent("agileDB.db")
+        let fullDestPathString = fullDestPath!.path
+        print(filemgr.fileExists(atPath: bundlePath!)) // prints true
+        
+        do{
+            try filemgr.copyItem(atPath: bundlePath!, toPath: fullDestPathString)
+            print("worked")
+        }catch{
+            print("\n")
+            print(error)
+        }
+        
+        
+        databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
 
         //print(databasePath)
         
         
-        if filemgr.fileExistsAtPath(databasePath as String) {
+        if filemgr.fileExists(atPath: databasePath as String) {
             let agileDB = FMDatabase(path: databasePath as String)
             
             if agileDB == nil {
-                print("Error: \(agileDB.lastErrorMessage())")
+                print("Error: \(agileDB?.lastErrorMessage())")
             }
             
-            if agileDB.open() {
+            if (agileDB?.open())! {
                 let querySQL = "SELECT moduleid, modulename FROM MODULES;"
-                let results:FMResultSet? = agileDB.executeQuery(querySQL,
-                                                                  withArgumentsInArray: nil)
+                let results:FMResultSet? = agileDB?.executeQuery(querySQL,
+                                                                  withArgumentsIn: nil)
                 while results?.next() == true {
-                    let module = Module(moduleid: Int(results!.intForColumn("moduleid")), modulename: results!.stringForColumn("modulename"))!
+                    let module = Module(moduleid: Int(results!.int(forColumn: "moduleid")), modulename: results!.string(forColumn: "modulename"))!
                     modules += [module]
                     
                 }
                 
-                agileDB.close()
+                agileDB?.close()
             } else {
-                print("Error: \(agileDB.lastErrorMessage())")
+                print("Error: \(agileDB?.lastErrorMessage())")
             }
         }
 
@@ -81,22 +97,22 @@ class ModuleTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return modules.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cellIdentifier = "ModuleTableViewCell"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ModuleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ModuleTableViewCell
         
         // Fetches the appropriate meal for the data source layout.
-        let module = modules[indexPath.row]
+        let module = modules[(indexPath as NSIndexPath).row]
         
         // Configure the cell...
         cell.NameLabel.text = String(module.modulename)
@@ -167,22 +183,22 @@ class ModuleTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         //print("Preparing for segue module table view controller")
         let indexPath = tableView.indexPathForSelectedRow;
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as! ModuleTableViewCell!
+        let currentCell = tableView.cellForRow(at: indexPath!) as! ModuleTableViewCell!
         
-        let navController = segue.destinationViewController as! UINavigationController
+        let navController = segue.destination as! UINavigationController
         
         if (segue.identifier == "sectionSegue") {
             //print("Got into prepare for segue method")
             let detailController = navController.topViewController as! SectionTableViewController
             
-            moduleId = currentCell.IdLabel
+            moduleId = (currentCell?.IdLabel)!
             //print(moduleId)
-            detailController.moduleName = currentCell.NameLabel.text!
+            detailController.moduleName = (currentCell?.NameLabel.text!)!
             detailController.moduleId = moduleId
             detailController.progressTracker = progressTracker
         }
@@ -191,11 +207,11 @@ class ModuleTableViewController: UITableViewController {
         }
     }
 
-    @IBAction func unwindToMainMenu(segue: UIStoryboardSegue){
+    @IBAction func unwindToMainMenu(_ segue: UIStoryboardSegue){
         
     }
     
-    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+    func ResizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size
         
         let widthRatio  = targetSize.width  / image.size.width
@@ -204,21 +220,21 @@ class ModuleTableViewController: UITableViewController {
         // Figure out what our orientation is, and use that to form the rectangle
         var newSize: CGSize
         if(widthRatio > heightRatio) {
-            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
         } else {
-            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
         }
         
         // This is the rect that we've calculated out and this is what is actually used below
-        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
         
         // Actually do the resizing to the rect using the ImageContext stuff
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.drawInRect(rect)
+        image.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage!
     }
 
 }

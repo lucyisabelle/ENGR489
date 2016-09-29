@@ -16,10 +16,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     
     //MARK: Actions
-    @IBAction func LogInButton(sender: UIButton) {
+    @IBAction func LogInButton(_ sender: UIButton) {
         
         let text = EmailTextField.text!
-        if text.lowercaseString.rangeOfString("@planit.co.nz") != nil {
+        if text.lowercased().range(of: "@planit.co.nz") != nil {
             print("exists")
             loginSuccess = true
             //performSegueWithIdentifier("segueTest", sender: self)
@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
         if let ident = identifier {
             if ident == "segueTest" {
                 if loginSuccess != true {
@@ -51,20 +51,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "segueTest") {
             let text = EmailTextField.text!
-            if text.lowercaseString.rangeOfString("@planit.co.nz") != nil {
+            if text.lowercased().range(of: "@planit.co.nz") != nil {
                 print("Performing segue")
-                let navController = segue.destinationViewController as! UINavigationController
+                let navController = segue.destination as! UINavigationController
                 let detailController = navController.topViewController as! ModuleTableViewController
             
                 var databasePath = NSString()
             
-                let filemgr = NSFileManager.defaultManager()
-                let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+                let filemgr = FileManager.default
+                let dirPaths = filemgr.urls(for: .documentDirectory, in: .userDomainMask)
                 
-                databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
+                databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
             
                 detailController.toPass = databasePath
                 //return true

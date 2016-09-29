@@ -20,7 +20,7 @@ class PageViewController: UIViewController {
         //hard coding in section id for now, as it is causing thread issues TODO: Fix this.
         print("this page view controller thinks it's sectionid is: \(sectionId)")
         page.sectionId = sectionId
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         loadItems()
         loadViews()
@@ -35,37 +35,37 @@ class PageViewController: UIViewController {
     func loadItems(){
         var databasePath = NSString()
         
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let filemgr = FileManager.default
+        let dirPaths = filemgr.urls(for: .documentDirectory, in: .userDomainMask)
         
-        databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
+        databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
         
         print(databasePath)
         
-        if filemgr.fileExistsAtPath(databasePath as String) {
+        if filemgr.fileExists(atPath: databasePath as String) {
             let agileDB = FMDatabase(path: databasePath as String)
             
             if agileDB == nil {
-                print("Error: \(agileDB.lastErrorMessage())")
+                print("Error: \(agileDB?.lastErrorMessage())")
             }
             
-            if agileDB.open() {
+            if (agileDB?.open())! {
                 let querySQL = "SELECT itemid, sectionorder, type FROM items WHERE sectionid = \(sectionId) AND moduleid = \(moduleId);"
                 print(querySQL)
-                let results:FMResultSet? = agileDB.executeQuery(querySQL,
-                                                                withArgumentsInArray: nil)
+                let results:FMResultSet? = agileDB?.executeQuery(querySQL,
+                                                                withArgumentsIn: nil)
                 while results?.next() == true {
-                    let itemid = Int(results!.intForColumn("itemid"))
-                    let sectionorder = Int(results!.intForColumn("sectionorder"))
-                    let type = String(results!.stringForColumn("type"))
+                    let itemid = Int(results!.int(forColumn: "itemid"))
+                    let sectionorder = Int(results!.int(forColumn: "sectionorder"))
+                    let type = String(results!.string(forColumn: "type"))
                     page.itemTypes[itemid] = type
                     page.sectionOrder[itemid] = sectionorder
                     page.itemids.append(itemid)
                 }
                 
-                agileDB.close()
+                agileDB?.close()
             } else {
-                print("Error: \(agileDB.lastErrorMessage())")
+                print("Error: \(agileDB?.lastErrorMessage())")
             }
         }
 

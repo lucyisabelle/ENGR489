@@ -23,7 +23,7 @@ class Page: NSObject {
     
     //this class will create all the subviews and store them in an array that can be accessed by the view controller.
     func createSubViews(){
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenSize: CGRect = UIScreen.main.bounds
         var ylocation = 0
         //go through section order and load each item as a subview
         for item in itemids {
@@ -37,8 +37,8 @@ class Page: NSObject {
                 let textView = UITextView(frame: smallFrame)
                 //create first text view to find out the size it should be.
                 textView.text = "• " + text
-                textView.editable = false
-                textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+                textView.isEditable = false
+                textView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
                 textView.sizeToFit()
                 let textheight = textView.contentSize.height
                 
@@ -46,8 +46,8 @@ class Page: NSObject {
                 let finalFrame = CGRect(x:0, y:ylocation, width: Int(screenSize.width), height: Int(textheight))
                 let textFinalView = UITextView(frame:finalFrame)
                 textFinalView.text = "• " + text
-                textFinalView.editable = false
-                textFinalView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+                textFinalView.isEditable = false
+                textFinalView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
                 
                 subViews.append(textFinalView)
                 ylocation = ylocation + Int(textheight) + 10
@@ -60,10 +60,10 @@ class Page: NSObject {
                 let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
                 let textView = UITextView(frame: smallFrame)
                 textView.text = text
-                textView.editable = false
+                textView.isEditable = false
                 textView.sizeToFit()
                 
-                textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+                textView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
                 textView.sizeToFit()
                 let textheight = textView.contentSize.height
                 
@@ -71,8 +71,8 @@ class Page: NSObject {
                 let finalFrame = CGRect(x:0, y:ylocation, width: Int(screenSize.width), height: Int(textheight))
                 let textFinalView = UITextView(frame:finalFrame)
                 textFinalView.text = "• " + text
-                textFinalView.editable = false
-                textFinalView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+                textFinalView.isEditable = false
+                textFinalView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
                 
                 subViews.append(textFinalView)
                 ylocation = ylocation + Int(textheight) + 10
@@ -82,8 +82,8 @@ class Page: NSObject {
                 let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
                 let textView = UITextView(frame: smallFrame)
                 textView.text = text
-                textView.editable = false
-                textView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+                textView.isEditable = false
+                textView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
                 textView.sizeToFit()
                 
                 let textheight = textView.contentSize.height
@@ -94,9 +94,9 @@ class Page: NSObject {
                 
                 //add text to the final view & set it's display properties
                 textFinalView.text = text
-                textFinalView.editable = false
+                textFinalView.isEditable = false
                 
-                textFinalView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+                textFinalView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
                 
                 //add the view to the subviews array.
                 subViews.append(textFinalView)
@@ -107,7 +107,7 @@ class Page: NSObject {
                 let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
                 let textView = UITextView(frame: smallFrame)
                 textView.text = text
-                textView.editable = false
+                textView.isEditable = false
                 textView.sizeToFit()
                 subViews.append(textView)
                 ylocation = ylocation + 100
@@ -117,7 +117,7 @@ class Page: NSObject {
                 let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
                 let textView = UITextView(frame: smallFrame)
                 textView.text = text
-                textView.editable = false
+                textView.isEditable = false
                 textView.sizeToFit()
                 subViews.append(textView)
                 ylocation = ylocation + 100
@@ -127,7 +127,7 @@ class Page: NSObject {
                 let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
                 let textView = UITextView(frame: smallFrame)
                 textView.text = text
-                textView.editable = false
+                textView.isEditable = false
                 textView.sizeToFit()
                 subViews.append(textView)
                 ylocation = ylocation + 100
@@ -137,7 +137,7 @@ class Page: NSObject {
                 let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
                 let textView = UITextView(frame: smallFrame)
                 textView.text = "DEFAULT"
-                textView.editable = false
+                textView.isEditable = false
                 textView.sizeToFit()
                 subViews.append(textView)
                 ylocation = ylocation + 100
@@ -146,33 +146,33 @@ class Page: NSObject {
         }
     }
     
-    func retrieveText(itemid: Int) -> String {
+    func retrieveText(_ itemid: Int) -> String {
         //connect to the database and retrieve the text
         var returnedText = String()
         var databasePath = NSString()
         
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let filemgr = FileManager.default
+        let dirPaths = filemgr.urls(for: .documentDirectory, in: .userDomainMask)
         
-        databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
-        if filemgr.fileExistsAtPath(databasePath as String) {
+        databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
+        if filemgr.fileExists(atPath: databasePath as String) {
             let agileDB = FMDatabase(path: databasePath as String)
             
             if agileDB == nil {
-                print("Error: \(agileDB.lastErrorMessage())")
+                print("Error: \(agileDB?.lastErrorMessage())")
             }
             
-            if agileDB.open() {
+            if (agileDB?.open())! {
                 let querySQL = "SELECT item FROM text WHERE itemid = \(itemid);"
-                let results:FMResultSet? = agileDB.executeQuery(querySQL,
-                                                                withArgumentsInArray: nil)
+                let results:FMResultSet? = agileDB?.executeQuery(querySQL,
+                                                                withArgumentsIn: nil)
                 while results?.next() == true {
-                    returnedText = results!.stringForColumn("item");
+                    returnedText = results!.string(forColumn: "item");
                 }
                 
-                agileDB.close()
+                agileDB?.close()
             } else {
-                print("Error: \(agileDB.lastErrorMessage())")
+                print("Error: \(agileDB?.lastErrorMessage())")
             }
         }
         return returnedText

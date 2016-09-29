@@ -14,14 +14,14 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func CancelButton(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func CancelButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
-    @IBAction func ReturnLogInButton(sender: UIButton) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func ReturnLogInButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func SignUpButton(sender: UIButton) {
+    @IBAction func SignUpButton(_ sender: UIButton) {
         if let text = emailTextField.text {
             print(text)
         }
