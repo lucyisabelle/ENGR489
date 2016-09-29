@@ -19,6 +19,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     var yVal = 0
     var textfields = [UITextField]()
     var labels = [UILabel]()
+    var screenLength = 1000
 
     
     override func viewDidLoad() {
@@ -112,6 +113,8 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func addToScreen(){
+        self.screenLength = yVal
+        self.viewWillLayoutSubviews()
         for label in 0...labels.count-1{
             self.containerView.addSubview(labels[label])
             if (label != labels.count-1){
@@ -123,7 +126,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        self.scrollView.contentSize.height = 1000
+        self.scrollView.contentSize.height = CGFloat(screenLength)
         self.scrollView.contentSize.width = screenSize.width
     }
     

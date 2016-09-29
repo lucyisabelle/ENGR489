@@ -32,6 +32,7 @@
 		8D4D00FA1D8FC71300C34902 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D00F91D8FC71300C34902 /* Question.swift */; };
 		8D5EBACF1D572328006AD3C7 /* ProgressTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5EBACE1D572328006AD3C7 /* ProgressTracker.swift */; };
 		8D99BABA1D7254FE000C8C4B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99BAB91D7254FE000C8C4B /* Test.swift */; };
+		8DC542861D9A4B640087673B /* agileDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 8DC542851D9A4B640087673B /* agileDB.db */; };
 		8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */; };
 		8DEC34881D07CA95003CB572 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34871D07CA95003CB572 /* Module.swift */; };
 		8DEC34891D07CA95003CB572 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34871D07CA95003CB572 /* Module.swift */; };
@@ -88,6 +89,7 @@
 		8D4D00F91D8FC71300C34902 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		8D5EBACE1D572328006AD3C7 /* ProgressTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressTracker.swift; sourceTree = "<group>"; };
 		8D99BAB91D7254FE000C8C4B /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		8DC542851D9A4B640087673B /* agileDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = agileDB.db; sourceTree = "<group>"; };
 		8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewCell.swift; sourceTree = "<group>"; };
 		8DEC34871D07CA95003CB572 /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		8DEC348A1D07CD52003CB572 /* ModuleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		8D3240701CED7CEB004CA04E /* PlanIT Agile 101 */ = {
 			isa = PBXGroup;
 			children = (
+				8DC542851D9A4B640087673B /* agileDB.db */,
 				8D3240B51CF003AB004CA04E /* FMDB.h */,
 				8D3240B61CF003AB004CA04E /* FMDatabase.h */,
 				8D3240B71CF003AB004CA04E /* FMDatabase.m */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D3240791CED7CEB004CA04E /* Assets.xcassets in Resources */,
+				8DC542861D9A4B640087673B /* agileDB.db in Resources */,
 				8D3240771CED7CEB004CA04E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

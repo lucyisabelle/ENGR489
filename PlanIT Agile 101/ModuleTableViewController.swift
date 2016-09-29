@@ -43,7 +43,7 @@ class ModuleTableViewController: UITableViewController {
         let dirPaths = filemgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         
         databasePath = dirPaths[0].URLByAppendingPathComponent("agileDB.db").path!
-        
+
         //print(databasePath)
         
         
