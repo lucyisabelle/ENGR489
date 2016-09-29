@@ -109,9 +109,9 @@ class ModuleTableViewController: UITableViewController {
         cell.buttonView.percentageComplete = progressTracker.trackModule(module.moduleid)
         
         //if percentage complete is zero, gray it out.
-        if (progressTracker.trackModule(module.moduleid) == 0){
+        /*if (progressTracker.trackModule(module.moduleid) == 0){
             cell.NameLabel.textColor = UIColor.grayColor()
-        }
+        }*/ 
         //return cell
         return cell
     }

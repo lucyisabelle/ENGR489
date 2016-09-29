@@ -62,7 +62,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     
     func textField(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
         //print("making text field")
-        let textField = UITextField(frame: CGRectMake(x, y, screenSize.width, height))
+        let textField = UITextField(frame: CGRectMake(x, y, screenSize.width+10, height))
         textField.textAlignment = NSTextAlignment.Center
         textField.textColor = UIColor.blueColor()
         let myColor : UIColor = UIColor( red: 0, green: (108/255), blue: (169/255), alpha: 0.5 )
@@ -82,7 +82,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     
     func label(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
         //print("making label")
-        let label = UILabel(frame: CGRectMake(x+5, y, width-10, height))
+        let label = UILabel(frame: CGRectMake(x+10, y, width, height))
         label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         label.text = text
         label.textAlignment = NSTextAlignment.Left

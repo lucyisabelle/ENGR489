@@ -50,13 +50,12 @@ class TestPageViewController: UIPageViewController {
         let moduletest = ModuleTest()
         moduletest.loadViews(self.moduleid)
         
+        
         if let firstViewController = orderedViewControllers.first {
-            setViewControllers([firstViewController],
-                               direction: .Forward,
-                               animated: true,
-                               completion: nil)
+            
             for count in 0...orderedViewControllers.count-1 {
                 if let viewController = orderedViewControllers[count] as? MultichoiceViewController {
+                    print("count: \(count)")
                     let questionObject = moduletest.getQuestion(count+1)
                     viewController.setValues(questionObject)
                 }
@@ -65,6 +64,10 @@ class TestPageViewController: UIPageViewController {
                     viewController.setValues(questionObject)
                 }
             }
+            setViewControllers([firstViewController],
+                               direction: .Forward,
+                               animated: true,
+                               completion: nil)
         }
     }
     
