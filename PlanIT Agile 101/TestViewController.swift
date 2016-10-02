@@ -19,13 +19,12 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     var yVal = 0
     var textfields = [UITextField]()
     var labels = [UILabel]()
-    var screenLength = 1000
+    var screenLength = 200
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         test.loadQuestions()
         loadViews()
         addToScreen()
@@ -33,14 +32,36 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         for textfield in textfields {
             textfield.delegate = self
             //textfield.inputView = self.scrollView
+            textfield.becomeFirstResponder()
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: .UIKeyboardDidHide, object: nil)
+
+    }
+    
+    func updateTextViewSizeForKeyboardHeight(keyboardHeight: CGFloat) {
+        print("Changing size")
+        containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - keyboardHeight)
+    }
+    
+    func keyboardDidShow(_ notification: NSNotification) {
+        print("showing")
+        if let rectValue = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
+            let keyboardSize = rectValue.cgRectValue.size
+            updateTextViewSizeForKeyboardHeight(keyboardHeight: keyboardSize.height)
+        }
+    }
+    
+    func keyboardDidHide(_ notification: NSNotification) {
+        print("Hiding")
+        updateTextViewSizeForKeyboardHeight(keyboardHeight: 0)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    } 
     
     func loadViews(){
         let count = test.chunks.keys.count
@@ -55,6 +76,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
                     dimensions = calcDimensions(test.gaps[gapCount]!)
                     //print(dimensions)
                     textField(x: dimensions.0, y: dimensions.1, width: dimensions.2, height: dimensions.3, text: test.gaps[gapCount]!)
+                    //textField.delegate = self
                     gapCount = gapCount + 1
                 }
                 
@@ -63,8 +85,8 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
-        //print("making text field")
-        let textField = UITextField(frame: CGRect(x: x, y: y, width: screenSize.width-10, height: height))
+        print("making text field")
+        let textField = UITextField(frame: CGRect(x: x, y: y+10, width: screenSize.width+5, height: height))
         textField.textAlignment = NSTextAlignment.center
         textField.textColor = UIColor.blue
         let myColor : UIColor = UIColor( red: 0, green: (108/255), blue: (169/255), alpha: 0.5 )
@@ -82,10 +104,16 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    /*override func viewWillAppear(_ animated: Bool) {
+        for textfield in textfields {
+            textfield.becomeFirstResponder()
+        }
+    }*/
+    
     
     func label(_ x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
         //print("making label")
-        let label = UILabel(frame: CGRect(x: x+10, y: y, width: width, height: height))
+        let label = UILabel(frame: CGRect(x: x+10, y: y+10, width: width, height: height))
         label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         label.text = text
         label.textAlignment = NSTextAlignment.left
@@ -129,8 +157,8 @@ class TestViewController: UIViewController, UITextFieldDelegate {
 
     
     override func viewWillLayoutSubviews() {
-        //super.viewWillLayoutSubviews()
-        self.scrollView.contentSize.height = 1000
+        super.viewWillLayoutSubviews()
+        self.scrollView.contentSize.height = CGFloat(screenLength)
         self.scrollView.contentSize.width = screenSize.width
     }
     
@@ -174,6 +202,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
             }
             answerButton.setTitle("Check answers", for: UIControlState())
         }
+        
     }
     
 
