@@ -32,6 +32,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         //TODO: Update progress tracker
         for textfield in textfields {
             textfield.delegate = self
+            //textfield.inputView = self.scrollView
         }
         
     }
@@ -53,7 +54,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
                 if (chunk != count){
                     dimensions = calcDimensions(test.gaps[gapCount]!)
                     //print(dimensions)
-                    textField(dimensions.0, y: dimensions.1, width: dimensions.2, height: dimensions.3, text: test.gaps[gapCount]!)
+                    textField(x: dimensions.0, y: dimensions.1, width: dimensions.2, height: dimensions.3, text: test.gaps[gapCount]!)
                     gapCount = gapCount + 1
                 }
                 
@@ -61,9 +62,9 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textField(_ x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
+    func textField(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
         //print("making text field")
-        let textField = UITextField(frame: CGRect(x: x, y: y, width: screenSize.width+10, height: height))
+        let textField = UITextField(frame: CGRect(x: x, y: y, width: screenSize.width-10, height: height))
         textField.textAlignment = NSTextAlignment.center
         textField.textColor = UIColor.blue
         let myColor : UIColor = UIColor( red: 0, green: (108/255), blue: (169/255), alpha: 0.5 )
@@ -71,15 +72,16 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         textField.autocapitalizationType = UITextAutocapitalizationType.words
         textField.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         textField.placeholder = "Enter answer"
+        //textField.allowsEditingTextAttributes = true
         textfields.append(textField)
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("ending editing")
         textField.resignFirstResponder()
         return true
     }
+    
     
     func label(_ x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
         //print("making label")
@@ -99,7 +101,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         
         let textView = UITextView(frame: smallFrame)
         textView.text = text
-        textView.isEditable = false
+        textView.isEditable = true
         textView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         textView.sizeToFit()
         
@@ -124,10 +126,11 @@ class TestViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+
     
     override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.scrollView.contentSize.height = CGFloat(screenLength)
+        //super.viewWillLayoutSubviews()
+        self.scrollView.contentSize.height = 1000
         self.scrollView.contentSize.width = screenSize.width
     }
     
