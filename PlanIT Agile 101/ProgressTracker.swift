@@ -26,6 +26,7 @@ class ProgressTracker {
     //the trackModule function gets sent the module ID and returns an integer value representing the percentage of the module that is complete. Will be used for drawing the progress circle on the homepage and the progress bar on the section view.
     func trackModule(_ moduleId: Int) -> Int{
         if moduleId > 0 && moduleId < 7 {
+            print("Module progress: \(Int(moduleProgress[moduleId]!))")
             return Int(moduleProgress[moduleId]!)
         }
         else{
@@ -102,12 +103,12 @@ class ProgressTracker {
                 //let querySQL = "SELECT moduleid, modulename FROM MODULES;"
                 //run through each module and run an sql statement chec
                 for module in 1...6 {
-                    var sectionCount = 0.0
+                    //var sectionCount = 0.0
                     //var sectionCompleteCount = 0.0
                     var percentageComplete = 0
                     
                     //figure out how many sections there are in each module
-                    var querySQL = "SELECT COUNT(sectionid) AS COUNT FROM sections WHERE moduleid = \(module);"
+                   /*var querySQL = "SELECT COUNT(sectionid) AS COUNT FROM sections WHERE moduleid = \(module);"
                     var results:FMResultSet? = agileDB?.executeQuery(querySQL,
                                                                     withArgumentsIn: nil)
                     while results?.next() == true {
@@ -126,20 +127,35 @@ class ProgressTracker {
                         gapsComplete += Int(results!.int(forColumn: "gapsComplete"))
                         totalGaps += Int(results!.int(forColumn: ("totalGaps")))
                     }
+                    */
+                    var querySQL = "SELECT correct FROM moduleprogress WHERE moduleid = \(module);"
+                    var results:FMResultSet? = agileDB?.executeQuery(querySQL, withArgumentsIn: nil)
                     
+                    
+                    var correctAnswers = 0
+                    while results?.next() == true {
+                        correctAnswers = Int(results!.int(forColumn: "correct"))
+                    }
+                    print("module: \(module) correct answers: \(correctAnswers)")
+                    if correctAnswers != 0 {
+                        percentageComplete = correctAnswers * 10
+                    }
+                    else {
+                        percentageComplete = 0
+                    }
                     //calculate the percentage complete
-                    if (gapsComplete != 0){
+                    /*if (gapsComplete != 0){
                         let percentage = Double(Double(gapsComplete)/Double(totalGaps))
                         percentageComplete = Int(percentage * 100)
                         print("percentage = \(percentage) percentage complete = \(percentageComplete) gapsComplete = \(gapsComplete) totalGaps = \(totalGaps)")
                     }
                     else {
                         percentageComplete = 0
-                    }
+                    }*/
                     
                     //store the updated percentage in the dictionary. 
                     moduleProgress[module] = percentageComplete
-                    
+                    print("Percentage complete : \(percentageComplete)")
                     //converting to radians will be the responsibility of the module view controller class.
                 }
                 agileDB?.close()
