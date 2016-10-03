@@ -15,6 +15,7 @@ class MultichoiceViewController: UIViewController {
     @IBOutlet weak var buttonB: UIButton!
     @IBOutlet weak var buttonC: UIButton!
     @IBOutlet weak var buttonD: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     var a = String()
     var b = String()
@@ -22,6 +23,7 @@ class MultichoiceViewController: UIViewController {
     var d = String()
     var question = String()
     var answer = String()
+    var correct = false
     
     var moduleid = 0
     
@@ -68,51 +70,72 @@ class MultichoiceViewController: UIViewController {
     
     @IBAction func nextButton(_ sender: UIButton) {
         print("Next button pressed")
-        nextPage()
+        if buttonA.isEnabled == false {
+            nextPage()
+        }
     }
 
     @IBAction func aPressed(_ sender: UIButton) {
         if buttonA.currentTitle == answer {
             buttonA.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
+            correct = true
         }
         else {
             buttonA.backgroundColor = UIColor( red: (182/255), green: (18/255), blue: (26/255), alpha: 0.75 )
         }
-        nextPage()
+        buttonA.isEnabled = false
+        buttonB.isEnabled = false
+        buttonC.isEnabled = false
+        buttonD.isEnabled = false
     }
     
     @IBAction func bPressed(_ sender: UIButton) {
         if buttonB.currentTitle == answer {
             buttonB.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
+            correct = true
         }
         else {
             buttonB.backgroundColor = UIColor( red: (182/255), green: (18/255), blue: (26/255), alpha: 0.75 )
         }
-        nextPage()
+        buttonA.isEnabled = false
+        buttonB.isEnabled = false
+        buttonC.isEnabled = false
+        buttonD.isEnabled = false
     }
     
     @IBAction func cPressed(_ sender: UIButton) {
         if buttonC.currentTitle == answer {
             buttonC.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
+            correct = true
         }
         else {
             buttonC.backgroundColor = UIColor( red: (182/255), green: (18/255), blue: (26/255), alpha: 0.75 )
         }
-        nextPage()
+        buttonA.isEnabled = false
+        buttonB.isEnabled = false
+        buttonC.isEnabled = false
+        buttonD.isEnabled = false
     }
     
     @IBAction func dPressed(_ sender: UIButton) {
         if buttonD.currentTitle == answer {
             buttonD.backgroundColor = UIColor( red: (12/255), green: (245/255), blue: (29/255), alpha: 0.75 )
+            correct = true
         }
         else {
             buttonD.backgroundColor = UIColor( red: (182/255), green: (18/255), blue: (26/255), alpha: 0.75 )
         }
-        nextPage()
+        buttonA.isEnabled = false
+        buttonB.isEnabled = false
+        buttonC.isEnabled = false
+        buttonD.isEnabled = false
     }
     
     func nextPage(){
         print("next page")
+        if let parentViewController = self.parent as? TestPageViewController {
+            parentViewController.test(correct: correct)
+        }
     }
     
     

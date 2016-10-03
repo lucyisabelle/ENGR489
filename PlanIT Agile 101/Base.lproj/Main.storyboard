@@ -154,10 +154,50 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" extendedLayoutIncludesOpaqueBars="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="40H-LV-vHQ" customClass="TestPageViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="TBE-gU-fdu" kind="show" identifier="testFinished" id="clI-Ie-2xY"/>
+                    </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQ0-sq-2B8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3455" y="2679"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="bWX-XP-fxe">
+            <objects>
+                <viewController id="TBE-gU-fdu" customClass="ResultsViewController" customModule="PlanIT_Agile_101" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SOc-vD-VJB"/>
+                        <viewControllerLayoutGuide type="bottom" id="hnb-AO-GgT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LGI-iM-Ld3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test finished! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deb-oS-4Qi">
+                                <frame key="frameInset" minX="107" minY="122" width="107" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Results: ....." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrZ-40-HBn">
+                                <frame key="frameInset" minX="16" minY="187" width="288" height="192"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="xrZ-40-HBn" id="vOM-dP-4Dw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jee-Yk-hse" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4413.75" y="2685.211267605634"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="X9L-Qj-TzZ">
@@ -256,6 +296,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="NextButton" destination="2NR-jB-GKg" id="mdP-E3-IZf"/>
                         <outlet property="buttonA" destination="5Kb-pn-b1d" id="nRK-l1-WOZ"/>
                         <outlet property="buttonB" destination="Mw2-aT-cUD" id="AnT-36-bze"/>
                         <outlet property="questionLabel" destination="r1X-ox-8WP" id="n8u-Mu-2mI"/>
@@ -373,6 +414,7 @@
                         <outlet property="buttonB" destination="1GR-W3-HrN" id="if2-Pr-VWl"/>
                         <outlet property="buttonC" destination="HCx-B9-dMI" id="9h3-63-5GQ"/>
                         <outlet property="buttonD" destination="boQ-B5-2uI" id="dwS-u6-tA1"/>
+                        <outlet property="nextButton" destination="JWS-II-e1i" id="fUx-tr-n1e"/>
                         <outlet property="questionLabel" destination="Ogp-YO-En1" id="XWR-q9-AQL"/>
                     </connections>
                 </viewController>

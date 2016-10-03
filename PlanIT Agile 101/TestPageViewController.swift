@@ -12,6 +12,8 @@ class TestPageViewController: UIPageViewController {
     
     //TODO: Set this so it isn't hardcoded
     var moduleid = 1
+    var correctCount = 0
+    var incorrectCount = 0
 
     fileprivate(set) lazy var orderedViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order
@@ -42,6 +44,20 @@ class TestPageViewController: UIPageViewController {
         return viewControllers
     }()
     
+    func test(correct: Bool){
+        if correct {
+            correctCount += 1
+        } else {
+            incorrectCount += 1
+        }
+        print("Change to next view")
+        print("Correct count = \(correctCount) Incorrect count \(incorrectCount)")
+        if incorrectCount == 3 {
+            performSegue(withIdentifier: "testFinished", sender: nil)
+        }
+        goToNextPage()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -58,10 +74,12 @@ class TestPageViewController: UIPageViewController {
                     print("count: \(count)")
                     let questionObject = moduletest.getQuestion(count+1)
                     viewController.setValues(questionObject)
+                    
                 }
                 else if let viewController = orderedViewControllers[count] as? SelectViewController {
                     let questionObject = moduletest.getQuestion(count+1)
                     viewController.setValues(questionObject)
+                    
                 }
             }
             setViewControllers([firstViewController],
@@ -86,7 +104,17 @@ class TestPageViewController: UIPageViewController {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
         return viewController
     }
-     
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "testFinished"){
+            let nextController = segue.destination as! ResultsViewController
+            
+            nextController.correctAnswers = correctCount
+            nextController.incorrectAnswers = incorrectCount 
+        }
+    }
+    
     
 }
     // MARK: UIPageViewControllerDataSource
@@ -95,10 +123,12 @@ class TestPageViewController: UIPageViewController {
         
         func pageViewController(_ pageViewController: UIPageViewController,
                                 viewControllerBefore viewController: UIViewController) -> UIViewController? {
+            return nil
             guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
                 return nil
             }
-            
+            return nil
+            //return orderedViewControllers[viewControllerIndex]
             let previousIndex = viewControllerIndex - 1
             
             // User is on the first view controller and swiped left to loop to
@@ -126,7 +156,9 @@ class TestPageViewController: UIPageViewController {
             // User is on the last view controller and swiped right to loop to
             // the first view controller.
             guard orderedViewControllersCount != nextIndex else {
-                return orderedViewControllers.first
+                print("final view controller")
+                performSegue(withIdentifier: "testFinished", sender: nil)
+                return nil
             }
             
             guard orderedViewControllersCount > nextIndex else {
@@ -147,6 +179,16 @@ class TestPageViewController: UIPageViewController {
             }
             
             return firstViewControllerIndex
+        }
+        
+        func goToNextPage(){
+            
+            guard let currentViewController = self.viewControllers?.first else { return }
+            
+            guard let nextViewController = dataSource?.pageViewController( self, viewControllerAfter: currentViewController ) else { return }
+            
+            setViewControllers([nextViewController], direction: .forward, animated: false, completion: nil)
+            
         }
         
     }

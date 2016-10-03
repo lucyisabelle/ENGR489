@@ -31,6 +31,7 @@
 		8D4D00F81D8FB6EA00C34902 /* ModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D00F71D8FB6EA00C34902 /* ModuleTest.swift */; };
 		8D4D00FA1D8FC71300C34902 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D00F91D8FC71300C34902 /* Question.swift */; };
 		8D5EBACF1D572328006AD3C7 /* ProgressTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5EBACE1D572328006AD3C7 /* ProgressTracker.swift */; };
+		8D823F641DA24D2800302158 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D823F631DA24D2800302158 /* ResultsViewController.swift */; };
 		8D99BABA1D7254FE000C8C4B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D99BAB91D7254FE000C8C4B /* Test.swift */; };
 		8DC542861D9A4B640087673B /* agileDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 8DC542851D9A4B640087673B /* agileDB.db */; };
 		8DEC34861D056E9D003CB572 /* ModuleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */; };
@@ -88,6 +89,7 @@
 		8D4D00F71D8FB6EA00C34902 /* ModuleTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTest.swift; sourceTree = "<group>"; };
 		8D4D00F91D8FC71300C34902 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		8D5EBACE1D572328006AD3C7 /* ProgressTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressTracker.swift; sourceTree = "<group>"; };
+		8D823F631DA24D2800302158 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		8D99BAB91D7254FE000C8C4B /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		8DC542851D9A4B640087673B /* agileDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = agileDB.db; sourceTree = "<group>"; };
 		8DEC34851D056E9D003CB572 /* ModuleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				8D3240731CED7CEB004CA04E /* ViewController.swift */,
 				8D3240911CED9E6C004CA04E /* CreateAccountViewController.swift */,
 				8D3240751CED7CEB004CA04E /* Main.storyboard */,
+				8D823F631DA24D2800302158 /* ResultsViewController.swift */,
 				8D2BAE461D86761A00BCC246 /* SelectViewController.swift */,
 				8D2BAE441D8675D900BCC246 /* MatchViewController.swift */,
 				8D2BAE421D8675AF00BCC246 /* MultichoiceViewController.swift */,
@@ -300,6 +303,7 @@
 				8D2BAE451D8675D900BCC246 /* MatchViewController.swift in Sources */,
 				8D3240921CED9E6D004CA04E /* CreateAccountViewController.swift in Sources */,
 				8DEC34931D127826003CB572 /* SectionTableViewCell.swift in Sources */,
+				8D823F641DA24D2800302158 /* ResultsViewController.swift in Sources */,
 				8D5EBACF1D572328006AD3C7 /* ProgressTracker.swift in Sources */,
 				8D3A1DDF1D2B854100A26D66 /* TestViewController.swift in Sources */,
 				8D3A1DDD1D225DAD00A26D66 /* Page.swift in Sources */,

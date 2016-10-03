@@ -12,6 +12,7 @@ class ModuleTest {
     
     //true if it's a multi choice question, false otherwise.
     var questions = [Question]()
+     
     
     func getQuestion(_ index : Int) -> Question{
         print("get question at index: \(index)")

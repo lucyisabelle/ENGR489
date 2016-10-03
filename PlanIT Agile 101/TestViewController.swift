@@ -35,13 +35,16 @@ class TestViewController: UIViewController, UITextFieldDelegate {
             textfield.becomeFirstResponder()
         }
         
+        scrollView.delaysContentTouches = false
         NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: .UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TestViewController.keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
 
     }
     
     func updateTextViewSizeForKeyboardHeight(keyboardHeight: CGFloat) {
         print("Changing size")
+        let x = scrollView.contentOffset.x
+        let y = scrollView.contentOffset.y
         containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - keyboardHeight)
     }
     
@@ -49,11 +52,25 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         print("showing")
         if let rectValue = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
             let keyboardSize = rectValue.cgRectValue.size
+            print(keyboardSize)
             updateTextViewSizeForKeyboardHeight(keyboardHeight: keyboardSize.height)
         }
+        /*if let rectValue = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
+        let keyboardSize = rectValue.cgRectValue.size
+        let contentInsets = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        var viewRect = view.frame
+        viewRect.size.height -= keyboardSize.height
+        if CGRectContainsPoint(viewRect, textField.frame.origin) {
+            let scrollPoint = CGPointMake(0, textField.frame.origin.y - keyboardSize.height)
+            scrollView.setContentOffset(scrollPoint, animated: true)
+        }
+        }*/
     }
     
-    func keyboardDidHide(_ notification: NSNotification) {
+    func keyboardWillHide(_ notification: NSNotification) {
         print("Hiding")
         updateTextViewSizeForKeyboardHeight(keyboardHeight: 0)
     }
