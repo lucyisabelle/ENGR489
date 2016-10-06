@@ -47,7 +47,6 @@ class MultichoiceViewController: UIViewController {
     }
     
     func test() {
-        print("Test function")
         //buttonA.setTitle("Test", forState: UIControlState.Normal)
     }
     
@@ -69,7 +68,6 @@ class MultichoiceViewController: UIViewController {
     }
     
     @IBAction func nextButton(_ sender: UIButton) {
-        print("Next button pressed")
         if buttonA.isEnabled == false {
             nextPage()
         }
@@ -132,7 +130,6 @@ class MultichoiceViewController: UIViewController {
     }
     
     func nextPage(){
-        print("next page")
         if let parentViewController = self.parent as? TestPageViewController {
             parentViewController.test(correct: correct)
         }

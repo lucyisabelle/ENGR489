@@ -29,7 +29,7 @@ class ModuleTableViewController: UITableViewController {
         
         //reload progress tracker just incase it didn't initialise correctly.
         progressTracker.updateProgress()
-        
+        print("Reloading")
         //load the modules in from the database.
         loadModules()
         
@@ -41,17 +41,14 @@ class ModuleTableViewController: UITableViewController {
         
         let filemgr = FileManager.default
         let dirPaths = filemgr.urls(for: .documentDirectory, in: .userDomainMask)
-        print ("Dir path: \(dirPaths)")
         let bundlePath = Bundle.main.path(forResource: "agileDB", ofType: "db")
         let destPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
         
         let fullDestPath = NSURL(fileURLWithPath: destPath).appendingPathComponent("agileDB.db")
         let fullDestPathString = fullDestPath!.path
-        print(filemgr.fileExists(atPath: bundlePath!)) // prints true
         
         do{
             try filemgr.copyItem(atPath: bundlePath!, toPath: fullDestPathString)
-            print("worked")
         }catch{
             print("\n")
             print(error)
@@ -59,8 +56,6 @@ class ModuleTableViewController: UITableViewController {
         
         
         databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
-
-        //print(databasePath)
         
         
         if filemgr.fileExists(atPath: databasePath as String) {
@@ -186,18 +181,15 @@ class ModuleTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        //print("Preparing for segue module table view controller")
         let indexPath = tableView.indexPathForSelectedRow;
         let currentCell = tableView.cellForRow(at: indexPath!) as! ModuleTableViewCell!
         
         let navController = segue.destination as! UINavigationController
         
         if (segue.identifier == "sectionSegue") {
-            //print("Got into prepare for segue method")
             let detailController = navController.topViewController as! SectionTableViewController
             
             moduleId = (currentCell?.IdLabel)!
-            //print(moduleId)
             detailController.moduleName = (currentCell?.NameLabel.text!)!
             detailController.moduleId = moduleId
             detailController.progressTracker = progressTracker
@@ -208,7 +200,14 @@ class ModuleTableViewController: UITableViewController {
     }
 
     @IBAction func unwindToMainMenu(_ segue: UIStoryboardSegue){
-        
+        var count = 1
+        for cells in tableView.visibleCells {
+            let cell = cells as! ModuleTableViewCell
+            progressTracker.updateProgress()
+            cell.buttonView.percentageComplete = progressTracker.trackModule(count)
+            cell.buttonView.setNeedsDisplay()
+            count += 1
+        }
     }
     
     func ResizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {

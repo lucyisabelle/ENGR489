@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var EmailTextField: UITextField!
     var loginSuccess = false
 
+    @IBOutlet weak var emailLabel: UILabel!
     
     //MARK: Actions
     @IBAction func LogInButton(_ sender: UIButton) {
@@ -24,6 +25,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             loginSuccess = true
             //performSegueWithIdentifier("segueTest", sender: self)
         }
+        else {
+            emailLabel.text = "Please enter a valid planit email:"
+        }
         
     }
     
@@ -33,6 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
         self.EmailTextField.delegate = self
+        emailLabel.text = "Enter email:"
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +60,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if (segue.identifier == "segueTest") {
             let text = EmailTextField.text!
             if text.lowercased().range(of: "@planit.co.nz") != nil {
-                print("Performing segue")
                 let navController = segue.destination as! UINavigationController
                 let detailController = navController.topViewController as! ModuleTableViewController
             

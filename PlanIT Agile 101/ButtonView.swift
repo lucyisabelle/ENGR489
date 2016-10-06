@@ -19,7 +19,6 @@ class ButtonView: UIButton {
     @IBInspectable var counterColor: UIColor = UIColor.blue
 
     override func draw(_ rect: CGRect) {
-        //print("My progress is: \(percentageComplete) %")
         // Drawing code
         self.setBackgroundImage(moduleImage, for: UIControlState())
         let path1 = UIBezierPath(ovalIn: rect)
@@ -38,9 +37,6 @@ class ButtonView: UIButton {
             //convert the degrees value to radians
             let endAngleDouble = Double(startAngle) + ((degrees * M_PI) / 180)
             endAngle = CGFloat(endAngleDouble)
-            print("Percentage complete = \(percentageComplete)")
-            print("Degrees = \(degrees)")
-            print("endAngle = \(endAngle)")
         }
         else {
             endAngle = startAngle

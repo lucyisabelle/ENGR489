@@ -18,7 +18,6 @@ class PageViewController: UIViewController {
         super.viewDidLoad()
 
         //hard coding in section id for now, as it is causing thread issues TODO: Fix this.
-        print("this page view controller thinks it's sectionid is: \(sectionId)")
         page.sectionId = sectionId
         self.view.backgroundColor = UIColor.white
         
@@ -40,7 +39,6 @@ class PageViewController: UIViewController {
         
         databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
         
-        print(databasePath)
         
         if filemgr.fileExists(atPath: databasePath as String) {
             let agileDB = FMDatabase(path: databasePath as String)
@@ -51,7 +49,6 @@ class PageViewController: UIViewController {
             
             if (agileDB?.open())! {
                 let querySQL = "SELECT itemid, sectionorder, type FROM items WHERE sectionid = \(sectionId) AND moduleid = \(moduleId);"
-                print(querySQL)
                 let results:FMResultSet? = agileDB?.executeQuery(querySQL,
                                                                 withArgumentsIn: nil)
                 while results?.next() == true {
@@ -72,16 +69,6 @@ class PageViewController: UIViewController {
     }
     
     func loadViews(){
-        /**let screenSize: CGRect = UIScreen.mainScreen().bounds
-        var ylocation = 10
-        for item in page.items{
-            let smallFrame = CGRect(x: 0, y: ylocation, width: Int(screenSize.width), height: 100)
-            let textView = UITextView(frame: smallFrame)
-            textView.text = item
-            textView.editable = false
-            textView.sizeToFit()
-            self.view.addSubview(textView)
-            ylocation = ylocation + 100 //does this need to be reset to the size of the resized text view? **/
         page.createSubViews()
         for view in page.subViews {
             self.view.addSubview(view);

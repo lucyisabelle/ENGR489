@@ -42,14 +42,12 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateTextViewSizeForKeyboardHeight(keyboardHeight: CGFloat) {
-        print("Changing size")
         let x = scrollView.contentOffset.x
         let y = scrollView.contentOffset.y
         containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - keyboardHeight)
     }
     
     func keyboardDidShow(_ notification: NSNotification) {
-        print("showing")
         if let rectValue = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
             let keyboardSize = rectValue.cgRectValue.size
             print(keyboardSize)
@@ -71,7 +69,6 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillHide(_ notification: NSNotification) {
-        print("Hiding")
         updateTextViewSizeForKeyboardHeight(keyboardHeight: 0)
     }
 
@@ -86,14 +83,11 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         for chunk in 1...count {
             if (test.chunks[chunk]! != "newline"){
                 var dimensions: (CGFloat, CGFloat, CGFloat, CGFloat) = calcDimensions(test.chunks[chunk]!)
-                //print(dimensions)
                 label(dimensions.0, y: dimensions.1, width: dimensions.2, height: dimensions.3, text: test.chunks[chunk]!)
             //else insert text field
                 if (chunk != count){
                     dimensions = calcDimensions(test.gaps[gapCount]!)
-                    //print(dimensions)
                     textField(x: dimensions.0, y: dimensions.1, width: dimensions.2, height: dimensions.3, text: test.gaps[gapCount]!)
-                    //textField.delegate = self
                     gapCount = gapCount + 1
                 }
                 
@@ -102,7 +96,6 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
-        print("making text field")
         let textField = UITextField(frame: CGRect(x: x, y: y+10, width: screenSize.width+5, height: height))
         textField.textAlignment = NSTextAlignment.center
         textField.textColor = UIColor.blue
@@ -111,25 +104,16 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         textField.autocapitalizationType = UITextAutocapitalizationType.words
         textField.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         textField.placeholder = "Enter answer"
-        //textField.allowsEditingTextAttributes = true
         textfields.append(textField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("ending editing")
         textField.resignFirstResponder()
         return true
     }
     
-    /*override func viewWillAppear(_ animated: Bool) {
-        for textfield in textfields {
-            textfield.becomeFirstResponder()
-        }
-    }*/
-    
     
     func label(_ x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text : String){
-        //print("making label")
         let label = UILabel(frame: CGRect(x: x+10, y: y+10, width: width, height: height))
         label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         label.text = text
@@ -140,7 +124,6 @@ class TestViewController: UIViewController, UITextFieldDelegate {
     }
     
     func calcDimensions(_ text: String) -> (x: CGFloat, y:CGFloat, width: CGFloat, height: CGFloat){
-        //print("calculating dimensions")
         //create a UI view and resize to see the amount of space this text will take up
         let smallFrame = CGRect(x: 0, y: 0, width: Int(screenSize.width), height: Int(screenSize.height))
         

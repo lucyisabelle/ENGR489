@@ -75,7 +75,6 @@ class Test {
         
         databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
         
-        print(databasePath)
         
         if filemgr.fileExists(atPath: databasePath as String) {
             let agileDB = FMDatabase(path: databasePath as String)

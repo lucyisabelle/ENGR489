@@ -25,7 +25,6 @@ class Section: NSObject{
         
         //Initialisation should fail if module name is empty or module id is not within 1 - 5
         if (sectionname.isEmpty || sectionid < 1){
-            print("failed to create section")
             return nil
         }
     }

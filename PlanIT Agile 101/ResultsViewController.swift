@@ -14,13 +14,16 @@ class ResultsViewController: UIViewController {
     var correctAnswers = Int()
     var incorrectAnswers = Int()
 
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var correctLabel: UILabel!
+    @IBOutlet weak var incorrectLabel: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        resultLabel.text = "Correct Answers = \(correctAnswers) and Incorrect Answers = \(incorrectAnswers)"
+        correctLabel.text = correctLabel.text! + " \(correctAnswers)"
+        incorrectLabel.text = incorrectLabel.text! + " \(incorrectAnswers)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +65,6 @@ class ResultsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        print("Performing segue")
         updateDatabase()
     }
 

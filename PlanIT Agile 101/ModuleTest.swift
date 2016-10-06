@@ -30,7 +30,6 @@ class ModuleTest {
         }
         databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
         
-        print(databasePath)
         
         if filemgr.fileExists(atPath: databasePath as String) {
             let agileDB = FMDatabase(path: databasePath as String)
@@ -56,9 +55,7 @@ class ModuleTest {
                     let questionString = results!.string(forColumn: "question")
                     
                     let question = Question(multichoice: true, a: a!, b: b!, c: c!, d: d!, answer: answer!, questionString: questionString!)
-                    print("question order = \(questionorder)")
                     questions[questionorder] = question
-                    //questions.insert(question, atIndex: questionorder)
                 }
                 
                 

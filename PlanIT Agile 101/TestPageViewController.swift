@@ -24,7 +24,6 @@ class TestPageViewController: UIPageViewController {
         //limiting questions to 10
         for index in 1...10 {
             var questionObject = moduletest.getQuestion(index)
-            print("\(questionObject.optionA) and \(questionObject.multichoice)")
             if questionObject.multichoice {
                 
                 var viewController = self.newMultiViewController()
@@ -50,8 +49,6 @@ class TestPageViewController: UIPageViewController {
         } else {
             incorrectCount += 1
         }
-        print("Change to next view")
-        print("Correct count = \(correctCount) Incorrect count \(incorrectCount)")
         if incorrectCount == 3 {
             performSegue(withIdentifier: "testFinished", sender: nil)
         }
@@ -71,7 +68,6 @@ class TestPageViewController: UIPageViewController {
             
             for count in 0...orderedViewControllers.count-1 {
                 if let viewController = orderedViewControllers[count] as? MultichoiceViewController {
-                    print("count: \(count)")
                     let questionObject = moduletest.getQuestion(count+1)
                     viewController.setValues(questionObject)
                     
@@ -156,7 +152,6 @@ class TestPageViewController: UIPageViewController {
             // User is on the last view controller and swiped right to loop to
             // the first view controller.
             guard orderedViewControllersCount != nextIndex else {
-                print("final view controller")
                 performSegue(withIdentifier: "testFinished", sender: nil)
                 return nil
             }

@@ -42,11 +42,9 @@ class SectionTableViewController: UITableViewController {
         
         databasePath = dirPaths[0].appendingPathComponent("agileDB.db").path as NSString
         
-        //print(databasePath)
         
         
         if filemgr.fileExists(atPath: databasePath as String) {
-            //print("Got into filemanager stage")
             let agileDB = FMDatabase(path: databasePath as String)
             
             if agileDB == nil {
@@ -54,15 +52,10 @@ class SectionTableViewController: UITableViewController {
             }
             
             if (agileDB?.open())! {
-                //print("Got to open loop")
-                let querySQL = "SELECT sectionname, sectionid, moduleid FROM SECTIONS WHERE moduleid = \(moduleId);" //TODO: WHERE moduleid = moduleid
+                let querySQL = "SELECT sectionname, sectionid, moduleid FROM SECTIONS WHERE moduleid = \(moduleId);"
                 let results:FMResultSet? = agileDB?.executeQuery(querySQL,
                                                                 withArgumentsIn: nil)
                 while results?.next() == true {
-                   // print("Got into results loop")
-                    //print(results!.stringForColumn("sectionname"))
-                   // print(results!.intForColumn("sectionid"))
-                   // print(results!.intForColumn("moduleid"))
                     sectionName = String(results!.string(forColumn: "sectionname")!)
                     let section = Section(sectionid: Int(results!.int(forColumn: "sectionid")), sectionname: results!.string(forColumn: "sectionname"))!
                     sections += [section]
@@ -75,8 +68,6 @@ class SectionTableViewController: UITableViewController {
             }
         }
         
-        
-        //print("loading sections")
     }
 
     override func didReceiveMemoryWarning() {
@@ -174,8 +165,7 @@ class SectionTableViewController: UITableViewController {
         
             var sectionId = Int()
             sectionId = (currentCell?.sectionId)!   //sections[indexPath!.row].sectionid
-            //print("Section id within prepare for segue is...")
-            //print(sectionId)
+
             
         
             nextController.sectionId = sectionId
@@ -190,8 +180,6 @@ class SectionTableViewController: UITableViewController {
             
             var sectionId = Int()
             sectionId = (currentCell?.sectionId)!   //sections[indexPath!.row].sectionid
-            //print("Section id within prepare for segue is...")
-            //print(sectionId)
             
             nextController.test.sectionID = sectionId
             nextController.test.moduleID = moduleId
@@ -206,7 +194,6 @@ class SectionTableViewController: UITableViewController {
     }
     
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
-        
     }
 
 
